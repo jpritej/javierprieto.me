@@ -1,0 +1,33 @@
+name: Actualizar copias de ORCID y OpenAlex
+
+on:
+  schedule:
+    - cron: "17 4 * * *"   # cada día a las 04:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Descargar registro de ORCID
+        run: python3 scripts/fetch_orcid.py 0000-0001-8175-2201
+      - name: Descargar métricas de OpenAlex
+        run: python3 scripts/fetch_openalex.py 0000-0001-8175-2201 javierp@usal.es
+      - name: Confirmar cambios
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data/)" ]; then
+            git add data/orcid-cache.json data/openalex-cache.json
+            git commit -m "Actualizar copias de ORCID y OpenAlex"
+            git push
+          else
+            echo "Sin cambios"
+          fi

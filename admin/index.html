@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Administrar · javierprieto.me</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&family=Source+Serif+4:opsz,wght@8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css?v=9">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar__in">
+    <a class="brand" href="../">Javier Prieto <span>· administración</span></a>
+    <nav class="nav">
+      <a href="../" target="_blank" rel="noopener">Ver la web</a>
+    </nav>
+  </div>
+</header>
+
+<main class="admin">
+  <section style="margin-top:2rem">
+    <div class="section-head"><h2>Contenido editable</h2><span class="count" id="status"></span></div>
+    <p class="note">Las publicaciones y la trayectoria se leen solas de ORCID. Aquí se rellena lo que
+    ORCID no sabe: foto, afiliación, tesis dirigidas, proyectos, financiación y métricas de Scholar.</p>
+  </section>
+
+  <form id="form" autocomplete="off"></form>
+
+  <div class="bar-actions">
+    <button class="btn" id="save" type="button">Guardar borrador</button>
+    <button class="btn btn--ghost" id="download" type="button">Descargar site.json</button>
+    <button class="btn btn--ghost" id="publish" type="button">Publicar en GitHub</button>
+    <button class="btn btn--ghost spacer" id="discard" type="button">Descartar borrador</button>
+  </div>
+  <p id="msg" class="msg" hidden></p>
+</main>
+
+<footer class="foot"><div class="foot__in">
+  <span>El borrador se guarda solo en este navegador. Publicar en GitHub lo sube al repositorio.</span>
+</div></footer>
+
+<script type="module" src="../assets/js/admin.js?v=9"></script>
+</body>
+</html>

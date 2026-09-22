@@ -1,0 +1,905 @@
+{
+  "_comment": "Todo este fichero se edita desde /admin/. No hace falta tocarlo a mano.",
+  "updatedAt": "2026-09-22",
+  "identity": {
+    "name": "Javier Prieto Tejedor",
+    "shortName": "Javier Prieto",
+    "role": {
+      "es": "Profesor Titular de Universidad",
+      "en": "Associate Professor"
+    },
+    "affiliation": {
+      "es": "Departamento de Informática y Automática, Universidad de Salamanca",
+      "en": "Department of Computer Science and Automation, University of Salamanca"
+    },
+    "group": {
+      "es": "Grupo BISITE · Instituto AIR · IBSAL",
+      "en": "BISITE Research Group · AIR Institute · IBSAL"
+    },
+    "location": {
+      "es": "Salamanca, España",
+      "en": "Salamanca, Spain"
+    },
+    "email": "javierp@usal.es",
+    "photo": "assets/img/foto.jpg",
+    "cv": ""
+  },
+  "bio": {
+    "es": "Doctor en Tecnologías de la Información y las Comunicaciones por la Universidad de Valladolid (2012, Premio Extraordinario de Doctorado), Ingeniero de Telecomunicación (2008) y graduado en Investigación y Técnicas de Mercado (2010). Ha investigado en CEDETEL, en la Universidad de Valladolid y, como investigador visitante, en el Laboratory for Information & Decision Systems del MIT. Actualmente es Profesor Titular en el grupo BISITE de la Universidad de Salamanca, cofundador y secretario del Instituto AIR y miembro del IBSAL.\n\nSu investigación combina inteligencia artificial explicable, blockchain, IoT y edge computing, y aprendizaje automático cuántico, con aplicación a ciudades inteligentes, sostenibilidad ambiental y salud. Es Editor Jefe de la sección Internet of Things de la revista Smart Cities y editor asociado de IEEE Communications Letters, Sensors y Frontiers in Public Health.\n\nSenior Member del IEEE, preside el Capítulo Conjunto de Communications y Signal Processing de la Sección España y coordina el Grupo Local IEEE Blockchain Spain. Ha sido General Chair del congreso BLOCKCHAIN, Operations Chair de IEEE GLOBECOM 2021 y TPC Chair de IEEE ICUWB 2017.",
+    "en": "PhD in Information and Communication Technologies from the University of Valladolid (2012, Extraordinary Doctorate Award), Telecommunication Engineer (2008) and graduate in Marketing Research and Techniques (2010). He has carried out research at CEDETEL, at the University of Valladolid and, as a visiting researcher, at MIT's Laboratory for Information & Decision Systems. He is currently an Associate Professor in the BISITE group at the University of Salamanca, co-founder and secretary of the AIR Institute and a member of IBSAL.\n\nHis research brings together explainable artificial intelligence, blockchain, IoT and edge computing, and quantum machine learning, applied to smart cities, environmental sustainability and health. He is Editor-in-Chief of the Internet of Things section of Smart Cities and associate editor of IEEE Communications Letters, Sensors and Frontiers in Public Health.\n\nAn IEEE Senior Member, he chairs the Communications and Signal Processing Joint Chapter of the IEEE Spain Section and coordinates the IEEE Blockchain Spain Local Group. He has been General Chair of the BLOCKCHAIN congress, Operations Chair of IEEE GLOBECOM 2021 and TPC Chair of IEEE ICUWB 2017."
+  },
+  "topics": [
+    {
+      "es": "Inteligencia artificial explicable",
+      "en": "Explainable artificial intelligence"
+    },
+    {
+      "es": "Blockchain y sistemas distribuidos",
+      "en": "Blockchain and distributed systems"
+    },
+    {
+      "es": "Internet de las cosas y edge computing",
+      "en": "Internet of Things and edge computing"
+    },
+    {
+      "es": "Estimación bayesiana y localización",
+      "en": "Bayesian estimation and localization"
+    },
+    {
+      "es": "Aprendizaje automático cuántico",
+      "en": "Quantum machine learning"
+    },
+    {
+      "es": "Ciudades inteligentes y sostenibilidad",
+      "en": "Smart cities and sustainability"
+    }
+  ],
+  "networks": [
+    {
+      "label": "ORCID",
+      "url": "https://orcid.org/0000-0001-8175-2201",
+      "icon": "orcid"
+    },
+    {
+      "label": "Google Scholar",
+      "url": "https://scholar.google.com/citations?user=6LYdZEQAAAAJ&hl=es",
+      "icon": "scholar"
+    },
+    {
+      "label": "Web of Science",
+      "url": "https://www.webofscience.com/wos/author/record/H-3704-2015",
+      "icon": "wos"
+    },
+    {
+      "label": "CiênciaVitae",
+      "url": "https://www.cienciavitae.pt/portal/991A-25BD-60E5",
+      "icon": "cienciavitae"
+    },
+    {
+      "label": "Producción científica USAL",
+      "url": "https://produccioncientifica.usal.es/investigadores/148044/detalle",
+      "icon": "institution"
+    },
+    {
+      "label": "Portal de Ciencia y Tecnología JCyL",
+      "url": "https://portalcienciaytecnologia.jcyl.es/investigadores/369653/detalle",
+      "icon": "institution"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/javi-prieto/",
+      "icon": "linkedin"
+    }
+  ],
+  "profiles": {
+    "orcid": "0000-0001-8175-2201"
+  },
+  "metrics": {
+    "theses": 6,
+    "projects": 178,
+    "fundingEur": 40038798,
+    "patents": 3,
+    "citations": 0,
+    "hIndex": 0,
+    "i10Index": 0,
+    "publicationsManual": 175,
+    "source": {
+      "es": "Tesis, proyectos y financiación: Portal de Producción Científica de la USAL. Citas e índices: Google Scholar.",
+      "en": "Theses, projects and funding: USAL Research Output Portal. Citations and indices: Google Scholar."
+    },
+    "scholarUpdatedAt": "",
+    "citationSource": "openalex",
+    "supervisionMaster": 6,
+    "supervisionDegree": 29
+  },
+  "theses": [
+    {
+      "student": "Mahmoud Abbasi Nokar",
+      "title": {
+        "es": "IoT seguro y escalable mediante protocolos blockchain optimizados y monitorización inteligente de red en el marco del proyecto IoTalentum",
+        "en": "IoT seguro y escalable mediante protocolos blockchain optimizados y monitorización inteligente de red en el marco del proyecto IoTalentum"
+      },
+      "year": "2026",
+      "university": {
+        "es": "Universidad de Salamanca",
+        "en": "Universidad de Salamanca"
+      },
+      "url": ""
+    },
+    {
+      "student": "Pablo Negre Rodríguez",
+      "title": {
+        "es": "Inteligencia artificial fiable para la detección de violencia en vídeo",
+        "en": "Inteligencia artificial fiable para la detección de violencia en vídeo"
+      },
+      "year": "2025",
+      "university": {
+        "es": "Universidad de Salamanca",
+        "en": "Universidad de Salamanca"
+      },
+      "url": ""
+    },
+    {
+      "student": "Yeray Mezquita Martín",
+      "title": {
+        "es": "Arquitecturas blockchain para compartir información y optimizar servicios en tiempo de ejecución",
+        "en": "Arquitecturas blockchain para compartir información y optimizar servicios en tiempo de ejecución"
+      },
+      "year": "2022",
+      "university": {
+        "es": "Universidad de Salamanca",
+        "en": "Universidad de Salamanca"
+      },
+      "url": ""
+    },
+    {
+      "student": "Ricardo Serafín Alonso Rincón",
+      "title": {
+        "es": "Deep Reinforcement Learning para la gestión de Redes definidas por Software en arquitecturas Edge Computing para el Internet de las Cosas",
+        "en": "Deep Reinforcement Learning para la gestión de Redes definidas por Software en arquitecturas Edge Computing para el Internet de las Cosas"
+      },
+      "year": "2020",
+      "university": {
+        "es": "Universidad de Salamanca",
+        "en": "Universidad de Salamanca"
+      },
+      "url": ""
+    },
+    {
+      "student": "Roberto Carlos Casado Vara",
+      "title": {
+        "es": "Adaptive model for monitoring and control of dynamic IoT networks",
+        "en": "Adaptive model for monitoring and control of dynamic IoT networks"
+      },
+      "year": "2019",
+      "university": {
+        "es": "Universidad de Salamanca",
+        "en": "Universidad de Salamanca"
+      },
+      "url": ""
+    },
+    {
+      "student": "Óscar García García",
+      "title": {
+        "es": "Técnicas de Computación Social e Información Contextual para el Desarrollo de Actividades de Aprendizaje Colaborativo",
+        "en": "Técnicas de Computación Social e Información Contextual para el Desarrollo de Actividades de Aprendizaje Colaborativo"
+      },
+      "year": "2017",
+      "university": {
+        "es": "Universidad de Salamanca",
+        "en": "Universidad de Salamanca"
+      },
+      "url": ""
+    }
+  ],
+  "teaching": [
+    {
+      "year": "2026-27",
+      "program": {
+        "es": "Grado en Ingeniería Informática",
+        "en": "BSc in Computer Engineering"
+      },
+      "course": {
+        "es": "Programación II",
+        "en": "Programming II"
+      },
+      "code": "101107",
+      "type": {
+        "es": "Básica",
+        "en": "Core"
+      }
+    },
+    {
+      "year": "2026-27",
+      "program": {
+        "es": "Grado en Información y Documentación",
+        "en": "BSc in Information and Documentation"
+      },
+      "course": {
+        "es": "Edición Digital Multimedia",
+        "en": "Digital Multimedia Publishing"
+      },
+      "code": "108332",
+      "type": {
+        "es": "Optativa",
+        "en": "Elective"
+      }
+    },
+    {
+      "year": "2026-27",
+      "program": {
+        "es": "Máster Universitario en Ciberseguridad",
+        "en": "MSc in Cybersecurity"
+      },
+      "course": {
+        "es": "Criptografía, blockchain y criptomonedas",
+        "en": "Cryptography, blockchain and cryptocurrencies"
+      },
+      "code": "306559",
+      "type": {
+        "es": "Optativa",
+        "en": "Elective"
+      }
+    },
+    {
+      "year": "2026-27",
+      "program": {
+        "es": "Máster Universitario en Ciencias de Datos Aplicada a las Ciencias Sociales",
+        "en": "MSc in Data Science Applied to the Social Sciences"
+      },
+      "course": {
+        "es": "Visualización de datos sociales digitales",
+        "en": "Digital social data visualisation"
+      },
+      "code": "306386",
+      "type": {
+        "es": "Optativa",
+        "en": "Elective"
+      }
+    },
+    {
+      "year": "2026-27",
+      "program": {
+        "es": "Doctorado en Ingeniería Informática (RD 99/2011)",
+        "en": "PhD programme in Computer Engineering"
+      },
+      "course": {
+        "es": "",
+        "en": ""
+      },
+      "code": "1501",
+      "type": {
+        "es": "Doctorado",
+        "en": "Doctoral"
+      }
+    },
+    {
+      "year": "2026-27",
+      "program": {
+        "es": "Doctorado en Inteligencia Artificial Aplicada",
+        "en": "PhD programme in Applied Artificial Intelligence"
+      },
+      "course": {
+        "es": "",
+        "en": ""
+      },
+      "code": "3001",
+      "type": {
+        "es": "Doctorado",
+        "en": "Doctoral"
+      }
+    },
+    {
+      "year": "2025-26",
+      "program": {
+        "es": "Grado en Ingeniería Informática",
+        "en": "BSc in Computer Engineering"
+      },
+      "course": {
+        "es": "Programación II",
+        "en": "Programming II"
+      },
+      "code": "101107",
+      "type": {
+        "es": "Básica",
+        "en": "Core"
+      }
+    },
+    {
+      "year": "2025-26",
+      "program": {
+        "es": "Grado en Información y Documentación",
+        "en": "BSc in Information and Documentation"
+      },
+      "course": {
+        "es": "Edición Digital Multimedia",
+        "en": "Digital Multimedia Publishing"
+      },
+      "code": "108332",
+      "type": {
+        "es": "Optativa",
+        "en": "Elective"
+      }
+    },
+    {
+      "year": "2025-26",
+      "program": {
+        "es": "Máster Universitario en Ciberseguridad",
+        "en": "MSc in Cybersecurity"
+      },
+      "course": {
+        "es": "Criptografía, blockchain y criptomonedas",
+        "en": "Cryptography, blockchain and cryptocurrencies"
+      },
+      "code": "306559",
+      "type": {
+        "es": "Optativa",
+        "en": "Elective"
+      }
+    },
+    {
+      "year": "2025-26",
+      "program": {
+        "es": "Máster Universitario en Ciencias de Datos Aplicada a las Ciencias Sociales",
+        "en": "MSc in Data Science Applied to the Social Sciences"
+      },
+      "course": {
+        "es": "Visualización de datos sociales digitales",
+        "en": "Digital social data visualisation"
+      },
+      "code": "306386",
+      "type": {
+        "es": "Optativa",
+        "en": "Elective"
+      }
+    },
+    {
+      "year": "2025-26",
+      "program": {
+        "es": "Doctorado en Ingeniería Informática (RD 99/2011)",
+        "en": "PhD programme in Computer Engineering"
+      },
+      "course": {
+        "es": "",
+        "en": ""
+      },
+      "code": "1501",
+      "type": {
+        "es": "Doctorado",
+        "en": "Doctoral"
+      }
+    },
+    {
+      "year": "2025-26",
+      "program": {
+        "es": "Doctorado en Inteligencia Artificial Aplicada",
+        "en": "PhD programme in Applied Artificial Intelligence"
+      },
+      "course": {
+        "es": "",
+        "en": ""
+      },
+      "code": "3001",
+      "type": {
+        "es": "Doctorado",
+        "en": "Doctoral"
+      }
+    },
+    {
+      "year": "2024-25",
+      "program": {
+        "es": "Grado en Ingeniería Informática",
+        "en": "BSc in Computer Engineering"
+      },
+      "course": {
+        "es": "Programación II",
+        "en": "Programming II"
+      },
+      "code": "101107",
+      "type": {
+        "es": "Básica",
+        "en": "Core"
+      }
+    },
+    {
+      "year": "2024-25",
+      "program": {
+        "es": "Grado en Información y Documentación",
+        "en": "BSc in Information and Documentation"
+      },
+      "course": {
+        "es": "Edición Digital Multimedia",
+        "en": "Digital Multimedia Publishing"
+      },
+      "code": "108332",
+      "type": {
+        "es": "Optativa",
+        "en": "Elective"
+      }
+    },
+    {
+      "year": "2024-25",
+      "program": {
+        "es": "Máster Universitario en Ciencias de Datos Aplicada a las Ciencias Sociales",
+        "en": "MSc in Data Science Applied to the Social Sciences"
+      },
+      "course": {
+        "es": "Visualización de datos sociales digitales",
+        "en": "Digital social data visualisation"
+      },
+      "code": "306386",
+      "type": {
+        "es": "Optativa",
+        "en": "Elective"
+      }
+    },
+    {
+      "year": "2023-24",
+      "program": {
+        "es": "Grado en Ingeniería Informática",
+        "en": "BSc in Computer Engineering"
+      },
+      "course": {
+        "es": "Programación II",
+        "en": "Programming II"
+      },
+      "code": "101107",
+      "type": {
+        "es": "Básica",
+        "en": "Core"
+      }
+    },
+    {
+      "year": "2023-24",
+      "program": {
+        "es": "Grado en Información y Documentación",
+        "en": "BSc in Information and Documentation"
+      },
+      "course": {
+        "es": "Edición Digital Multimedia",
+        "en": "Digital Multimedia Publishing"
+      },
+      "code": "108332",
+      "type": {
+        "es": "Optativa",
+        "en": "Elective"
+      }
+    },
+    {
+      "year": "2022-23",
+      "program": {
+        "es": "Grado en Ingeniería Informática",
+        "en": "BSc in Computer Engineering"
+      },
+      "course": {
+        "es": "Programación II",
+        "en": "Programming II"
+      },
+      "code": "101107",
+      "type": {
+        "es": "Básica",
+        "en": "Core"
+      }
+    },
+    {
+      "year": "2022-23",
+      "program": {
+        "es": "Grado en Información y Documentación",
+        "en": "BSc in Information and Documentation"
+      },
+      "course": {
+        "es": "Edición Digital Multimedia",
+        "en": "Digital Multimedia Publishing"
+      },
+      "code": "108332",
+      "type": {
+        "es": "Optativa",
+        "en": "Elective"
+      }
+    },
+    {
+      "year": "2022-23",
+      "program": {
+        "es": "Grado en Matemáticas",
+        "en": "BSc in Mathematics"
+      },
+      "course": {
+        "es": "Informática II",
+        "en": "Computer Science II"
+      },
+      "code": "100209",
+      "type": {
+        "es": "Obligatoria",
+        "en": "Compulsory"
+      }
+    },
+    {
+      "year": "2021-22",
+      "program": {
+        "es": "Grado en Ingeniería Informática",
+        "en": "BSc in Computer Engineering"
+      },
+      "course": {
+        "es": "Programación II",
+        "en": "Programming II"
+      },
+      "code": "101107",
+      "type": {
+        "es": "Básica",
+        "en": "Core"
+      }
+    },
+    {
+      "year": "2021-22",
+      "program": {
+        "es": "Grado en Información y Documentación",
+        "en": "BSc in Information and Documentation"
+      },
+      "course": {
+        "es": "Edición Digital Multimedia",
+        "en": "Digital Multimedia Publishing"
+      },
+      "code": "108332",
+      "type": {
+        "es": "Optativa",
+        "en": "Elective"
+      }
+    },
+    {
+      "year": "2021-22",
+      "program": {
+        "es": "Grado en Matemáticas",
+        "en": "BSc in Mathematics"
+      },
+      "course": {
+        "es": "Informática II",
+        "en": "Computer Science II"
+      },
+      "code": "100209",
+      "type": {
+        "es": "Obligatoria",
+        "en": "Compulsory"
+      }
+    },
+    {
+      "year": "2020-21",
+      "program": {
+        "es": "Grado en Ingeniería Informática",
+        "en": "BSc in Computer Engineering"
+      },
+      "course": {
+        "es": "Programación II",
+        "en": "Programming II"
+      },
+      "code": "101107",
+      "type": {
+        "es": "Básica",
+        "en": "Core"
+      }
+    },
+    {
+      "year": "2020-21",
+      "program": {
+        "es": "Grado en Matemáticas",
+        "en": "BSc in Mathematics"
+      },
+      "course": {
+        "es": "Informática II",
+        "en": "Computer Science II"
+      },
+      "code": "100209",
+      "type": {
+        "es": "Obligatoria",
+        "en": "Compulsory"
+      }
+    },
+    {
+      "year": "2019-20",
+      "program": {
+        "es": "Grado en Ingeniería Informática",
+        "en": "BSc in Computer Engineering"
+      },
+      "course": {
+        "es": "Programación II",
+        "en": "Programming II"
+      },
+      "code": "101107",
+      "type": {
+        "es": "Básica",
+        "en": "Core"
+      }
+    },
+    {
+      "year": "2019-20",
+      "program": {
+        "es": "Grado en Información y Documentación",
+        "en": "BSc in Information and Documentation"
+      },
+      "course": {
+        "es": "Edición Digital Multimedia",
+        "en": "Digital Multimedia Publishing"
+      },
+      "code": "108332",
+      "type": {
+        "es": "Optativa",
+        "en": "Elective"
+      }
+    },
+    {
+      "year": "2019-20",
+      "program": {
+        "es": "Grado en Matemáticas",
+        "en": "BSc in Mathematics"
+      },
+      "course": {
+        "es": "Informática II",
+        "en": "Computer Science II"
+      },
+      "code": "100209",
+      "type": {
+        "es": "Obligatoria",
+        "en": "Compulsory"
+      }
+    },
+    {
+      "year": "2018-19",
+      "program": {
+        "es": "Máster Universitario en Industria 4.0",
+        "en": "MSc in Industry 4.0"
+      },
+      "course": {
+        "es": "",
+        "en": ""
+      },
+      "code": "",
+      "type": {
+        "es": "",
+        "en": ""
+      }
+    },
+    {
+      "year": "2017-18",
+      "program": {
+        "es": "Grado en Ingeniería Informática",
+        "en": "BSc in Computer Engineering"
+      },
+      "course": {
+        "es": "Programación II",
+        "en": "Programming II"
+      },
+      "code": "101107",
+      "type": {
+        "es": "Básica",
+        "en": "Core"
+      }
+    },
+    {
+      "year": "2017-18",
+      "program": {
+        "es": "Grado en Física",
+        "en": "BSc in Physics"
+      },
+      "course": {
+        "es": "Técnicas Informáticas en Física",
+        "en": "Computing Techniques in Physics"
+      },
+      "code": "100804",
+      "type": {
+        "es": "Básica",
+        "en": "Core"
+      }
+    },
+    {
+      "year": "2016-17",
+      "program": {
+        "es": "Grado en Ingeniería Informática",
+        "en": "BSc in Computer Engineering"
+      },
+      "course": {
+        "es": "Programación II",
+        "en": "Programming II"
+      },
+      "code": "101107",
+      "type": {
+        "es": "Básica",
+        "en": "Core"
+      }
+    },
+    {
+      "year": "2016-17",
+      "program": {
+        "es": "Grado en Física",
+        "en": "BSc in Physics"
+      },
+      "course": {
+        "es": "Técnicas Informáticas en Física",
+        "en": "Computing Techniques in Physics"
+      },
+      "code": "100804",
+      "type": {
+        "es": "Básica",
+        "en": "Core"
+      }
+    },
+    {
+      "year": "2015-16",
+      "program": {
+        "es": "Grado en Ingeniería Informática",
+        "en": "BSc in Computer Engineering"
+      },
+      "course": {
+        "es": "Programación II",
+        "en": "Programming II"
+      },
+      "code": "101107",
+      "type": {
+        "es": "Básica",
+        "en": "Core"
+      }
+    },
+    {
+      "year": "2015-16",
+      "program": {
+        "es": "Grado en Física",
+        "en": "BSc in Physics"
+      },
+      "course": {
+        "es": "Técnicas Informáticas en Física",
+        "en": "Computing Techniques in Physics"
+      },
+      "code": "100804",
+      "type": {
+        "es": "Básica",
+        "en": "Core"
+      }
+    },
+    {
+      "year": "2010-11",
+      "program": {
+        "es": "Ingeniería Técnica de Telecomunicación, Sistemas de Telecomunicación (Universidad de Valladolid)",
+        "en": "Telecommunication Engineering (University of Valladolid)"
+      },
+      "course": {
+        "es": "Radiocomunicaciones",
+        "en": "Radio communications"
+      },
+      "code": "",
+      "type": {
+        "es": "",
+        "en": ""
+      }
+    }
+  ],
+  "service": [
+    {
+      "role": {
+        "es": "Editor Jefe, sección Internet of Things",
+        "en": "Editor-in-Chief, Internet of Things section"
+      },
+      "org": {
+        "es": "Smart Cities (MDPI)",
+        "en": "Smart Cities (MDPI)"
+      },
+      "years": ""
+    },
+    {
+      "role": {
+        "es": "Editor asociado",
+        "en": "Associate editor"
+      },
+      "org": {
+        "es": "IEEE Communications Letters",
+        "en": "IEEE Communications Letters"
+      },
+      "years": ""
+    },
+    {
+      "role": {
+        "es": "Chair del Capítulo Conjunto de Communications y Signal Processing",
+        "en": "Chair of the Communications and Signal Processing Joint Chapter"
+      },
+      "org": {
+        "es": "IEEE Sección España",
+        "en": "IEEE Spain Section"
+      },
+      "years": ""
+    },
+    {
+      "role": {
+        "es": "Coordinador de Capítulos",
+        "en": "Chapters Coordinator"
+      },
+      "org": {
+        "es": "IEEE Sección España",
+        "en": "IEEE Spain Section"
+      },
+      "years": ""
+    }
+  ],
+  "featuredDois": [],
+  "settings": {
+    "repo": "javierprieto/javierprieto.me",
+    "branch": "main"
+  },
+  "patents": [
+    {
+      "title": {
+        "es": "Sistema y método de estimulación cerebral profunda para la epilepsia",
+        "en": "Sistema y método de estimulación cerebral profunda para la epilepsia"
+      },
+      "type": "Patente de invención",
+      "number": "ES3039483A1",
+      "year": "2024",
+      "owner": "Universidad de Salamanca",
+      "url": ""
+    },
+    {
+      "title": {
+        "es": "Plataforma sofware para la generación asistida de taxonomías (linneo)",
+        "en": "Plataforma sofware para la generación asistida de taxonomías (linneo)"
+      },
+      "type": "Registro de software",
+      "number": "00765-01224621",
+      "year": "2023",
+      "owner": "Universidad de Salamanca",
+      "url": ""
+    },
+    {
+      "title": {
+        "es": "Plataforma sofware para la interrelación de identificadores no normalizados en BBDD (dbinder)",
+        "en": "Plataforma sofware para la interrelación de identificadores no normalizados en BBDD (dbinder)"
+      },
+      "type": "Registro de software",
+      "number": "00765-01221311",
+      "year": "2023",
+      "owner": "Universidad de Salamanca",
+      "url": ""
+    },
+    {
+      "title": {
+        "es": "Sistema para la simplificación del proceso de cambio de divisa",
+        "en": "Sistema para la simplificación del proceso de cambio de divisa"
+      },
+      "type": "Registro de software",
+      "number": "",
+      "year": "2019",
+      "owner": "Universidad de Salamanca",
+      "url": ""
+    },
+    {
+      "title": {
+        "es": "Procedimiento para la determinación de la posición fusionando la información de los niveles de potencia y el retardo temporal de propagación de las señales recibidas",
+        "en": "Procedimiento para la determinación de la posición fusionando la información de los niveles de potencia y el retardo temporal de propagación de las señales recibidas"
+      },
+      "type": "Patente de invención",
+      "number": "ES2397388",
+      "year": "2011",
+      "owner": "Universidad de Valladolid",
+      "url": ""
+    },
+    {
+      "title": {
+        "es": "Procedimiento y sistema de localización de un dispositivo móvil a partir del retardo temporal de propagación de las señales en una red inalámbrica mitigando la falta de visión directa entre dispositivos y sin necesidad de calibración in situ",
+        "en": "Procedimiento y sistema de localización de un dispositivo móvil a partir del retardo temporal de propagación de las señales en una red inalámbrica mitigando la falta de visión directa entre dispositivos y sin necesidad de calibración in situ"
+      },
+      "type": "Patente de invención",
+      "number": "ES2372512",
+      "year": "2008",
+      "owner": "Universidad de Valladolid",
+      "url": ""
+    }
+  ],
+  "featuredProjects": [
+    "101256747",
+    "PTN2025-166788"
+  ],
+  "featured": [
+    "PTN2025-166788",
+    "101256747",
+    "PC_TCUE25_041",
+    "TSI-100130-2024-0134"
+  ],
+  "display": {
+    "timeline": "latest"
+  }
+}
