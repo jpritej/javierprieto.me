@@ -536,7 +536,7 @@ document.getElementById("publish").addEventListener("click", publish);
 const ALLOWED_EMAIL = "jpritej@gmail.com";
 // Client ID de tu propio proyecto en Google Cloud Console (no es secreto,
 // es público por diseño). Sustituye este valor por el tuyo.
-const GOOGLE_CLIENT_ID = "TU_CLIENT_ID.apps.googleusercontent.com";
+const GOOGLE_CLIENT_ID = "687457219394-7o9deuah4hpb6khm3ja6u14gcc2fgcka.apps.googleusercontent.com";
 
 function loadGoogleScript() {
   return new Promise((resolve, reject) => {
