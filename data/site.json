@@ -22,7 +22,7 @@
     },
     "emailUser": "javierp",
     "emailHost": "usal.es",
-    "photo": "assets/img/retrato-grafo.svg",
+    "photo": "assets/img/retrato-ilustracion.png",
     "cv": ""
   },
   "bio": {
@@ -553,5 +553,6 @@
       "license": "CC BY-NC-SA",
       "photo": "assets/img/rea/tecnicas-informaticas-fisica.jpg"
     }
-  ]
+  ],
+  "projectLinks": {}
 }

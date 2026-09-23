@@ -109,6 +109,27 @@ para saltarse la comprobación. Lo que sí es cierto siempre, con o sin este
 cerrojo: nadie puede publicar cambios reales sin el token de GitHub, que solo
 existe en tu sesión y nunca se guarda en ningún fichero.
 
+## Exportar a Excel
+
+Las pestañas de publicaciones y proyectos llevan un botón que genera un `.xlsx`
+con lo que haya en pantalla en ese momento, respetando los filtros activos
+(tipo, año, ámbito, «solo como IP»...). Lo hace SheetJS en el navegador, sin
+servidor. La hoja sale con encabezados, autofiltro y anchos de columna ya
+ajustados.
+
+## Webs de proyectos
+
+El CVN no trae la web de cada proyecto, así que ese campo se rellena a mano en
+`/admin/`, bloque «Webs de proyectos»: buscas el proyecto y pegas su URL. Se
+guardan en `site.json` bajo `projectLinks`, indexados por el identificador del
+proyecto, de modo que **reimportar el CVN no los borra**, igual que pasa con los
+destacados. El identificador se deriva del código de la financiadora (o del
+título si no hay código); si un proyecto cambia de código en el CVN, su enlace
+habría que volver a asignarlo.
+
+En la lista solo se muestran de entrada los proyectos que ya tienen web; para
+añadir uno nuevo, se busca por título, programa o financiador.
+
 ## Divulgación
 
 Pestaña con las apariciones en medios, filtrable por tema. Cada tarjeta lleva

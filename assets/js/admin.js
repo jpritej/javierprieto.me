@@ -1,5 +1,5 @@
-import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=15";
-import { ICON_KEYS } from "./icons.js?v=15";
+import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=16";
+import { ICON_KEYS } from "./icons.js?v=16";
 
 /* ------------------------------------------------------------------ esquema */
 
@@ -135,6 +135,14 @@ const SCHEMA = [
     ]
   },
   {
+    legend: "Webs de proyectos",
+    path: "projectLinks",
+    fields: [
+      { k: "__links", l: "Busca el proyecto y pega su web", t: "projectlinks", wide: true, note:
+        "Se guardan aparte, indexados por el identificador del proyecto, así que reimportar el CVN no los borra." }
+    ]
+  },
+  {
     legend: "Recursos educativos abiertos (REA)",
     path: "rea",
     repeat: true,
@@ -250,6 +258,20 @@ function fieldHTML(path, f, value) {
   }
   if (type === T.area) {
     input = `<textarea ${common}>${esc(value ?? "")}</textarea>`;
+  } else if (type === "projectlinks") {
+    const links = site.projectLinks || {};
+    input = cvnProjects.length ? `<div class="stars" data-path="${esc(path)}">
+      <input type="search" class="field links__q" placeholder="Filtrar por título, programa o financiador">
+      <div class="stars__list">${cvnProjects.map((pr) => {
+        const val = links[pr.id] || "";
+        const hidden = !val;
+        return `<label class="linkrow${hidden ? " is-hidden" : ""}"
+            data-text="${esc((pr.title + " " + (pr.program || "") + " " + (pr.funder || "")).toLowerCase())}">
+          <span class="linkrow__t">${esc(pr.title)}<em>${esc([pr.start, pr.program || pr.funder].filter(Boolean).join(" · "))}</em></span>
+          <input type="url" class="field" data-link="${esc(pr.id)}" value="${esc(val)}" placeholder="https://">
+        </label>`;
+      }).join("")}</div>
+    </div>` : `<p class="note">No se ha encontrado data/cvn.json.</p>`;
   } else if (type === "featured") {
     input = `<div class="stars">
       <input type="search" id="star-q" class="field" placeholder="Buscar entre ${cvnProjects.length} proyectos" value="${esc(starQuery)}">
@@ -310,6 +332,15 @@ function readForm() {
     const path = el.dataset.path;
     if (path.endsWith("__token")) { sessionStorage.setItem("gh:token", el.value.trim()); return; }
     if (path === "featured.__pick") { site.featured = [...starred]; return; }
+    if (path === "projectLinks.__links") {
+      const out = {};
+      el.querySelectorAll("[data-link]").forEach((inp) => {
+        const v = inp.value.trim();
+        if (v) out[inp.dataset.link] = v;
+      });
+      site.projectLinks = out;
+      return;
+    }
     let v = el.value;
     if (el.type === "number") v = v === "" ? 0 : Number(v);
     set(site, path, typeof v === "string" ? v.trim() : v);
@@ -439,6 +470,15 @@ document.getElementById("form").addEventListener("change", async (e) => {
 
 document.getElementById("form").addEventListener("input", (e) => {
   if (e.target.id === "star-q") { starQuery = e.target.value; repaintStars(); }
+});
+
+document.getElementById("form").addEventListener("input", (e) => {
+  if (!e.target.classList.contains("links__q")) return;
+  const q = e.target.value.trim().toLowerCase();
+  e.target.closest(".stars").querySelectorAll(".linkrow").forEach((row) => {
+    const hasValue = Boolean(row.querySelector("[data-link]").value.trim());
+    row.classList.toggle("is-hidden", q ? !row.dataset.text.includes(q) : !hasValue);
+  });
 });
 
 document.getElementById("form").addEventListener("click", (e) => {

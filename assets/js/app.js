@@ -1,9 +1,10 @@
-import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=15";
-import * as orcid from "./orcid.js?v=15";
-import * as openalex from "./openalex.js?v=15";
-import * as charts from "./charts.js?v=15";
-import { icon, topicIcon, ccBadge } from "./icons.js?v=15";
-import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=15";
+import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=16";
+import * as orcid from "./orcid.js?v=16";
+import * as openalex from "./openalex.js?v=16";
+import * as charts from "./charts.js?v=16";
+import { icon, topicIcon, ccBadge } from "./icons.js?v=16";
+import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=16";
+import { exportRows, canExport, stamp } from "./export.js?v=16";
 
 const view = document.getElementById("view");
 const ROUTES = ["", "docencia", "proyectos", "publicaciones", "divulgacion", "indicadores"];
@@ -218,7 +219,7 @@ function viewProfile() {
   const s = state.site;
   // La portada admite foto, ilustración vectorial (svg, sin marco) o nada.
   const art = s.identity.photo || "";
-  const isVector = /\.svg$/i.test(art);
+  const isVector = /\.svg$|retrato-ilustracion/i.test(art);
   const photo = art
     ? `<img src="${esc(art)}" alt="${isVector ? "" : esc(s.identity.name)}"${isVector ? ' role="presentation"' : ""} loading="lazy">`
     : "";
@@ -288,7 +289,9 @@ function viewProfile() {
 
 function featuredSection(s) {
   const picked = new Set(s.featured || []);
-  const fromCvn = cvn ? cvn.projects.filter((p) => picked.has(p.id)) : [];
+  const links = s.projectLinks || {};
+  const fromCvn = cvn ? cvn.projects.filter((p) => picked.has(p.id))
+    .map((p) => ({ ...p, url: links[p.id] || p.url })) : [];
   const manual = (s.projects || []).filter((p) => L(p.title)).map((p) => ({
     title: L(p.title), program: L(p.funder), role: L(p.role),
     start: (p.years || "").slice(0, 4), end: "", amountOwn: 0, url: p.url, manual: true,
@@ -563,6 +566,7 @@ function pressEscHandler(e) {
 
 function projectItem(p) {
   const star = (state.site.featured || []).includes(p.id);
+  const web = (state.site.projectLinks || {})[p.id];
   const meta = [
     p.program, p.code, p.funder,
     p.lead ? `<em>${t("p.ip")}</em>` : p.role,
@@ -571,7 +575,10 @@ function projectItem(p) {
   ].filter(has).join(" · ");
   return `<article class="pub">
     <span class="pub__t">${star ? '<span class="star" title="destacado">★</span> ' : ""}${esc(p.title)}</span>
-    <div class="pub__m"><span class="badge badge--${esc(p.kind)}">${esc(t("p." + p.kind))}</span> ${meta}</div>
+    <div class="pub__m"><span class="badge badge--${esc(p.kind)}">${esc(t("p." + p.kind))}</span> ${meta}
+      ${web ? `<a class="badge badge--link" href="${esc(web)}" target="_blank" rel="noopener">${t("p.web")}
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="vertical-align:-1px"><path d="M7 17L17 7M9 7h8v8"></path></svg></a>` : ""}
+    </div>
   </article>`;
 }
 
@@ -624,6 +631,7 @@ function viewProjects() {
         ${li(scopes, (x) => `<option value="${esc(x)}"${pf.scope === x ? " selected" : ""}>${esc(x)}</option>`)}
       </select>
       <label class="inline"><input type="checkbox" id="p-lead"${pf.lead ? " checked" : ""}> ${t("p.leadOnly")}</label>
+      <button id="p-export" class="btn btn--ghost" type="button">${t("export.xlsx")}</button>
     </div>
 
     <div class="panels" style="margin-bottom:1.8rem">
@@ -702,9 +710,36 @@ function bindProjects() {
   document.getElementById("p-kind").addEventListener("change", (e) => { pf.kind = e.target.value; refreshProjects(); });
   document.getElementById("p-scope").addEventListener("change", (e) => { pf.scope = e.target.value; refreshProjects(); });
   document.getElementById("p-lead").addEventListener("change", (e) => { pf.lead = e.target.checked; refreshProjects(); });
+  const px = document.getElementById("p-export");
+  if (px) px.addEventListener("click", () => {
+    const links = state.site.projectLinks || {};
+    const rows = filteredProjects().map((p) => ({
+      title: p.title, kind: t("p." + p.kind), program: p.program || "", code: p.code || "",
+      funder: p.funder || "", role: p.lead ? t("p.ip") : (p.role || ""), scope: p.scope || "",
+      start: p.start || "", end: p.end || "",
+      own: p.amountOwn || 0, total: p.amountTotal || 0, web: links[p.id] || ""
+    }));
+    const ok = exportRows(rows, [
+      ["title", t("x.title")], ["kind", t("x.type")], ["program", t("x.program")],
+      ["code", t("x.code")], ["funder", t("x.funder")], ["role", t("x.role")],
+      ["scope", t("x.scope")], ["start", t("x.start")], ["end", t("x.end")],
+      ["own", t("p.managed") + " (€)"], ["total", t("p.budget") + " (€)"], ["web", t("x.url")]
+    ], t("nav.projects"), `proyectos-${stamp()}.xlsx`);
+    if (!ok) px.textContent = t("export.fail");
+  });
 }
 
 /* ---------- vista: publicaciones ---------------------------------------- */
+
+/** Publicaciones que pasan el filtro activo (lo comparten vista y exportación). */
+function filteredWorks() {
+  if (!orc) return [];
+  const q = filters.q.toLowerCase();
+  return orc.works.filter((w) =>
+    (!filters.type || w.type === filters.type) &&
+    (!filters.year || String(w.year) === filters.year) &&
+    (!q || (w.title + " " + w.venue).toLowerCase().includes(q)));
+}
 
 function viewPubs() {
   if (!orc) {
@@ -713,11 +748,7 @@ function viewPubs() {
   }
   const types = [...new Set(orc.works.map((w) => w.type))].sort();
   const years = [...new Set(orc.works.map((w) => w.year).filter(Boolean))].sort((a, b) => b - a);
-  const q = filters.q.toLowerCase();
-  const list = orc.works.filter((w) =>
-    (!filters.type || w.type === filters.type) &&
-    (!filters.year || String(w.year) === filters.year) &&
-    (!q || (w.title + " " + w.venue).toLowerCase().includes(q)));
+  const list = filteredWorks();
 
   const byYear = new Map();
   list.forEach((w) => {
@@ -744,6 +775,7 @@ function viewPubs() {
         ${li(years, (y) => `<option value="${y}"${filters.year === String(y) ? " selected" : ""}>${y}</option>`)}
       </select>
       <button id="f-refresh" class="btn btn--ghost" type="button">${t("pubs.refresh")}</button>
+      <button id="f-export" class="btn btn--ghost" type="button">${t("export.xlsx")}</button>
     </div>
     ${pubCharts()}
     ${body}
@@ -796,6 +828,18 @@ function bindPubs() {
   });
   document.getElementById("f-type").addEventListener("change", (e) => { filters.type = e.target.value; render(); });
   document.getElementById("f-year").addEventListener("change", (e) => { filters.year = e.target.value; render(); });
+  const xp = document.getElementById("f-export");
+  if (xp) xp.addEventListener("click", () => {
+    const rows = filteredWorks().map((w) => ({
+      year: w.year || "", type: workType(w.type), title: w.title,
+      venue: w.venue || "", doi: w.doi || "", url: w.url || ""
+    }));
+    const ok = exportRows(rows, [
+      ["year", t("x.year")], ["type", t("x.type")], ["title", t("x.title")],
+      ["venue", t("x.venue")], ["doi", "DOI"], ["url", t("x.url")]
+    ], t("nav.pubs"), `publicaciones-${stamp()}.xlsx`);
+    if (!ok) xp.textContent = t("export.fail");
+  });
   document.getElementById("f-refresh").addEventListener("click", async (e) => {
     e.target.disabled = true;
     await fetchOrcid(true);
