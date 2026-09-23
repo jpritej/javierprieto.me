@@ -1,10 +1,10 @@
-import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=16";
-import * as orcid from "./orcid.js?v=16";
-import * as openalex from "./openalex.js?v=16";
-import * as charts from "./charts.js?v=16";
-import { icon, topicIcon, ccBadge } from "./icons.js?v=16";
-import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=16";
-import { exportRows, canExport, stamp } from "./export.js?v=16";
+import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=17";
+import * as orcid from "./orcid.js?v=17";
+import * as openalex from "./openalex.js?v=17";
+import * as charts from "./charts.js?v=17";
+import { icon, topicIcon, ccBadge } from "./icons.js?v=17";
+import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=17";
+import { exportRows, canExport, stamp } from "./export.js?v=17";
 
 const view = document.getElementById("view");
 const ROUTES = ["", "docencia", "proyectos", "publicaciones", "divulgacion", "indicadores"];
@@ -242,7 +242,7 @@ function viewProfile() {
   const recent = orc ? orc.works.slice(0, 6) : [];
 
   return `
-  <div class="hero enter">
+  <div class="hero enter${isVector ? " hero--vector" : ""}">
     <div>
       <h1>${esc(s.identity.name)}</h1>
       <p class="hero__role">${esc(L(s.identity.role))}</p>
