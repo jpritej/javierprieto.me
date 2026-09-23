@@ -1,5 +1,5 @@
-import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=9";
-import { ICON_KEYS } from "./icons.js?v=9";
+import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=13";
+import { ICON_KEYS } from "./icons.js?v=13";
 
 /* ------------------------------------------------------------------ esquema */
 
@@ -18,7 +18,8 @@ const SCHEMA = [
       { k: "affiliation.en", l: "Afiliación (EN)", wide: true },
       { k: "group.es", l: "Grupo e institutos (ES)" },
       { k: "group.en", l: "Grupo e institutos (EN)" },
-      { k: "email", l: "Correo" },
+      { k: "emailUser", l: "Correo, antes de la @" },
+      { k: "emailHost", l: "Correo, dominio después de la @" },
       { k: "cv", l: "Enlace al CV en PDF", t: T.url },
       { k: "photo", l: "Foto", t: "photo", wide: true }
     ]
@@ -36,7 +37,18 @@ const SCHEMA = [
     path: "topics",
     repeat: true,
     label: (it) => it.es || "Nueva línea",
-    item: [{ k: "es", l: "ES" }, { k: "en", l: "EN" }]
+    item: [
+      { k: "es", l: "Título (ES)" }, { k: "en", l: "Título (EN)" },
+      { k: "icon", l: "Icono", t: "select", options: [
+        { value: "ia", label: "IA explicable" },
+        { value: "blockchain", label: "Blockchain" },
+        { value: "iot", label: "IoT / chip" },
+        { value: "quantum", label: "Comunicaciones y cuántica" },
+        { value: "metaverse", label: "Metaverso / RV" },
+        { value: "ehealth", label: "eHealth / escáner" } ] },
+      { k: "desc_es", l: "Frase corta (ES)", wide: true },
+      { k: "desc_en", l: "Frase corta (EN)", wide: true }
+    ]
   },
   {
     legend: "Identificadores para la ingesta automática",
@@ -120,6 +132,45 @@ const SCHEMA = [
       { k: "title.es", l: "Título (ES)", wide: true }, { k: "title.en", l: "Título (EN)", wide: true },
       { k: "university.es", l: "Universidad (ES)" }, { k: "university.en", l: "Universidad (EN)" },
       { k: "url", l: "Enlace", t: T.url, wide: true }
+    ]
+  },
+  {
+    legend: "Recursos educativos abiertos (REA)",
+    path: "rea",
+    repeat: true,
+    label: (it) => it.title || "Nuevo REA",
+    item: [
+      { k: "title", l: "Título (tal como está en OER Commons)", wide: true },
+      { k: "url", l: "Enlace en OER Commons", t: T.url, wide: true },
+      { k: "program.es", l: "Titulación e institución (ES)" },
+      { k: "program.en", l: "Programme and institution (EN)" },
+      { k: "authors", l: "Coautores (aparte de ti), separados por comas" },
+      { k: "license", l: "Licencia (tal como aparece en la portada)" },
+      { k: "photo", l: "Portada (ruta del fichero, por ejemplo assets/img/rea/mi-rea.jpg)", wide: true, note:
+        "Este campo no sube el fichero: solo apunta a él. Para cambiar la imagen, sube el fichero al repositorio (en assets/img/rea/) y pon aquí su ruta." }
+    ]
+  },
+  {
+    legend: "Divulgación y medios",
+    path: "press",
+    repeat: true,
+    label: (it) => it.title || "Nueva aparición",
+    item: [
+      { k: "title", l: "Titular (tal como lo publicó el medio)", wide: true },
+      { k: "outlet", l: "Medio" },
+      { k: "date", l: "Fecha", t: T.date },
+      { k: "url", l: "Enlace (vacío si no hay hemeroteca disponible)", t: T.url, wide: true },
+      { k: "topic", l: "Tema", t: "select", options: [
+        { value: "ia", label: "IA explicable" },
+        { value: "blockchain", label: "Blockchain y ciberseguridad" },
+        { value: "iot", label: "IoT y edge computing" },
+        { value: "quantum", label: "Comunicaciones y computación cuántica" },
+        { value: "metaverse", label: "Metaverso y tecnología educativa" },
+        { value: "ehealth", label: "eHealth y radiómica" } ] },
+      { k: "video", l: "ID de vídeo de YouTube (solo si hay vídeo, sin el resto de la URL)" },
+      { k: "photo", l: "Foto propia (ruta), si no hay vídeo" },
+      { k: "summary.es", l: "Tu resumen, nunca el texto del medio (ES)", t: T.area, wide: true },
+      { k: "summary.en", l: "Your own summary (EN)", t: T.area, wide: true }
     ]
   },
   {
@@ -473,6 +524,80 @@ document.getElementById("discard").addEventListener("click", async () => {
 });
 
 document.getElementById("publish").addEventListener("click", publish);
+
+/* ------------------------------------------------- acceso con Google ---
+ * No hay backend propio: el token que devuelve Google se verifica llamando
+ * a su endpoint público (real verificación de firma, gratis, sin servidor).
+ * Aviso: la decisión de "mostrar el formulario" ocurre en el navegador del
+ * visitante. Es una barrera seria para cualquiera que llegue por curiosidad,
+ * no una garantía criptográfica: quien manipule la consola del navegador
+ * podría saltarla. Nada de eso permite publicar sin el token de GitHub. */
+
+const ALLOWED_EMAIL = "jpritej@gmail.com";
+// Client ID de tu propio proyecto en Google Cloud Console (no es secreto,
+// es público por diseño). Sustituye este valor por el tuyo.
+const GOOGLE_CLIENT_ID = "TU_CLIENT_ID.apps.googleusercontent.com";
+
+function loadGoogleScript() {
+  return new Promise((resolve, reject) => {
+    if (window.google?.accounts?.id) return resolve();
+    const s = document.createElement("script");
+    s.src = "https://accounts.google.com/gsi/client";
+    s.async = true;
+    s.onload = resolve;
+    s.onerror = () => reject(new Error("No se ha podido cargar Google Sign-In."));
+    document.head.appendChild(s);
+  });
+}
+
+async function verifyCredential(idToken) {
+  const res = await fetch(`https://oauth2.googleapis.com/tokeninfo?id_token=${encodeURIComponent(idToken)}`);
+  if (!res.ok) throw new Error("token inválido o caducado");
+  const info = await res.json();
+  if (info.aud !== GOOGLE_CLIENT_ID) throw new Error("token emitido para otra aplicación");
+  if (info.email_verified !== "true" && info.email_verified !== true) throw new Error("correo no verificado por Google");
+  if ((info.email || "").toLowerCase() !== ALLOWED_EMAIL.toLowerCase()) throw new Error("cuenta no autorizada");
+  return info;
+}
+
+function unlock() {
+  document.getElementById("gate").hidden = true;
+  document.getElementById("content").hidden = false;
+}
+
+async function onGoogleCredential(response) {
+  const msg = document.getElementById("gate-msg");
+  try {
+    await verifyCredential(response.credential);
+    sessionStorage.setItem("admin:authed", "1");
+    unlock();
+  } catch (err) {
+    msg.hidden = false;
+    msg.textContent = "Acceso denegado (" + err.message + ").";
+  }
+}
+
+async function initGate() {
+  if (sessionStorage.getItem("admin:authed") === "1") { unlock(); return; }
+  if (GOOGLE_CLIENT_ID.startsWith("TU_CLIENT_ID")) {
+    document.getElementById("gate-msg").hidden = false;
+    document.getElementById("gate-msg").textContent =
+      "Falta configurar el Client ID de Google en assets/js/admin.js (ver README).";
+    return;
+  }
+  try {
+    await loadGoogleScript();
+    google.accounts.id.initialize({ client_id: GOOGLE_CLIENT_ID, callback: onGoogleCredential });
+    google.accounts.id.renderButton(document.getElementById("g-signin-button"), {
+      type: "standard", theme: "outline", size: "large", text: "signin_with", shape: "pill"
+    });
+  } catch (err) {
+    document.getElementById("gate-msg").hidden = false;
+    document.getElementById("gate-msg").textContent = err.message;
+  }
+}
+
+initGate();
 
 (async () => {
   site = await loadSite("../");

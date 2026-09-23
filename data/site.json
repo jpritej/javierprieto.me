@@ -1,6 +1,6 @@
 {
   "_comment": "Todo este fichero se edita desde /admin/. No hace falta tocarlo a mano.",
-  "updatedAt": "2026-09-22",
+  "updatedAt": "2026-09-23",
   "identity": {
     "name": "Javier Prieto Tejedor",
     "shortName": "Javier Prieto",
@@ -13,14 +13,15 @@
       "en": "Department of Computer Science and Automation, University of Salamanca"
     },
     "group": {
-      "es": "Grupo BISITE · Instituto AIR · IBSAL",
-      "en": "BISITE Research Group · AIR Institute · IBSAL"
+      "es": "Grupo BISITE · IBSAL · IEEE",
+      "en": "BISITE Research Group · IBSAL · IEEE"
     },
     "location": {
       "es": "Salamanca, España",
       "en": "Salamanca, Spain"
     },
-    "email": "javierp@usal.es",
+    "emailUser": "javierp",
+    "emailHost": "usal.es",
     "photo": "assets/img/foto.jpg",
     "cv": ""
   },
@@ -30,28 +31,46 @@
   },
   "topics": [
     {
-      "es": "Inteligencia artificial explicable",
-      "en": "Explainable artificial intelligence"
+      "icon": "ia",
+      "es": "IA explicable",
+      "en": "Explainable AI",
+      "desc_es": "Modelos que además de acertar dicen por qué.",
+      "desc_en": "Models that explain their own decisions, not just make them."
     },
     {
-      "es": "Blockchain y sistemas distribuidos",
-      "en": "Blockchain and distributed systems"
+      "icon": "blockchain",
+      "es": "Blockchain y ciberseguridad",
+      "en": "Blockchain and cybersecurity",
+      "desc_es": "Registros distribuidos y protección de sistemas.",
+      "desc_en": "Distributed ledgers and systems protection."
     },
     {
-      "es": "Internet de las cosas y edge computing",
-      "en": "Internet of Things and edge computing"
+      "icon": "iot",
+      "es": "IoT y edge computing",
+      "en": "IoT and edge computing",
+      "desc_es": "Sensores y cómputo cerca de donde se genera el dato.",
+      "desc_en": "Sensors and computing close to where data is generated."
     },
     {
-      "es": "Estimación bayesiana y localización",
-      "en": "Bayesian estimation and localization"
+      "icon": "quantum",
+      "es": "Comunicaciones y computación cuántica",
+      "en": "Communications and quantum computing",
+      "desc_es": "Redes de comunicación y algoritmos sobre hardware cuántico.",
+      "desc_en": "Communication networks and algorithms on quantum hardware."
     },
     {
-      "es": "Aprendizaje automático cuántico",
-      "en": "Quantum machine learning"
+      "icon": "metaverse",
+      "es": "Metaverso y tecnología educativa",
+      "en": "Metaverse and educational technology",
+      "desc_es": "Entornos inmersivos para enseñar y aprender.",
+      "desc_en": "Immersive environments for teaching and learning."
     },
     {
-      "es": "Ciudades inteligentes y sostenibilidad",
-      "en": "Smart cities and sustainability"
+      "icon": "ehealth",
+      "es": "eHealth y radiómica",
+      "en": "eHealth and radiomics",
+      "desc_es": "Imagen y señal biomédica analizadas con IA.",
+      "desc_en": "Biomedical image and signal analysis with AI."
     }
   ],
   "networks": [
@@ -74,16 +93,6 @@
       "label": "CiênciaVitae",
       "url": "https://www.cienciavitae.pt/portal/991A-25BD-60E5",
       "icon": "cienciavitae"
-    },
-    {
-      "label": "Producción científica USAL",
-      "url": "https://produccioncientifica.usal.es/investigadores/148044/detalle",
-      "icon": "institution"
-    },
-    {
-      "label": "Portal de Ciencia y Tecnología JCyL",
-      "url": "https://portalcienciaytecnologia.jcyl.es/investigadores/369653/detalle",
-      "icon": "institution"
     },
     {
       "label": "LinkedIn",
@@ -901,5 +910,214 @@
   ],
   "display": {
     "timeline": "latest"
-  }
+  },
+  "press": [
+    {
+      "id": "ieee-spectrum-2020",
+      "title": "Spanish Researchers Use Blockchain and AI to Flatten the Curve",
+      "outlet": "IEEE Spectrum",
+      "date": "2020-04-16",
+      "url": "https://spectrum.ieee.org/researchers-spain-blockchain-ai-app-flatten-the-curve",
+      "topic": "ehealth",
+      "photo": "assets/img/press/ieee-spectrum-2020.jpg",
+      "summary": {
+        "es": "Entrevista sobre el proyecto, liderado junto a Juan Manuel Corchado, que combinó IA e IoT para predecir la evolución de la pandemia de covid-19 y apoyar la toma de decisiones sanitarias.",
+        "en": "Interview about the project, co-led with Juan Manuel Corchado, that combined AI and blockchain to predict the evolution of the covid-19 pandemic and support public-health decisions."
+      }
+    },
+    {
+      "id": "culturacientifica-lexcity-2025",
+      "title": "El metaverso musical que revoluciona la educación a través de la realidad virtual",
+      "outlet": "Cultura Científica USAL",
+      "date": "2025-06-15",
+      "url": "https://culturacientifica.usal.es/el-metaverso-musical-que-revoluciona-la-educacion-a-traves-de-la-realidad-virtual/",
+      "topic": "metaverse",
+      "summary": {
+        "es": "Entrevista sobre LexCity, la plataforma de realidad virtual para el aprendizaje musical que dirijo junto a José Manuel Muñoz Rodríguez, pensada para niños de 9 a 12 años.",
+        "en": "Interview about LexCity, a virtual-reality platform for music learning I lead with José Manuel Muñoz Rodríguez, aimed at children aged 9 to 12."
+      }
+    },
+    {
+      "id": "comsoc-globecom-2022",
+      "title": "IEEE GLOBECOM 2021: \"Connecting Cultures Around the Globe\" in Madrid",
+      "outlet": "IEEE ComSoc Global Communications Newsletter",
+      "date": "2022-03-01",
+      "dateApprox": true,
+      "url": "https://ieeexplore.ieee.org/document/9743381",
+      "topic": "quantum",
+      "summary": {
+        "es": "Crónica del congreso GLOBECOM 2021 en Madrid, del que fui Operations Chair, con más de 3000 asistentes en formato híbrido.",
+        "en": "Report on GLOBECOM 2021 in Madrid, where I served as Operations Chair, with more than 3,000 attendees in hybrid format."
+      }
+    },
+    {
+      "id": "salamancartv-chromosome-2019",
+      "title": "CHROMOSOME, el proyecto con sello salmantino para “lograr hábitos de consumo energético más...”",
+      "outlet": "SALAMANCArtv AL DÍA",
+      "date": "2019-04-14",
+      "url": "https://salamancartvaldia.es/not/206477/chromosome-proyecto-sello-salmantino-para-lograr-habitos-consumo/",
+      "topic": "blockchain",
+      "video": "6XJUafY_x60",
+      "summary": {
+        "es": "Sobre CHROMOSOME, el proyecto que combina IA, blockchain y computación social para lograr hábitos de consumo energético más eficientes, con piloto en viviendas sociales de Salamanca.",
+        "en": "About CHROMOSOME, a project combining AI, blockchain and social computing to build more efficient energy habits, piloted in social housing in Salamanca."
+      }
+    },
+    {
+      "id": "diariovalladolid-chromosome-2019",
+      "title": "Energía inteligente para vigilar el gasto en el hogar",
+      "outlet": "Diario de Valladolid",
+      "date": "2019-03-05",
+      "url": "https://www.diariodevalladolid.es/innovadores/190305/24881/energia-inteligente-vigilar-gasto-hogar.html",
+      "topic": "blockchain",
+      "summary": {
+        "es": "Reportaje sobre CHROMOSOME: técnicas de inteligencia artificial y sociológicas para recomendaciones personalizadas de ahorro energético, con contratos inteligentes y recompensas en blockchain.",
+        "en": "Feature on CHROMOSOME: AI and sociological techniques for personalised energy-saving recommendations, with smart contracts and blockchain-based rewards."
+      }
+    },
+    {
+      "id": "innovadores-ciberia-2026",
+      "title": "Una ayuda gratuita contra ciberataques",
+      "outlet": "El Mundo de Castilla y León · INNOVADORES",
+      "date": "2026-05-26",
+      "url": "",
+      "topic": "blockchain",
+      "summary": {
+        "es": "Sobre CIBERIA, el proyecto europeo liderado por la USAL que ofrece a pymes de Castilla y León y Portugal un programa gratuito de vigilancia y respuesta ante ciberataques.",
+        "en": "About CIBERIA, the European project led by USAL offering small businesses in Castilla y León and Portugal a free cyberattack monitoring and response programme."
+      }
+    },
+    {
+      "id": "orsi-wifi-2009",
+      "title": "Sistemas de posicionamiento basados en WiFi",
+      "outlet": "Boletín ORSI (Junta de Castilla y León), nº 15",
+      "date": "2009-06-01",
+      "dateApprox": true,
+      "url": "assets/press/orsi-2009-wifi.pdf",
+      "topic": "quantum",
+      "summary": {
+        "es": "Artículo con el Grupo de Comunicaciones Inalámbricas de Cedetel sobre localización en interiores mediante WiFi, aprovechando la infraestructura ya existente en museos, parkings o residencias.",
+        "en": "Article with Cedetel's Wireless Communications Group on indoor WiFi-based positioning, reusing existing infrastructure in museums, car parks or care homes."
+      }
+    },
+    {
+      "id": "eldia-salamanca-2016",
+      "title": "Investigación y proyectos universitarios para crear los modelos a seguir",
+      "outlet": "El Día de Salamanca",
+      "date": "2016-12-04",
+      "url": "",
+      "topic": "iot",
+      "summary": {
+        "es": "Reportaje sobre los proyectos de ciudad inteligente del grupo BISITE, entre ellos Ecocasa, sensorización de viviendas sociales para mejorar la eficiencia energética y el confort.",
+        "en": "Feature on the BISITE group's smart-city projects, including Ecocasa, sensing social housing to improve energy efficiency and comfort."
+      }
+    },
+    {
+      "id": "eco2for-video",
+      "title": "Eco2for: gestión forestal para combatir el cambio climático y revitalizar zonas rurales",
+      "outlet": "Vídeo de divulgación",
+      "date": "",
+      "url": "",
+      "topic": "iot",
+      "video": "EduxXnkaaH8",
+      "summary": {
+        "es": "Vídeo de divulgación del proyecto Eco2for, sobre gestión forestal para combatir el cambio climático y revitalizar zonas rurales.",
+        "en": "Outreach video on the Eco2for project, on forest management to fight climate change and revitalise rural areas."
+      }
+    },
+    {
+      "id": "dicyt-silosens-2018",
+      "title": "Un sistema inteligente monitoriza la cantidad de pienso que contiene un silo",
+      "outlet": "DiCYT",
+      "date": "2018-05-01",
+      "dateApprox": true,
+      "url": "https://www.dicyt.com/noticias/un-sistema-inteligente-monitoriza-la-cantidad-de-pienso-que-contiene-un-silo",
+      "topic": "iot",
+      "summary": {
+        "es": "Sobre SILOSENS, un dispositivo IoT de bajo coste con sensor láser para medir la cantidad de pienso restante en los silos de una granja y avisar cuando es necesario rellenarlos.",
+        "en": "About SILOSENS, a low-cost IoT device with a laser sensor that measures remaining feed in farm silos and alerts when refilling is needed."
+      }
+    },
+    {
+      "id": "dicyt-smartcities-uva-2015",
+      "title": "Un curso enseña en la UVA las herramientas TIC aplicadas a las Smart Cities",
+      "outlet": "DiCYT",
+      "date": "2015-11-02",
+      "dateApprox": true,
+      "url": "https://www.dicyt.com/noticias/un-curso-ensena-en-la-uva-las-herramientas-tic-aplicadas-a-las-smart-cities",
+      "topic": "iot",
+      "summary": {
+        "es": "Sobre el curso que impartí en la Escuela Técnica Superior de Ingenieros de Telecomunicación de la UVA sobre herramientas TIC aplicadas a las ciudades inteligentes.",
+        "en": "About the course I taught at UVA's School of Telecommunication Engineering on ICT tools applied to smart cities."
+      }
+    }
+  ],
+  "rea": [
+    {
+      "title": "Edición Digital Multimedia",
+      "url": "https://oercommons.org/courseware/lesson/131361/overview",
+      "program": {
+        "es": "Grado en Información y Documentación, Universidad de Salamanca",
+        "en": "BSc in Information and Documentation, University of Salamanca"
+      },
+      "authors": "José Luis Alonso Berrocal",
+      "license": "CC BY-NC-SA",
+      "photo": "assets/img/rea/edicion-digital-multimedia.jpg"
+    },
+    {
+      "title": "Visualización de Datos Sociales Digitales",
+      "url": "https://oercommons.org/courseware/lesson/135776/overview",
+      "program": {
+        "es": "Máster Interuniversitario en Ciencias de Datos Aplicada a las Ciencias Sociales (USAL-Universidad de Granada), desde 2024/25",
+        "en": "Interuniversity Master's in Data Science Applied to the Social Sciences (USAL-University of Granada), since 2024/25"
+      },
+      "authors": "",
+      "license": "CC BY-NC-SA",
+      "photo": "assets/img/rea/visualizacion-datos-sociales.jpg"
+    },
+    {
+      "title": "Procesamiento de Datos en Big Data. El ecosistema Apache Spark",
+      "url": "https://oercommons.org/courseware/lesson/131318/overview",
+      "program": {
+        "es": "Máster en Big Data Science, Universidad de Valladolid",
+        "en": "Master's in Big Data Science, University of Valladolid"
+      },
+      "authors": "Fernando De la Prieta Pintado, Albano Carrera González",
+      "license": "CC BY-NC-SA",
+      "photo": "assets/img/rea/big-data-spark.jpg"
+    },
+    {
+      "title": "Ciencia de Datos",
+      "url": "https://oercommons.org/courseware/lesson/131485/overview",
+      "program": {
+        "es": "Máster en Internet of Things, Universidad de Salamanca",
+        "en": "Master's in Internet of Things, University of Salamanca"
+      },
+      "authors": "Fernando De la Prieta Pintado",
+      "license": "CC BY-NC-SA",
+      "photo": "assets/img/rea/ciencia-de-datos.jpg"
+    },
+    {
+      "title": "Criptografía, blockchain y criptomonedas",
+      "url": "https://oercommons.org/courseware/lesson/146333/overview",
+      "program": {
+        "es": "Máster Universitario en Ciberseguridad, Universidad de Salamanca",
+        "en": "MSc in Cybersecurity, University of Salamanca"
+      },
+      "authors": "",
+      "license": "CC BY-NC-SA",
+      "photo": "assets/img/rea/criptografia-blockchain.jpg"
+    },
+    {
+      "title": "Técnicas Informáticas en Física",
+      "url": "https://oercommons.org/courseware/lesson/135788/overview",
+      "program": {
+        "es": "Grado en Física, Universidad de Salamanca",
+        "en": "BSc in Physics, University of Salamanca"
+      },
+      "authors": "Belén Pérez Lancho",
+      "license": "CC BY-NC-SA",
+      "photo": "assets/img/rea/tecnicas-informaticas-fisica.jpg"
+    }
+  ]
 }

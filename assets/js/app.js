@@ -1,11 +1,12 @@
-import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=9";
-import * as orcid from "./orcid.js?v=9";
-import * as openalex from "./openalex.js?v=9";
-import * as charts from "./charts.js?v=9";
-import { icon } from "./icons.js?v=9";
+import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=13";
+import * as orcid from "./orcid.js?v=13";
+import * as openalex from "./openalex.js?v=13";
+import * as charts from "./charts.js?v=13";
+import { icon, topicIcon, ccBadge } from "./icons.js?v=13";
+import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=13";
 
 const view = document.getElementById("view");
-const ROUTES = ["", "docencia", "proyectos", "publicaciones", "indicadores"];
+const ROUTES = ["", "docencia", "proyectos", "publicaciones", "divulgacion", "indicadores"];
 
 let orc = null;            // datos de ORCID
 let oa = null;             // métricas de OpenAlex
@@ -15,6 +16,8 @@ let range = null;          // [desde, hasta] en la vista de indicadores
 let teachYear = null;      // curso académico mostrado en Docencia
 let cvn = null;            // proyectos, patentes y tesis importados del CVN
 let pf = { q: "", kind: "", scope: "", lead: false };  // filtros de proyectos
+let dTopic = "";           // filtro de tema en divulgación
+let dOpenId = null;        // id de la ficha de divulgación abierta
 let sf = { q: "", kind: "" };  // filtros de trabajos dirigidos
 
 const li = (arr, fn) => arr.map(fn).join("");
@@ -57,6 +60,7 @@ function paintChrome() {
     link("docencia", t("nav.teaching"), r === "docencia") +
     link("proyectos", t("nav.projects"), r === "proyectos") +
     link("publicaciones", t("nav.pubs"), r === "publicaciones") +
+    link("divulgacion", t("nav.press"), r === "divulgacion") +
     link("indicadores", t("nav.metrics"), r === "indicadores");
   document.querySelectorAll(".lang button").forEach((b) =>
     b.setAttribute("aria-pressed", String(b.dataset.lang === state.lang)));
@@ -71,8 +75,10 @@ function paintChrome() {
 
 function networks(s) {
   const chips = [];
-  if (has(s.identity.email)) {
-    chips.push(`<a class="chip" href="mailto:${esc(s.identity.email)}">${icon("mail")}<span>${t("hero.contact")}</span></a>`);
+  const email = (s.identity.emailUser && s.identity.emailHost)
+    ? `${s.identity.emailUser}@${s.identity.emailHost}` : "";
+  if (has(email)) {
+    chips.push(`<a class="chip" href="mailto:${esc(email)}">${icon("mail")}<span>${t("hero.contact")}</span></a>`);
   }
   (s.networks || []).filter((n) => has(n.url) && has(n.label)).forEach((n) =>
     chips.push(`<a class="chip" href="${esc(n.url)}" target="_blank" rel="noopener">${icon(n.icon || "web")}<span>${esc(n.label)}</span></a>`));
@@ -275,7 +281,12 @@ function viewProfile() {
   ${summaryStrip()}
 
   ${section(t("sec.about"), `<div class="prose">${bio}</div>`)}
-  ${topics.length ? section(t("sec.topics"), `<ul class="tags">${li(topics, (x) => `<li>${esc(L(x))}</li>`)}</ul>`) : ""}
+  ${topics.length ? section(t("sec.topics"), `<div class="topic-grid" data-reveal>${li(topics, (x) => `
+    <div class="topic-card">
+      <span class="topic-card__i">${topicIcon(x.icon)}</span>
+      <strong>${esc(L(x))}</strong>
+      ${has(L({es: x.desc_es, en: x.desc_en})) ? `<p>${esc(L({es: x.desc_es, en: x.desc_en}))}</p>` : ""}
+    </div>`)}</div>`) : ""}
   ${timeline()}
 
   ${featuredSection(s)}
@@ -372,6 +383,7 @@ function viewTeaching() {
   const courses = (s.teaching || []).filter((x) => has(x.year));
   const years = [...new Set(courses.map((x) => x.year))];
   const subjects = [...new Set(courses.map((x) => L(x.course)).filter(Boolean))];
+  const rea = (s.rea || []).filter((x) => x.title);
   return `<section class="enter">
     <div class="section-head"><h2>${t("nav.teaching")}</h2></div>
     <div class="kpis">
@@ -380,11 +392,27 @@ function viewTeaching() {
       ${kpi(num(c.theses), t("m.theses"), true, true)}
       ${kpi(num(c.master), t("m.master"), false, true)}
       ${kpi(num(c.degree), t("m.degree"), false, true)}
+      ${kpi(num(rea.length), t("d.rea"), false, true)}
     </div>
   </section>
   ${teachingSection(s)}
+  ${reaSection(rea)}
   ${thesesSection()}
   ${supervisionsSection()}`;
+}
+
+function reaSection(rea) {
+  if (!rea.length) return "";
+  return section(t("sec.rea"), `<div class="rea-grid">${li(rea, (x) => `
+    <a class="rea-card" href="${esc(x.url)}" target="_blank" rel="noopener">
+      <div class="rea-card__img"><img src="${esc(x.photo)}" alt="" loading="lazy"></div>
+      <div class="rea-card__body">
+        <div class="rea-card__title">${esc(x.title)}</div>
+        <div class="rea-card__program">${esc(L(x.program))}</div>
+        ${x.authors ? `<div class="rea-card__authors">${t("d.reaWith")} ${esc(x.authors)}</div>` : ""}
+        ${ccBadge(esc(x.license || "CC BY"))}
+      </div>
+    </a>`)}</div>`, String(rea.length));
 }
 
 function bindSupervisions() {
@@ -406,6 +434,139 @@ function bindSupervisions() {
   };
   q.addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(() => { sf.q = q.value; repaint(); }, 180); });
   document.getElementById("s-kind").addEventListener("change", (e) => { sf.kind = e.target.value; repaint(); });
+}
+
+/* ---------- vista: divulgación -------------------------------------------- */
+
+function topicLabel(key) {
+  const t = (state.site.topics || []).find((x) => x.icon === key);
+  return t ? L(t) : key;
+}
+
+function pressList() {
+  return [...(state.site.press || [])].sort((a, b) => (b.date || "0").localeCompare(a.date || "0"));
+}
+
+function filteredPress() {
+  return pressList().filter((x) => !dTopic || x.topic === dTopic);
+}
+
+function pressHeader(x, size = "card") {
+  if (x.video) return `<div class="press-media">${videoFacadeHTML(x.video, x.title)}</div>`;
+  if (x.photo) return `<div class="press-media"><img src="${esc(x.photo)}" alt="" loading="lazy"></div>`;
+  return `<div class="press-media press-media--icon">${topicIcon(x.topic, size === "flyout" ? 72 : 40)}</div>`;
+}
+
+function pressCard(x) {
+  return `<article class="press-card" data-open="${esc(x.id)}" tabindex="0" role="button"
+      aria-label="${esc(x.title)}">
+    ${pressHeader(x)}
+    <div class="press-card__body">
+      <div class="press-card__meta"><span class="press-card__outlet">${esc(x.outlet)}</span>
+        ${x.date ? `<span>·</span><span>${esc(fdate(x.date))}${x.dateApprox ? " " + t("press.approx") : ""}</span>` : ""}</div>
+      <div class="press-card__title">${esc(x.title)}</div>
+      <span class="badge">${esc(topicLabel(x.topic))}</span>
+    </div>
+  </article>`;
+}
+
+function viewPress() {
+  const list = filteredPress();
+  const topics = [...new Set(pressList().map((x) => x.topic))];
+  return `<section class="enter">
+    <div class="section-head"><h2>${t("nav.press")}</h2>
+      <span class="count">${t("press.count", list.length)}</span></div>
+    <div class="filters">
+      <button type="button" class="chip-filter${dTopic === "" ? " is-active" : ""}" data-topic="">${t("press.all")}</button>
+      ${li(topics, (k) => `<button type="button" class="chip-filter${dTopic === k ? " is-active" : ""}" data-topic="${esc(k)}">${esc(topicLabel(k))}</button>`)}
+    </div>
+    <div class="press-grid" id="press-grid">${list.map(pressCard).join("") || `<p class="msg">${t("pubs.empty")}</p>`}</div>
+  </section>
+  <div class="press-flyout" id="press-flyout" hidden>
+    <div class="press-flyout__backdrop" data-close></div>
+    <div class="press-flyout__panel" role="dialog" aria-modal="true" id="press-flyout-panel"></div>
+  </div>`;
+}
+
+function pressFlyoutContent(x) {
+  const list = filteredPress();
+  const i = list.findIndex((p) => p.id === x.id);
+  return `
+    ${pressHeader(x, "flyout")}
+    <button type="button" class="press-flyout__close" data-close aria-label="${t("press.close")}">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"></path></svg>
+    </button>
+    <div class="press-flyout__body">
+      <div class="press-card__meta"><span class="press-card__outlet">${esc(x.outlet)}</span>
+        ${x.date ? `<span>·</span><span>${esc(fdate(x.date))}${x.dateApprox ? " " + t("press.approx") : ""}</span>` : ""}
+        <span class="badge" style="margin-left:auto">${esc(topicLabel(x.topic))}</span></div>
+      <h3>${esc(x.title)}</h3>
+      <p class="prose">${esc(L(x.summary))}</p>
+      <div class="press-flyout__actions">
+        ${x.url ? `<a class="btn" href="${esc(x.url)}" target="_blank" rel="noopener">${t("press.readAt", x.outlet)}</a>` : ""}
+        <div class="press-flyout__nav">
+          <button type="button" class="btn btn--ghost" data-nav="-1" ${i <= 0 ? "disabled" : ""} aria-label="${t("press.prev")}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg>
+          </button>
+          <button type="button" class="btn btn--ghost" data-nav="1" ${i === -1 || i >= list.length - 1 ? "disabled" : ""} aria-label="${t("press.next")}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>`;
+}
+
+function openPress(id) {
+  const x = filteredPress().find((p) => p.id === id) || pressList().find((p) => p.id === id);
+  if (!x) return;
+  dOpenId = id;
+  const flyout = document.getElementById("press-flyout");
+  const panel = document.getElementById("press-flyout-panel");
+  panel.innerHTML = pressFlyoutContent(x);
+  flyout.hidden = false;
+  document.body.style.overflow = "hidden";
+  bindVideoFacades(panel);
+  panel.querySelector("[data-close]")?.addEventListener("click", closePress);
+  panel.querySelectorAll("[data-nav]").forEach((b) =>
+    b.addEventListener("click", () => stepPress(Number(b.dataset.nav))));
+}
+
+function closePress() {
+  dOpenId = null;
+  const flyout = document.getElementById("press-flyout");
+  if (flyout) flyout.hidden = true;
+  document.body.style.overflow = "";
+}
+
+function stepPress(delta) {
+  const list = filteredPress();
+  const i = list.findIndex((p) => p.id === dOpenId);
+  const next = list[i + delta];
+  if (next) openPress(next.id);
+}
+
+function bindPress() {
+  const grid = document.getElementById("press-grid");
+  if (!grid) return;
+  bindVideoFacades(grid);
+  grid.querySelectorAll("[data-open]").forEach((el) => {
+    const go = () => openPress(el.dataset.open);
+    el.addEventListener("click", go);
+    el.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+  });
+  document.querySelectorAll(".chip-filter").forEach((b) =>
+    b.addEventListener("click", () => { dTopic = b.dataset.topic; render(); }));
+  document.getElementById("press-flyout").addEventListener("click", (e) => {
+    if (e.target.hasAttribute("data-close")) closePress();
+  });
+  if (!window.__pressEscBound) {
+    window.__pressEscBound = true;
+    document.addEventListener("keydown", pressEscHandler);
+  }
+}
+
+function pressEscHandler(e) {
+  if (e.key === "Escape" && dOpenId) closePress();
 }
 
 /* ---------- vista: proyectos --------------------------------------------- */
@@ -782,6 +943,7 @@ function render(opts = {}) {
   const r = route();
   charts.destroyAll();
   view.innerHTML = r === "publicaciones" ? viewPubs()
+    : r === "divulgacion" ? viewPress()
     : r === "docencia" ? viewTeaching()
     : r === "proyectos" ? viewProjects()
     : r === "indicadores" ? viewMetrics()
@@ -796,6 +958,44 @@ function render(opts = {}) {
   if (r === "indicadores") bindMetrics();
   if (r === "docencia") { bindTeaching(); bindSupervisions(); }
   if (r === "proyectos") bindProjects();
+  if (r === "divulgacion") bindPress(); else closePress();
+  closeMobileNav();
+  observeReveal();
+}
+
+function closeMobileNav() {
+  const nav = document.getElementById("nav");
+  const btn = document.getElementById("nav-toggle");
+  if (!nav || !btn) return;
+  nav.classList.remove("is-open");
+  btn.setAttribute("aria-expanded", "false");
+}
+
+function bindMobileNav() {
+  const btn = document.getElementById("nav-toggle");
+  const nav = document.getElementById("nav");
+  if (!btn || !nav || btn.dataset.bound) return;
+  btn.dataset.bound = "1";
+  btn.addEventListener("click", () => {
+    const open = nav.classList.toggle("is-open");
+    btn.setAttribute("aria-expanded", String(open));
+  });
+}
+
+/** Anima la entrada de una rejilla de tarjetas una sola vez, al llegar con el scroll. */
+function observeReveal() {
+  if (!("IntersectionObserver" in window)) {
+    document.querySelectorAll("[data-reveal]").forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+  document.querySelectorAll("[data-reveal]:not(.is-visible)").forEach((el) => {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.2 });
+    io.observe(el);
+  });
 }
 
 async function fetchOrcid(force = false) {
@@ -830,7 +1030,8 @@ async function fetchOpenAlex() {
   const id = state.site.profiles?.orcid;
   if (!id) return;
   await openalex.load(id, {
-    mail: state.site.identity?.email || "",
+    mail: (state.site.identity?.emailUser && state.site.identity?.emailHost)
+      ? `${state.site.identity.emailUser}@${state.site.identity.emailHost}` : "",
     onData: (data) => { if (data) { oa = data; render(); } }
   });
 }
@@ -839,6 +1040,7 @@ async function boot() {
   initLang();
   await loadSite();
   render();
+  bindMobileNav();
   document.querySelectorAll(".lang button").forEach((b) =>
     b.addEventListener("click", () => { setLang(b.dataset.lang); render(); }));
   window.addEventListener("hashchange", () => { window.scrollTo(0, 0); range = null; render(); });

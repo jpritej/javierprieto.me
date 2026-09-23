@@ -29,6 +29,47 @@ const ICONS = {
     <path d="M14 2.8v4.2h4M8.6 12.6h6.8M8.6 16.2h6.8" fill="none" stroke="currentColor" stroke-width="1.4"/>`
 };
 
+/* Iconos temáticos (líneas de investigación y, con el mismo dibujo,
+   identidad visual de las tarjetas de divulgación). ViewBox 0 0 48 48. */
+const TOPIC_ICONS = {
+  ia: `<circle cx="12" cy="14" r="4"/><circle cx="12" cy="34" r="4"/>
+    <circle cx="27" cy="24" r="4"/><circle cx="41" cy="24" r="4"/>
+    <path d="M16 14l8 8M16 34l8-8M31 24h6"/>`,
+  blockchain: `<rect x="5" y="14" width="16" height="16" rx="4"/>
+    <rect x="19" y="14" width="16" height="16" rx="4"/>
+    <path d="M30 30l8 3v6c0 4-3 6-8 8-5-2-8-4-8-8v-6z"/>`,
+  iot: `<rect x="15" y="15" width="18" height="18" rx="3"/><circle cx="24" cy="24" r="3"/>
+    <path d="M24 15v-5M24 38v-5M15 24h-5M38 24h-5M18 15l-3-4M33 33l3 4M18 33l-3 4M33 15l3-4"/>`,
+  quantum: `<path d="M24 6v4"/><path d="M18 10a9 9 0 0 1 12 0"/><path d="M14 10a15 15 0 0 1 20 0"/>
+    <circle cx="24" cy="30" r="2.6"/><ellipse cx="24" cy="30" rx="15" ry="6"/>
+    <ellipse cx="24" cy="30" rx="15" ry="6" transform="rotate(65 24 30)"/>`,
+  metaverse: `<rect x="8" y="18" width="32" height="16" rx="6"/>
+    <circle cx="18" cy="26" r="4"/><circle cx="30" cy="26" r="4"/>
+    <path d="M8 24c-3 0-3 6 0 6M40 24c3 0 3 6 0 6"/><path d="M24 10l10 4-10 4-10-4z"/>`,
+  ehealth: `<path d="M8 8v6M8 8h6M40 8v6M40 8h-6M8 40v-6M8 40h6M40 40v-6M40 40h-6"/>
+    <path d="M6 24h8l3-8 5 16 4-12 3 4h13"/>`
+};
+
+export function topicIcon(key, size = 48) {
+  const glyph = TOPIC_ICONS[key] || TOPIC_ICONS.ia;
+  return `<svg viewBox="0 0 48 48" width="${size}" height="${size}" fill="none" stroke="currentColor"
+    stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${glyph}</svg>`;
+}
+
+/* Insignia de licencia Creative Commons: el roundel "cc" reconocible más el
+   código de la licencia en texto (BY-NC-SA…), con equivalente accesible. */
+export function ccBadge(code) {
+  const label = `Licencia Creative Commons ${code.replace(/^CC\s*/i, "")}`;
+  return `<span class="cc-badge" role="img" aria-label="${label}">
+    <svg viewBox="0 0 32 32" width="18" height="18" aria-hidden="true">
+      <circle cx="16" cy="16" r="14.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <text x="16" y="21" text-anchor="middle" font-family="IBM Plex Sans, sans-serif"
+        font-size="13" font-weight="600" fill="currentColor">cc</text>
+    </svg>
+    <span>${code}</span>
+  </span>`;
+}
+
 export const ICON_KEYS = Object.keys(ICONS);
 
 export function icon(key) {

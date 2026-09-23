@@ -50,6 +50,18 @@ Los trabajos defendidos que todavía no constan en el CVN se añaden a mano en
 `data/extra-supervisions.json` (título, estudiante, año, tipo y universidad); el
 importador los fusiona con los del CVN sin duplicar.
 
+Debajo de las asignaturas va la sección de recursos educativos abiertos (REA):
+portada, título, enlace a OER Commons, titulación e institución, coautores si
+los hay, y la licencia tal como aparece en la propia diapositiva (insignia
+"cc" + código, por ejemplo BY-NC-SA). No todos los REA corresponden a una
+asignatura de la lista de arriba (algunos son de másteres que no estaban en
+los datos de docencia); por eso cada uno lleva su propio contexto en vez de
+intentar encajarlo bajo una fila concreta.
+
+Las imágenes de portada están ya subidas en `assets/img/rea/`. El campo
+«Portada» del admin no sube ficheros nuevos, solo apunta a uno: para cambiar
+una imagen hay que subir el fichero al repositorio y actualizar la ruta.
+
 Las asignaturas se editan en `/admin/` como texto, una por línea:
 
 ```
@@ -69,6 +81,74 @@ versión antigua. Cuando cambies código, sube ese número en `index.html`,
 `admin/index.html` y en las líneas `import` de `assets/js/app.js` y
 `assets/js/admin.js`. Si ves la web como estaba, recarga forzando caché
 (Ctrl+Shift+R, o Cmd+Shift+R en Mac).
+
+## Acceso a la administración
+
+`/admin/` pide iniciar sesión con una cuenta de Google concreta antes de mostrar
+el formulario. Para activarlo:
+
+1. En [Google Cloud Console](https://console.cloud.google.com/apis/credentials),
+   crea un proyecto (o usa uno existente) y una credencial **OAuth client ID**,
+   tipo *Web application*.
+2. En «Authorized JavaScript origins» añade `https://javierprieto.me` y, si
+   pruebas en local, `http://localhost:8000`.
+3. En la pantalla de consentimiento OAuth, modo *Testing*, añade tu propio
+   correo de Google como *test user* (con esto basta, no hace falta publicar
+   ni verificar la app).
+4. Copia el Client ID (termina en `.apps.googleusercontent.com`) y pégalo en
+   `assets/js/admin.js`, en la constante `GOOGLE_CLIENT_ID`. Cambia también
+   `ALLOWED_EMAIL` si algún día quieres autorizar otra cuenta.
+
+Aviso importante sobre qué protege esto y qué no: la comprobación se hace en el
+navegador de quien visita la página, verificando el token contra el endpoint
+público de Google (gratis, sin servidor propio). Es una barrera seria para
+cualquier visitante casual y no expone ningún secreto que se pueda leer en el
+código, a diferencia de una contraseña. No es una garantía criptográfica: nada
+impide del todo que alguien muy decidido manipule la consola del navegador
+para saltarse la comprobación. Lo que sí es cierto siempre, con o sin este
+cerrojo: nadie puede publicar cambios reales sin el token de GitHub, que solo
+existe en tu sesión y nunca se guarda en ningún fichero.
+
+## Divulgación
+
+Pestaña con las apariciones en medios, filtrable por tema. Cada tarjeta lleva
+como identidad visual, en este orden de preferencia: un vídeo de YouTube (con
+miniatura estática y botón de reproducir; el `<iframe>` real solo se carga si
+alguien pulsa), una foto propia, o si no hay ninguna de las dos, el icono del
+tema. Al pulsar una tarjeta se abre una ficha flotante con el resumen y
+enlaces de anterior/siguiente dentro del filtro activo.
+
+Cada entrada nunca reproduce el texto del medio: solo titular, medio, fecha,
+tema, tu propio resumen de dos o tres líneas y un enlace de «leer en...».
+Cuando no hay hemeroteca disponible (una noticia de un periódico que cerró, o
+un recorte que no está en ningún sitio), el campo enlace se deja vacío y la
+ficha no muestra botón de salida.
+
+Se edita en `/admin/`, bloque «Divulgación y medios»: título, medio, fecha,
+enlace, tema, y opcionalmente un ID de vídeo de YouTube o una foto propia.
+
+Dos recortes de prensa se alojan en el propio sitio, no como reproducción
+completa de un periódico sino recortados a lo mínimo necesario:
+
+- `assets/press/orsi-2009-wifi.pdf`: solo las dos páginas del artículo, de
+  un boletín oficial de 36 páginas de la Junta de Castilla y León pensado
+  para difusión gratuita.
+- `assets/img/press/ieee-spectrum-2020.jpg`: tu propia foto, la que
+  ilustra el artículo de IEEE Spectrum.
+
+Las otras entradas con periódico desaparecido o sin hemeroteca (El Día de
+Salamanca, el PDF de INNOVADORES) van sin enlace y sin alojar el documento
+completo, solo cita y resumen.
+
+## Correo sin texto plano
+
+El correo no se guarda entero en ningún fichero: `identity.emailUser` y
+`identity.emailHost` van por separado en `data/site.json`, y solo se juntan en
+el navegador de quien visita la página. Es para dificultar el barrido masivo de
+direcciones (los recolectores de spam suelen leer el HTML o el JSON en bruto sin
+ejecutar JavaScript); no es infalible contra algo dirigido a propósito, pero
+corta la inmensa mayoría del ruido automático. Se edita en `/admin/` como dos
+campos separados.
 
 ## Trayectoria
 
