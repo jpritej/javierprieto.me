@@ -1,10 +1,10 @@
-import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=17";
-import * as orcid from "./orcid.js?v=17";
-import * as openalex from "./openalex.js?v=17";
-import * as charts from "./charts.js?v=17";
-import { icon, topicIcon, ccBadge } from "./icons.js?v=17";
-import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=17";
-import { exportRows, canExport, stamp } from "./export.js?v=17";
+import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=19";
+import * as orcid from "./orcid.js?v=19";
+import * as openalex from "./openalex.js?v=19";
+import * as charts from "./charts.js?v=19";
+import { icon, topicIcon, ccBadge } from "./icons.js?v=19";
+import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=19";
+import { exportRows, canExport, stamp } from "./export.js?v=19";
 
 const view = document.getElementById("view");
 const ROUTES = ["", "docencia", "proyectos", "publicaciones", "divulgacion", "indicadores"];
