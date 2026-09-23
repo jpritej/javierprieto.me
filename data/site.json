@@ -2,7 +2,7 @@
   "_comment": "Todo este fichero se edita desde /admin/. No hace falta tocarlo a mano.",
   "updatedAt": "2026-09-23",
   "identity": {
-    "name": "Javier Prieto Tejedor",
+    "name": "Javier Prieto",
     "shortName": "Javier Prieto",
     "role": {
       "es": "Profesor Titular de Universidad",
@@ -22,7 +22,7 @@
     },
     "emailUser": "javierp",
     "emailHost": "usal.es",
-    "photo": "assets/img/foto.jpg",
+    "photo": "assets/img/retrato-grafo.svg",
     "cv": ""
   },
   "bio": {
@@ -119,7 +119,7 @@
     "scholarUpdatedAt": "",
     "citationSource": "openalex",
     "supervisionMaster": 6,
-    "supervisionDegree": 29
+    "supervisionDegree": 24
   },
   "theses": [
     {
@@ -199,584 +199,6 @@
         "en": "Universidad de Salamanca"
       },
       "url": ""
-    }
-  ],
-  "teaching": [
-    {
-      "year": "2026-27",
-      "program": {
-        "es": "Grado en Ingeniería Informática",
-        "en": "BSc in Computer Engineering"
-      },
-      "course": {
-        "es": "Programación II",
-        "en": "Programming II"
-      },
-      "code": "101107",
-      "type": {
-        "es": "Básica",
-        "en": "Core"
-      }
-    },
-    {
-      "year": "2026-27",
-      "program": {
-        "es": "Grado en Información y Documentación",
-        "en": "BSc in Information and Documentation"
-      },
-      "course": {
-        "es": "Edición Digital Multimedia",
-        "en": "Digital Multimedia Publishing"
-      },
-      "code": "108332",
-      "type": {
-        "es": "Optativa",
-        "en": "Elective"
-      }
-    },
-    {
-      "year": "2026-27",
-      "program": {
-        "es": "Máster Universitario en Ciberseguridad",
-        "en": "MSc in Cybersecurity"
-      },
-      "course": {
-        "es": "Criptografía, blockchain y criptomonedas",
-        "en": "Cryptography, blockchain and cryptocurrencies"
-      },
-      "code": "306559",
-      "type": {
-        "es": "Optativa",
-        "en": "Elective"
-      }
-    },
-    {
-      "year": "2026-27",
-      "program": {
-        "es": "Máster Universitario en Ciencias de Datos Aplicada a las Ciencias Sociales",
-        "en": "MSc in Data Science Applied to the Social Sciences"
-      },
-      "course": {
-        "es": "Visualización de datos sociales digitales",
-        "en": "Digital social data visualisation"
-      },
-      "code": "306386",
-      "type": {
-        "es": "Optativa",
-        "en": "Elective"
-      }
-    },
-    {
-      "year": "2026-27",
-      "program": {
-        "es": "Doctorado en Ingeniería Informática (RD 99/2011)",
-        "en": "PhD programme in Computer Engineering"
-      },
-      "course": {
-        "es": "",
-        "en": ""
-      },
-      "code": "1501",
-      "type": {
-        "es": "Doctorado",
-        "en": "Doctoral"
-      }
-    },
-    {
-      "year": "2026-27",
-      "program": {
-        "es": "Doctorado en Inteligencia Artificial Aplicada",
-        "en": "PhD programme in Applied Artificial Intelligence"
-      },
-      "course": {
-        "es": "",
-        "en": ""
-      },
-      "code": "3001",
-      "type": {
-        "es": "Doctorado",
-        "en": "Doctoral"
-      }
-    },
-    {
-      "year": "2025-26",
-      "program": {
-        "es": "Grado en Ingeniería Informática",
-        "en": "BSc in Computer Engineering"
-      },
-      "course": {
-        "es": "Programación II",
-        "en": "Programming II"
-      },
-      "code": "101107",
-      "type": {
-        "es": "Básica",
-        "en": "Core"
-      }
-    },
-    {
-      "year": "2025-26",
-      "program": {
-        "es": "Grado en Información y Documentación",
-        "en": "BSc in Information and Documentation"
-      },
-      "course": {
-        "es": "Edición Digital Multimedia",
-        "en": "Digital Multimedia Publishing"
-      },
-      "code": "108332",
-      "type": {
-        "es": "Optativa",
-        "en": "Elective"
-      }
-    },
-    {
-      "year": "2025-26",
-      "program": {
-        "es": "Máster Universitario en Ciberseguridad",
-        "en": "MSc in Cybersecurity"
-      },
-      "course": {
-        "es": "Criptografía, blockchain y criptomonedas",
-        "en": "Cryptography, blockchain and cryptocurrencies"
-      },
-      "code": "306559",
-      "type": {
-        "es": "Optativa",
-        "en": "Elective"
-      }
-    },
-    {
-      "year": "2025-26",
-      "program": {
-        "es": "Máster Universitario en Ciencias de Datos Aplicada a las Ciencias Sociales",
-        "en": "MSc in Data Science Applied to the Social Sciences"
-      },
-      "course": {
-        "es": "Visualización de datos sociales digitales",
-        "en": "Digital social data visualisation"
-      },
-      "code": "306386",
-      "type": {
-        "es": "Optativa",
-        "en": "Elective"
-      }
-    },
-    {
-      "year": "2025-26",
-      "program": {
-        "es": "Doctorado en Ingeniería Informática (RD 99/2011)",
-        "en": "PhD programme in Computer Engineering"
-      },
-      "course": {
-        "es": "",
-        "en": ""
-      },
-      "code": "1501",
-      "type": {
-        "es": "Doctorado",
-        "en": "Doctoral"
-      }
-    },
-    {
-      "year": "2025-26",
-      "program": {
-        "es": "Doctorado en Inteligencia Artificial Aplicada",
-        "en": "PhD programme in Applied Artificial Intelligence"
-      },
-      "course": {
-        "es": "",
-        "en": ""
-      },
-      "code": "3001",
-      "type": {
-        "es": "Doctorado",
-        "en": "Doctoral"
-      }
-    },
-    {
-      "year": "2024-25",
-      "program": {
-        "es": "Grado en Ingeniería Informática",
-        "en": "BSc in Computer Engineering"
-      },
-      "course": {
-        "es": "Programación II",
-        "en": "Programming II"
-      },
-      "code": "101107",
-      "type": {
-        "es": "Básica",
-        "en": "Core"
-      }
-    },
-    {
-      "year": "2024-25",
-      "program": {
-        "es": "Grado en Información y Documentación",
-        "en": "BSc in Information and Documentation"
-      },
-      "course": {
-        "es": "Edición Digital Multimedia",
-        "en": "Digital Multimedia Publishing"
-      },
-      "code": "108332",
-      "type": {
-        "es": "Optativa",
-        "en": "Elective"
-      }
-    },
-    {
-      "year": "2024-25",
-      "program": {
-        "es": "Máster Universitario en Ciencias de Datos Aplicada a las Ciencias Sociales",
-        "en": "MSc in Data Science Applied to the Social Sciences"
-      },
-      "course": {
-        "es": "Visualización de datos sociales digitales",
-        "en": "Digital social data visualisation"
-      },
-      "code": "306386",
-      "type": {
-        "es": "Optativa",
-        "en": "Elective"
-      }
-    },
-    {
-      "year": "2023-24",
-      "program": {
-        "es": "Grado en Ingeniería Informática",
-        "en": "BSc in Computer Engineering"
-      },
-      "course": {
-        "es": "Programación II",
-        "en": "Programming II"
-      },
-      "code": "101107",
-      "type": {
-        "es": "Básica",
-        "en": "Core"
-      }
-    },
-    {
-      "year": "2023-24",
-      "program": {
-        "es": "Grado en Información y Documentación",
-        "en": "BSc in Information and Documentation"
-      },
-      "course": {
-        "es": "Edición Digital Multimedia",
-        "en": "Digital Multimedia Publishing"
-      },
-      "code": "108332",
-      "type": {
-        "es": "Optativa",
-        "en": "Elective"
-      }
-    },
-    {
-      "year": "2022-23",
-      "program": {
-        "es": "Grado en Ingeniería Informática",
-        "en": "BSc in Computer Engineering"
-      },
-      "course": {
-        "es": "Programación II",
-        "en": "Programming II"
-      },
-      "code": "101107",
-      "type": {
-        "es": "Básica",
-        "en": "Core"
-      }
-    },
-    {
-      "year": "2022-23",
-      "program": {
-        "es": "Grado en Información y Documentación",
-        "en": "BSc in Information and Documentation"
-      },
-      "course": {
-        "es": "Edición Digital Multimedia",
-        "en": "Digital Multimedia Publishing"
-      },
-      "code": "108332",
-      "type": {
-        "es": "Optativa",
-        "en": "Elective"
-      }
-    },
-    {
-      "year": "2022-23",
-      "program": {
-        "es": "Grado en Matemáticas",
-        "en": "BSc in Mathematics"
-      },
-      "course": {
-        "es": "Informática II",
-        "en": "Computer Science II"
-      },
-      "code": "100209",
-      "type": {
-        "es": "Obligatoria",
-        "en": "Compulsory"
-      }
-    },
-    {
-      "year": "2021-22",
-      "program": {
-        "es": "Grado en Ingeniería Informática",
-        "en": "BSc in Computer Engineering"
-      },
-      "course": {
-        "es": "Programación II",
-        "en": "Programming II"
-      },
-      "code": "101107",
-      "type": {
-        "es": "Básica",
-        "en": "Core"
-      }
-    },
-    {
-      "year": "2021-22",
-      "program": {
-        "es": "Grado en Información y Documentación",
-        "en": "BSc in Information and Documentation"
-      },
-      "course": {
-        "es": "Edición Digital Multimedia",
-        "en": "Digital Multimedia Publishing"
-      },
-      "code": "108332",
-      "type": {
-        "es": "Optativa",
-        "en": "Elective"
-      }
-    },
-    {
-      "year": "2021-22",
-      "program": {
-        "es": "Grado en Matemáticas",
-        "en": "BSc in Mathematics"
-      },
-      "course": {
-        "es": "Informática II",
-        "en": "Computer Science II"
-      },
-      "code": "100209",
-      "type": {
-        "es": "Obligatoria",
-        "en": "Compulsory"
-      }
-    },
-    {
-      "year": "2020-21",
-      "program": {
-        "es": "Grado en Ingeniería Informática",
-        "en": "BSc in Computer Engineering"
-      },
-      "course": {
-        "es": "Programación II",
-        "en": "Programming II"
-      },
-      "code": "101107",
-      "type": {
-        "es": "Básica",
-        "en": "Core"
-      }
-    },
-    {
-      "year": "2020-21",
-      "program": {
-        "es": "Grado en Matemáticas",
-        "en": "BSc in Mathematics"
-      },
-      "course": {
-        "es": "Informática II",
-        "en": "Computer Science II"
-      },
-      "code": "100209",
-      "type": {
-        "es": "Obligatoria",
-        "en": "Compulsory"
-      }
-    },
-    {
-      "year": "2019-20",
-      "program": {
-        "es": "Grado en Ingeniería Informática",
-        "en": "BSc in Computer Engineering"
-      },
-      "course": {
-        "es": "Programación II",
-        "en": "Programming II"
-      },
-      "code": "101107",
-      "type": {
-        "es": "Básica",
-        "en": "Core"
-      }
-    },
-    {
-      "year": "2019-20",
-      "program": {
-        "es": "Grado en Información y Documentación",
-        "en": "BSc in Information and Documentation"
-      },
-      "course": {
-        "es": "Edición Digital Multimedia",
-        "en": "Digital Multimedia Publishing"
-      },
-      "code": "108332",
-      "type": {
-        "es": "Optativa",
-        "en": "Elective"
-      }
-    },
-    {
-      "year": "2019-20",
-      "program": {
-        "es": "Grado en Matemáticas",
-        "en": "BSc in Mathematics"
-      },
-      "course": {
-        "es": "Informática II",
-        "en": "Computer Science II"
-      },
-      "code": "100209",
-      "type": {
-        "es": "Obligatoria",
-        "en": "Compulsory"
-      }
-    },
-    {
-      "year": "2018-19",
-      "program": {
-        "es": "Máster Universitario en Industria 4.0",
-        "en": "MSc in Industry 4.0"
-      },
-      "course": {
-        "es": "",
-        "en": ""
-      },
-      "code": "",
-      "type": {
-        "es": "",
-        "en": ""
-      }
-    },
-    {
-      "year": "2017-18",
-      "program": {
-        "es": "Grado en Ingeniería Informática",
-        "en": "BSc in Computer Engineering"
-      },
-      "course": {
-        "es": "Programación II",
-        "en": "Programming II"
-      },
-      "code": "101107",
-      "type": {
-        "es": "Básica",
-        "en": "Core"
-      }
-    },
-    {
-      "year": "2017-18",
-      "program": {
-        "es": "Grado en Física",
-        "en": "BSc in Physics"
-      },
-      "course": {
-        "es": "Técnicas Informáticas en Física",
-        "en": "Computing Techniques in Physics"
-      },
-      "code": "100804",
-      "type": {
-        "es": "Básica",
-        "en": "Core"
-      }
-    },
-    {
-      "year": "2016-17",
-      "program": {
-        "es": "Grado en Ingeniería Informática",
-        "en": "BSc in Computer Engineering"
-      },
-      "course": {
-        "es": "Programación II",
-        "en": "Programming II"
-      },
-      "code": "101107",
-      "type": {
-        "es": "Básica",
-        "en": "Core"
-      }
-    },
-    {
-      "year": "2016-17",
-      "program": {
-        "es": "Grado en Física",
-        "en": "BSc in Physics"
-      },
-      "course": {
-        "es": "Técnicas Informáticas en Física",
-        "en": "Computing Techniques in Physics"
-      },
-      "code": "100804",
-      "type": {
-        "es": "Básica",
-        "en": "Core"
-      }
-    },
-    {
-      "year": "2015-16",
-      "program": {
-        "es": "Grado en Ingeniería Informática",
-        "en": "BSc in Computer Engineering"
-      },
-      "course": {
-        "es": "Programación II",
-        "en": "Programming II"
-      },
-      "code": "101107",
-      "type": {
-        "es": "Básica",
-        "en": "Core"
-      }
-    },
-    {
-      "year": "2015-16",
-      "program": {
-        "es": "Grado en Física",
-        "en": "BSc in Physics"
-      },
-      "course": {
-        "es": "Técnicas Informáticas en Física",
-        "en": "Computing Techniques in Physics"
-      },
-      "code": "100804",
-      "type": {
-        "es": "Básica",
-        "en": "Core"
-      }
-    },
-    {
-      "year": "2010-11",
-      "program": {
-        "es": "Ingeniería Técnica de Telecomunicación, Sistemas de Telecomunicación (Universidad de Valladolid)",
-        "en": "Telecommunication Engineering (University of Valladolid)"
-      },
-      "course": {
-        "es": "Radiocomunicaciones",
-        "en": "Radio communications"
-      },
-      "code": "",
-      "type": {
-        "es": "",
-        "en": ""
-      }
     }
   ],
   "service": [
@@ -1018,11 +440,11 @@
       "outlet": "Vídeo de divulgación",
       "date": "",
       "url": "",
-      "topic": "iot",
+      "topic": "blockchain",
       "video": "EduxXnkaaH8",
       "summary": {
-        "es": "Vídeo de divulgación del proyecto Eco2for, sobre gestión forestal para combatir el cambio climático y revitalizar zonas rurales.",
-        "en": "Outreach video on the Eco2for project, on forest management to fight climate change and revitalise rural areas."
+        "es": "Vídeo de divulgación de Eco2for, la plataforma blockchain para el intercambio de créditos de carbono que desarrollamos para combatir el cambio climático y revitalizar zonas rurales.",
+        "en": "Outreach video on Eco2for, the blockchain platform for trading carbon credits that we developed to fight climate change and revitalise rural areas."
       }
     },
     {
@@ -1049,6 +471,18 @@
       "summary": {
         "es": "Sobre el curso que impartí en la Escuela Técnica Superior de Ingenieros de Telecomunicación de la UVA sobre herramientas TIC aplicadas a las ciudades inteligentes.",
         "en": "About the course I taught at UVA's School of Telecommunication Engineering on ICT tools applied to smart cities."
+      }
+    },
+    {
+      "id": "laopiniondezamora-chromosome-2019",
+      "title": "Casas más sostenibles",
+      "outlet": "La Opinión de Zamora",
+      "date": "2019-09-23",
+      "url": "https://www.laopiniondezamora.es/zamora/2019/09/23/casas-sostenibles/1192138.html",
+      "topic": "blockchain",
+      "summary": {
+        "es": "Sobre CHROMOSOME: mecanismos inteligentes para lograr un ahorro en el consumo energético del hogar, con inteligencia artificial, blockchain y computación social.",
+        "en": "About CHROMOSOME: smart mechanisms to save on household energy consumption, using artificial intelligence, blockchain and social computing."
       }
     }
   ],
@@ -1079,8 +513,8 @@
       "title": "Procesamiento de Datos en Big Data. El ecosistema Apache Spark",
       "url": "https://oercommons.org/courseware/lesson/131318/overview",
       "program": {
-        "es": "Máster en Big Data Science, Universidad de Valladolid",
-        "en": "Master's in Big Data Science, University of Valladolid"
+        "es": "Máster en Big Data Science, Universidad de Valladolid (2016-2019)",
+        "en": "Master's in Big Data Science, University of Valladolid (2016-2019)"
       },
       "authors": "Fernando De la Prieta Pintado, Albano Carrera González",
       "license": "CC BY-NC-SA",
@@ -1090,8 +524,8 @@
       "title": "Ciencia de Datos",
       "url": "https://oercommons.org/courseware/lesson/131485/overview",
       "program": {
-        "es": "Máster en Internet of Things, Universidad de Salamanca",
-        "en": "Master's in Internet of Things, University of Salamanca"
+        "es": "Máster en Internet of Things, Universidad de Salamanca (2016-2023)",
+        "en": "Master's in Internet of Things, University of Salamanca (2016-2023)"
       },
       "authors": "Fernando De la Prieta Pintado",
       "license": "CC BY-NC-SA",

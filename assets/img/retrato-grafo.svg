@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img"
+     aria-label="Ilustración: un grafo de nodos y aristas que insinúa una figura humana">
+  <defs>
+    <style>
+      .edge { fill: none; stroke: var(--accent, #17595f); stroke-width: 1; opacity: .3; stroke-linecap: round; }
+      .edge-strong { fill: none; stroke: var(--accent, #17595f); stroke-width: 1.5; opacity: .8; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-soft { fill: none; stroke: var(--accent, #17595f); stroke-width: 1.2; opacity: .45; stroke-linecap: round; }
+      .node { fill: var(--accent, #17595f); }
+      .node-hollow { fill: var(--surface, #fff); stroke: var(--accent, #17595f); stroke-width: 1.6; }
+      .faint { fill: var(--accent, #17595f); opacity: .28; }
+    </style>
+  </defs>
+
+  <!-- constelación de fondo, suelta y sin cruzar la figura -->
+  <g class="edge">
+    <path d="M52 92 L104 60 M52 92 L40 168 M104 60 L150 78"/>
+    <path d="M348 92 L296 60 M348 92 L360 168 M296 60 L250 78"/>
+    <path d="M40 168 L58 250 M360 168 L342 250"/>
+    <path d="M58 250 L44 338 M342 250 L356 338"/>
+    <path d="M44 338 L96 404 M356 338 L304 404"/>
+  </g>
+  <g class="faint">
+    <circle cx="52" cy="92" r="2.6"/><circle cx="104" cy="60" r="2.6"/><circle cx="40" cy="168" r="2.6"/>
+    <circle cx="348" cy="92" r="2.6"/><circle cx="296" cy="60" r="2.6"/><circle cx="360" cy="168" r="2.6"/>
+    <circle cx="58" cy="250" r="2.6"/><circle cx="342" cy="250" r="2.6"/>
+    <circle cx="44" cy="338" r="2.6"/><circle cx="356" cy="338" r="2.6"/>
+    <circle cx="96" cy="404" r="2.6"/><circle cx="304" cy="404" r="2.6"/>
+    <circle cx="150" cy="78" r="2.2"/><circle cx="250" cy="78" r="2.2"/>
+  </g>
+
+  <!-- cabeza -->
+  <g class="edge-strong"><path d="M200.0 100.0 L233.4 114.0 M233.4 114.0 L251.2 149.6 M251.2 149.6 L245.0 190.0 M245.0 190.0 L217.8 216.4 M217.8 216.4 L182.2 216.4 M182.2 216.4 L155.0 190.0 M155.0 190.0 L148.8 149.6 M148.8 149.6 L166.6 114.0 M166.6 114.0 L200.0 100.0"/></g>
+  <g class="edge-soft"><path d="M200.0 100.0 L245.0 190.0 M200.0 100.0 L182.2 216.4 M233.4 114.0 L155.0 190.0 M251.2 149.6 L148.8 149.6 M217.8 216.4 L166.6 114.0 M245.0 190.0 L155.0 190.0"/></g>
+
+  <!-- cuello y hombros -->
+  <g class="edge-strong">
+    <path d="M182 219 L178 252 M218 219 L222 252"/>
+    <path d="M178 252 C150 258 122 276 118 302 L112 366"/>
+    <path d="M222 252 C250 258 278 276 282 302 L288 366"/>
+    <path d="M118 302 C140 286 260 286 282 302"/>
+    <path d="M200 268 L200 366"/>
+    <path d="M118 302 L200 366 M282 302 L200 366"/>
+    <path d="M112 366 L288 366"/>
+  </g>
+  <g class="edge-soft">
+    <path d="M178 252 L200 268 L222 252"/>
+    <path d="M118 302 L200 268 L282 302"/>
+    <path d="M112 366 L148 326 L200 366 L252 326 L288 366"/>
+  </g>
+
+  <g class="node"><circle cx="200.0" cy="100.0" r="4.5"/><circle cx="233.4" cy="114.0" r="4.5"/><circle cx="251.2" cy="149.6" r="4.5"/><circle cx="245.0" cy="190.0" r="4.5"/><circle cx="217.8" cy="216.4" r="4.5"/><circle cx="182.2" cy="216.4" r="4.5"/><circle cx="155.0" cy="190.0" r="4.5"/><circle cx="148.8" cy="149.6" r="4.5"/><circle cx="166.6" cy="114.0" r="4.5"/>
+    <circle cx="118" cy="302" r="5"/><circle cx="282" cy="302" r="5"/>
+    <circle cx="112" cy="366" r="4.5"/><circle cx="288" cy="366" r="4.5"/>
+    <circle cx="140" cy="330" r="3.5"/><circle cx="260" cy="330" r="3.5"/>
+  </g>
+  <g class="node-hollow">
+    <circle cx="200" cy="268" r="7"/><circle cx="200" cy="366" r="6"/>
+    <circle cx="178" cy="252" r="4"/><circle cx="222" cy="252" r="4"/>
+  </g>
+</svg>

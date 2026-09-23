@@ -12,6 +12,7 @@ pypdf (`pip install pypdf`). Vuelve a ejecutarlo cada vez que actualices el CVN:
 sobrescribe lo importado y respeta el resto de data/site.json.
 """
 import json
+import math
 import pathlib
 import re
 import shutil
@@ -172,11 +173,120 @@ def thesis(rec):
     }
 
 
+def parse_teaching(lines):
+    """La docencia impartida no repite una cabecera por registro: cada uno
+    empieza con una línea que es solo su número de orden (1, 2, 3...)."""
+    start = next((i for i, l in enumerate(lines) if l.strip() == "Formación académica impartida"), None)
+    if start is None:
+        return []
+    end = next((i for i in range(start, len(lines)) if "Dirección de tesis doctorales" in lines[i]), len(lines))
+    chunk = lines[start + 1:end]
+
+    records, cur, last, counter = [], None, None, 1
+    for l in chunk:
+        s = l.strip()
+        if s == str(counter):
+            if cur:
+                records.append(cur)
+            cur, last, counter = {}, None, counter + 1
+            continue
+        if cur is None or not s:
+            continue
+        m = re.match(r"^([A-ZÁÉÍÓÚÑ][^:]{2,60}):\s*(.*)$", s)
+        if m:
+            k, v = m.group(1).strip(), m.group(2).strip()
+            key = k if k not in cur else k + "_2"
+            cur[key] = v
+            last = key
+        elif last:
+            cur[last] = (cur[last] + " " + s).strip()
+    if cur:
+        records.append(cur)
+
+    def ddmmyyyy(v):
+        m = re.match(r"(\d{2})/(\d{2})/(\d{4})", v or "")
+        return f"{m.group(3)}-{m.group(2)}-{m.group(1)}" if m else ""
+
+    out = []
+    for r in records:
+        if not r.get("Nombre de la asignatura/curso"):
+            continue
+        hours_n = r.get("Nº de horas/créditos ECTS", "")
+        hours_u = r.get("Tipo de horas/créditos ECTS", "")
+        out.append({
+            "course": r.get("Nombre de la asignatura/curso", ""),
+            "programType": r.get("Tipo de programa", ""),
+            "subjectType": r.get("Tipo de asignatura", ""),
+            "degree": r.get("Titulación universitaria", ""),
+            "official": r.get("Tipo de docencia") == "Docencia oficial",
+            "modality": r.get("Tipo de docencia_2", ""),
+            "start": ddmmyyyy(r.get("Fecha de inicio", "")),
+            "end": ddmmyyyy(r.get("Fecha de finalización", "")),
+            "hours": f"{hours_n} {hours_u}".strip(),
+            "institution": re.sub(r"\s+", " ", r.get("Entidad de realización", "")),
+            "faculty": r.get("Facultad, instituto, centro", ""),
+            "department": r.get("Departamento", ""),
+            "city": re.sub(r"\s+", " ", r.get("Ciudad entidad realización", "")),
+            "language": r.get("Idioma de la asignatura", ""),
+        })
+    out.sort(key=lambda x: x["start"] or "0000", reverse=True)
+    return out
+
+
+def parse_publications(lines):
+    """Publicaciones del CVN con su cuartil JCR, calculado como
+    ceil(posición / nº de revistas de la categoría * 4). Es el mismo cálculo que
+    hace Web of Science; no hace falta licencia porque el CVN ya trae la posición."""
+    start = next((i for i, l in enumerate(lines)
+                  if l.strip() == "Publicaciones, documentos científicos y técnicos"), None)
+    if start is None:
+        return []
+    end = next((i for i in range(start + 1, len(lines))
+                if lines[i].strip() == "Trabajos presentados en congresos nacionales o internacionales"),
+               len(lines))
+
+    blocks, cur, counter = [], None, 1
+    for l in lines[start + 1:end]:
+        s_ = l.strip()
+        if s_ == str(counter):
+            if cur is not None:
+                blocks.append(cur)
+            cur, counter = [], counter + 1
+            continue
+        if cur is not None:
+            cur.append(s_)
+    if cur is not None:
+        blocks.append(cur)
+
+    out = []
+    for b in blocks:
+        txt = "\n".join(b)
+        kind = re.search(r"Tipo de producción:\s*(.+)", txt)
+        year = re.findall(r"(\d{2})/(\d{2})/(\d{4})", txt)
+        quartile = None
+        m = re.search(r"Fuente de impacto: WOS \(JCR\)(.*?)(?=Fuente de impacto:|$)", txt, re.S)
+        if m:
+            pos = re.search(r"Posición de publicación:\s*(\d+)", m.group(1))
+            tot = re.search(r"Num\. revistas en cat\.:\s*(\d+)", m.group(1))
+            if pos and tot and int(tot.group(1)) > 0:
+                quartile = min(4, max(1, math.ceil(int(pos.group(1)) / int(tot.group(1)) * 4)))
+        doi = re.search(r"\b10\.\d{4,9}/[^\s<>\"]+", txt)
+        out.append({
+            "kind": kind.group(1).strip() if kind else "",
+            "year": year[0][2] if year else "",
+            "quartile": quartile,
+            "doi": (doi.group(0).rstrip(".,>") if doi else ""),
+        })
+    return out
+
+
 def main():
     if len(sys.argv) < 2:
         sys.exit(__doc__)
     lines = clean(pdf_text(pathlib.Path(sys.argv[1])))
     got = {name: parse(block(lines, a, b), head) for name, a, b, head in SECTIONS}
+    teaching = parse_teaching(lines)
+    publications = parse_publications(lines)
 
     projects = ([project(r, "competitivo") for r in got["competitivos"]] +
                 [project(r, "contrato") for r in got["contratos"]] +
@@ -215,6 +325,8 @@ def main():
         "patents": patents,
         "theses": phd,
         "supervisions": supervisions,
+        "teaching": teaching,
+        "publications": publications,
         "supervision": {"phd": len(phd), "master": len(master), "degree": len(degree)},
         "totals": {
             "projects": len(projects),
@@ -256,6 +368,9 @@ def main():
     print(f"proyectos: {t['projects']} ({dict(t['byKind'])}), como IP o coordinador: {t['asLead']}")
     print(f"presupuesto total: {t['budgetTotal']:,} € · gestionado: {t['managed']:,} €")
     print(f"tesis doctorales: {len(phd)} · TFM: {len(master)} · TFG y PFC: {len(degree)}")
+    print(f"docencia impartida: {len(teaching)} asignaturas/cursos, {sum(1 for x in teaching if x['official'])} oficiales")
+    qs = Counter(f"Q{p['quartile']}" for p in publications if p["quartile"])
+    print(f"publicaciones en el CVN: {len(publications)} · con cuartil JCR: {sum(qs.values())} {dict(sorted(qs.items()))}")
     print(f"propiedad industrial: {len(patents)} registros, {m['patents']} patentes de invención")
 
 

@@ -1,9 +1,9 @@
-import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=13";
-import * as orcid from "./orcid.js?v=13";
-import * as openalex from "./openalex.js?v=13";
-import * as charts from "./charts.js?v=13";
-import { icon, topicIcon, ccBadge } from "./icons.js?v=13";
-import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=13";
+import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=15";
+import * as orcid from "./orcid.js?v=15";
+import * as openalex from "./openalex.js?v=15";
+import * as charts from "./charts.js?v=15";
+import { icon, topicIcon, ccBadge } from "./icons.js?v=15";
+import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=15";
 
 const view = document.getElementById("view");
 const ROUTES = ["", "docencia", "proyectos", "publicaciones", "divulgacion", "indicadores"];
@@ -13,7 +13,7 @@ let oa = null;             // métricas de OpenAlex
 let orcStatus = "loading";
 let filters = { q: "", type: "", year: "" };
 let range = null;          // [desde, hasta] en la vista de indicadores
-let teachYear = null;      // curso académico mostrado en Docencia
+// (la docencia ahora sale directamente del CVN, sin filtro de curso académico)
 let cvn = null;            // proyectos, patentes y tesis importados del CVN
 let pf = { q: "", kind: "", scope: "", lead: false };  // filtros de proyectos
 let dTopic = "";           // filtro de tema en divulgación
@@ -66,8 +66,7 @@ function paintChrome() {
     b.setAttribute("aria-pressed", String(b.dataset.lang === state.lang)));
   document.getElementById("foot").innerHTML = `
     <span>© ${new Date().getFullYear()} ${esc(s.identity.name)}</span>
-    <span>${t("foot.built")}</span>
-    <span style="margin-left:auto"><a href="admin/">${t("nav.admin")}</a></span>`;
+    <span>${t("foot.built")}</span>`;
   document.title = `${s.identity.name} · ${L(s.identity.role)}`;
 }
 
@@ -116,15 +115,15 @@ function section(title, body, count = "") {
 function kpi(n, label, accent = false, hideIfEmpty = false) {
   if (hideIfEmpty && (!n || String(n).replace(/[^0-9]/g, "") === "0")) return "";
   return `<div class="kpi${accent ? " kpi--accent" : ""}">
-    <span class="kpi__n">${n}</span><span class="kpi__l">${esc(label)}</span></div>`;
+    <span class="kpi__n" data-count="${esc(n)}">${n}</span><span class="kpi__l">${esc(label)}</span></div>`;
 }
 
 function pubItem(w) {
   const bits = [];
   if (w.venue) bits.push(`<em>${esc(w.venue)}</em>`);
   bits.push(`<span class="badge">${esc(workType(w.type))}</span>`);
-  if (w.doi) bits.push(`<a href="https://doi.org/${esc(w.doi)}" target="_blank" rel="noopener">doi:${esc(w.doi)}</a>`);
-  else if (w.url) bits.push(`<a href="${esc(w.url)}" target="_blank" rel="noopener">${t("link")}</a>`);
+  if (w.doi) bits.push(`<a class="badge badge--link" href="https://doi.org/${esc(w.doi)}" target="_blank" rel="noopener">doi:${esc(w.doi)}</a>`);
+  else if (w.url) bits.push(`<a class="badge badge--link" href="${esc(w.url)}" target="_blank" rel="noopener">${t("link")}</a>`);
   return `<article class="pub">
     <span class="pub__t">${esc(w.title)}${w.subtitle ? ". " + esc(w.subtitle) : ""}</span>
     <div class="pub__m">${bits.join(" · ")}</div>
@@ -176,50 +175,20 @@ function timeline() {
 /* ---------- docencia ----------------------------------------------------- */
 
 function teachItem(x) {
-  const title = L(x.course) || L(x.program);
-  const meta = L(x.course)
-    ? [esc(L(x.program)), x.code ? "(" + esc(x.code) + ")" : ""].filter(has).join(" ")
-    : t("t.noCourse");
-  const type = L(x.type);
+  const range = x.start ? fdate(x.start).replace(/^\d{1,2} de \w+ de /, "") +
+    "–" + (x.end ? fdate(x.end).replace(/^\d{1,2} de \w+ de /, "") : t("present")) : "";
+  const place = [x.institution, x.city ? x.city.split(",")[0] : ""].filter(has).join(" · ");
   return `<li>
-    <strong>${esc(title)}</strong>${type ? ` <span class="badge">${esc(type)}</span>` : ""}
-    <span class="meta">${meta || t("t.noCourse")}</span>
+    <strong>${esc(x.course)}</strong>
+    ${x.official ? "" : `<span class="badge">${t("t.nonOfficial")}</span>`}
+    <span class="meta">${[esc(x.degree), place, range].filter(has).join(" · ")}</span>
   </li>`;
 }
 
-function teachList(list, year) {
-  if (year === "__all") {
-    const years = [...new Set(list.map((x) => x.year))].sort().reverse();
-    return years.map((y) => `<div class="teach-y"><h3>${esc(y)}</h3>
-      <ul class="stack">${li(list.filter((x) => x.year === y), teachItem)}</ul></div>`).join("");
-  }
-  return `<ul class="stack">${li(list.filter((x) => x.year === year), teachItem)}</ul>`;
-}
-
-function teachingSection(s) {
-  const list = (s.teaching || []).filter((x) => has(x.year) && (L(x.course) || L(x.program)));
+function teachingSection() {
+  const list = cvn ? cvn.teaching : [];
   if (!list.length) return "";
-  const years = [...new Set(list.map((x) => x.year))].sort().reverse();
-  if (!teachYear || (teachYear !== "__all" && !years.includes(teachYear))) teachYear = years[0];
-  return section(t("sec.courses"), `
-    <div class="filters">
-      <label class="inline" for="t-year">${t("t.year")}</label>
-      <select id="t-year" class="field field--s">
-        ${li(years, (y) => `<option value="${esc(y)}"${y === teachYear ? " selected" : ""}>${esc(y)}</option>`)}
-        <option value="__all"${teachYear === "__all" ? " selected" : ""}>${t("t.all")}</option>
-      </select>
-    </div>
-    <div id="teach-list">${teachList(list, teachYear)}</div>`, t("t.count", years.length));
-}
-
-function bindTeaching() {
-  const sel = document.getElementById("t-year");
-  if (!sel) return;
-  sel.addEventListener("change", () => {
-    teachYear = sel.value;
-    const list = (state.site.teaching || []).filter((x) => has(x.year));
-    document.getElementById("teach-list").innerHTML = teachList(list, teachYear);
-  });
+  return section(t("sec.courses"), `<ul class="stack">${li(list, teachItem)}</ul>`, String(list.length));
 }
 
 function patentsSection(s) {
@@ -241,15 +210,18 @@ function summaryStrip() {
   const c = counts();
   const cards = [[num(c.pubs), t("m.pubs")], [num(cites), t("m.citations")],
                  [num(h), t("m.h")], [num(c.projects), t("m.projects")]];
-  return `<div class="strip">${li(cards, ([n, l]) =>
-    `<a class="strip__i" href="#/indicadores"><span class="strip__n">${n}</span><span class="strip__l">${esc(l)}</span></a>`)}</div>`;
+  return `<a class="kpis kpis--link" href="#/indicadores" aria-label="${t("nav.metrics")}">
+    ${li(cards, ([n, l]) => kpi(n, l, true))}</a>`;
 }
 
 function viewProfile() {
   const s = state.site;
-  const photo = has(s.identity.photo)
-    ? `<img src="${esc(s.identity.photo)}" alt="${esc(s.identity.name)}" loading="lazy">`
-    : `<div class="hero__photo--empty">Sube una foto desde la página de administración</div>`;
+  // La portada admite foto, ilustración vectorial (svg, sin marco) o nada.
+  const art = s.identity.photo || "";
+  const isVector = /\.svg$/i.test(art);
+  const photo = art
+    ? `<img src="${esc(art)}" alt="${isVector ? "" : esc(s.identity.name)}"${isVector ? ' role="presentation"' : ""} loading="lazy">`
+    : "";
 
   const bio = L(s.bio).split(/\n{2,}/).filter(Boolean).map((p) => `<p>${esc(p)}</p>`).join("");
   const topics = (s.topics || []).filter((x) => L(x));
@@ -276,11 +248,16 @@ function viewProfile() {
       <p class="hero__aff">${esc(L(s.identity.affiliation))}${has(L(s.identity.group)) ? "<br>" + esc(L(s.identity.group)) : ""}</p>
       ${networks(s)}
     </div>
-    <figure class="hero__photo" style="margin:0">${photo}</figure>
+    ${photo ? `<figure class="hero__photo${isVector ? " hero__photo--vector" : ""}">${photo}</figure>` : ""}
   </div>
   ${summaryStrip()}
 
-  ${section(t("sec.about"), `<div class="prose">${bio}</div>`)}
+  ${section(t("sec.about"), `<div class="prose" id="bio-text">${bio}</div>
+    <p class="more"><button type="button" class="btn-more" id="copy-bio">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path></svg>
+      <span data-label>${t("about.copy")}</span>
+    </button></p>`)}
   ${topics.length ? section(t("sec.topics"), `<div class="topic-grid" data-reveal>${li(topics, (x) => `
     <div class="topic-card">
       <span class="topic-card__i">${topicIcon(x.icon)}</span>
@@ -294,7 +271,10 @@ function viewProfile() {
 
   ${recent.length ? section(t("sec.recent"),
     `<div>${li(recent, pubItem)}</div>
-     <p style="margin-top:1.2rem"><a href="#/publicaciones">${t("sec.allpubs")} (${orc.works.length})</a></p>`) : ""}
+     <p class="more"><a class="btn-more" href="#/publicaciones">${t("sec.allpubs")}
+       <span class="btn-more__n">${orc.works.length}</span>
+       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
+     </a></p>`) : ""}
 
   ${patentsSection(s)}
 
@@ -316,11 +296,16 @@ function featuredSection(s) {
   }));
   const list = [...fromCvn, ...manual];
   if (!list.length) return "";
+  const total = cvn ? cvn.projects.length : 0;
   return section(t("sec.projects"), `<ul class="stack">${li(list, (p) => `
     <li><strong>${p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a>` : esc(p.title)}</strong>
     <span class="meta">${[p.role === "Coordinador" || p.lead ? t("p.ip") : p.role, p.program || p.funder,
       p.years || [p.start, p.end].filter(has).join("-"),
-      p.amountText || (p.amountOwn ? money(p.amountOwn) : "")].filter(has).map(esc).join(" · ")}</span></li>`)}</ul>`,
+      p.amountText || (p.amountOwn ? money(p.amountOwn) : "")].filter(has).map(esc).join(" · ")}</span></li>`)}</ul>
+    ${total ? `<p class="more"><a class="btn-more" href="#/proyectos">${t("sec.allprojects")}
+      <span class="btn-more__n">${total}</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
+    </a></p>` : ""}`,
     String(list.length));
 }
 
@@ -380,14 +365,19 @@ function supervisionsSection() {
 function viewTeaching() {
   const s = state.site;
   const c = counts();
-  const courses = (s.teaching || []).filter((x) => has(x.year));
-  const years = [...new Set(courses.map((x) => x.year))];
-  const subjects = [...new Set(courses.map((x) => L(x.course)).filter(Boolean))];
+  const courses = cvn ? cvn.teaching : [];
+  const years = new Set();
+  courses.forEach((x) => {
+    const from = Number((x.start || "").slice(0, 4));
+    const to = Number((x.end || new Date().toISOString()).slice(0, 4));
+    if (from) for (let y = from; y <= (to || from); y++) years.add(y);
+  });
+  const subjects = [...new Set(courses.map((x) => x.course).filter(Boolean))];
   const rea = (s.rea || []).filter((x) => x.title);
   return `<section class="enter">
     <div class="section-head"><h2>${t("nav.teaching")}</h2></div>
     <div class="kpis">
-      ${kpi(num(years.length), t("d.years"), true)}
+      ${kpi(num(years.size), t("d.years"), true)}
       ${kpi(num(subjects.length), t("d.subjects"), true)}
       ${kpi(num(c.theses), t("m.theses"), true, true)}
       ${kpi(num(c.master), t("m.master"), false, true)}
@@ -395,9 +385,9 @@ function viewTeaching() {
       ${kpi(num(rea.length), t("d.rea"), false, true)}
     </div>
   </section>
-  ${teachingSection(s)}
-  ${reaSection(rea)}
   ${thesesSection()}
+  ${reaSection(rea)}
+  ${teachingSection()}
   ${supervisionsSection()}`;
 }
 
@@ -452,7 +442,7 @@ function filteredPress() {
 }
 
 function pressHeader(x, size = "card") {
-  if (x.video) return `<div class="press-media">${videoFacadeHTML(x.video, x.title)}</div>`;
+  if (x.video) return `<div class="press-media${size === "flyout" ? " press-media--video" : ""}">${videoFacadeHTML(x.video, x.title)}</div>`;
   if (x.photo) return `<div class="press-media"><img src="${esc(x.photo)}" alt="" loading="lazy"></div>`;
   return `<div class="press-media press-media--icon">${topicIcon(x.topic, size === "flyout" ? 72 : 40)}</div>`;
 }
@@ -581,7 +571,7 @@ function projectItem(p) {
   ].filter(has).join(" · ");
   return `<article class="pub">
     <span class="pub__t">${star ? '<span class="star" title="destacado">★</span> ' : ""}${esc(p.title)}</span>
-    <div class="pub__m"><span class="badge">${esc(t("p." + p.kind))}</span> ${meta}</div>
+    <div class="pub__m"><span class="badge badge--${esc(p.kind)}">${esc(t("p." + p.kind))}</span> ${meta}</div>
   </article>`;
 }
 
@@ -755,13 +745,48 @@ function viewPubs() {
       </select>
       <button id="f-refresh" class="btn btn--ghost" type="button">${t("pubs.refresh")}</button>
     </div>
+    ${pubCharts()}
     ${body}
     <p class="note" style="margin-top:2rem">${t("pubs.source")} ${orc.fetchedAt ? t("pubs.updated", fdate(orc.fetchedAt)) : ""}
     ${orcStatus === "error" ? "<br>" + t("pubs.offline") : ""}</p>
   </section>`;
 }
 
+/** Reparto por cuartil JCR y por tipo de producción, ambos del CVN. */
+function pubCharts() {
+  const pubs = cvn && cvn.publications ? cvn.publications : [];
+  if (!pubs.length) return "";
+  const withQ = pubs.filter((x) => x.quartile);
+  if (!withQ.length) return "";
+  return `<div class="panels" style="margin-bottom:1.8rem">
+    <figure class="panel">
+      <figcaption>${t("pubs.byQuartile")}</figcaption>
+      <div class="panel__box panel__box--s"><canvas id="c-quartile"></canvas></div>
+    </figure>
+    <figure class="panel">
+      <figcaption>${t("pubs.byKind")}</figcaption>
+      <div class="panel__box panel__box--s"><canvas id="c-pubkind"></canvas></div>
+    </figure>
+  </div>
+  <p class="note" style="margin:-1rem 0 1.6rem">${t("pubs.quartileNote", withQ.length, pubs.length)}</p>`;
+}
+
+function paintPubCharts() {
+  const pubs = cvn && cvn.publications ? cvn.publications : [];
+  if (!pubs.length || !document.getElementById("c-quartile")) return;
+
+  const qs = ["Q1", "Q2", "Q3", "Q4"];
+  const qv = qs.map((q) => pubs.filter((x) => x.quartile === Number(q[1])).length);
+  charts.mountDoughnut("c-quartile", qs.filter((_, i) => qv[i]), qv.filter(Boolean));
+
+  const kinds = new Map();
+  pubs.forEach((x) => { if (x.kind) kinds.set(x.kind, (kinds.get(x.kind) || 0) + 1); });
+  const top = [...kinds.entries()].sort((a, b) => b[1] - a[1]);
+  charts.mountDoughnut("c-pubkind", top.map(([k]) => k), top.map(([, v]) => v));
+}
+
 function bindPubs() {
+  paintPubCharts();
   const q = document.getElementById("f-q");
   if (!q) return;
   let timer;
@@ -956,9 +981,10 @@ function render(opts = {}) {
     }
   }
   if (r === "indicadores") bindMetrics();
-  if (r === "docencia") { bindTeaching(); bindSupervisions(); }
+  if (r === "docencia") bindSupervisions();
   if (r === "proyectos") bindProjects();
   if (r === "divulgacion") bindPress(); else closePress();
+  if (r === "") bindCopyBio();
   closeMobileNav();
   observeReveal();
 }
@@ -969,6 +995,23 @@ function closeMobileNav() {
   if (!nav || !btn) return;
   nav.classList.remove("is-open");
   btn.setAttribute("aria-expanded", "false");
+}
+
+function bindCopyBio() {
+  const btn = document.getElementById("copy-bio");
+  const src = document.getElementById("bio-text");
+  if (!btn || !src) return;
+  btn.addEventListener("click", async () => {
+    const text = [...src.querySelectorAll("p")].map((p) => p.textContent.trim()).join("\n\n");
+    const label = btn.querySelector("[data-label]");
+    try {
+      await navigator.clipboard.writeText(text);
+      label.textContent = t("about.copied");
+    } catch (_) {
+      label.textContent = t("about.copyFail");
+    }
+    setTimeout(() => { label.textContent = t("about.copy"); }, 2200);
+  });
 }
 
 function bindMobileNav() {
@@ -986,6 +1029,7 @@ function bindMobileNav() {
 function observeReveal() {
   if (!("IntersectionObserver" in window)) {
     document.querySelectorAll("[data-reveal]").forEach((el) => el.classList.add("is-visible"));
+    document.querySelectorAll(".kpi__n[data-count]").forEach((el) => el.removeAttribute("data-count"));
     return;
   }
   document.querySelectorAll("[data-reveal]:not(.is-visible)").forEach((el) => {
@@ -996,6 +1040,48 @@ function observeReveal() {
     }, { threshold: 0.2 });
     io.observe(el);
   });
+  observeCounters();
+}
+
+/** Los números crecen hasta su valor al entrar en pantalla, una sola vez por carga.
+    Conserva el formato original (miles, "40,0 M€", "€"...) sustituyendo solo los dígitos. */
+function observeCounters() {
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const targets = document.querySelectorAll(".kpi__n[data-count]");
+  if (!targets.length) return;
+  if (reduce) { targets.forEach((el) => el.removeAttribute("data-count")); return; }
+
+  const run = (el) => {
+    const final = el.dataset.count;
+    el.removeAttribute("data-count");
+    const m = final.match(/^([^\d]*)([\d.,\s]+)(.*)$/);
+    if (!m) return;
+    const digits = m[2];
+    const target = Number(digits.replace(/[.\s]/g, "").replace(",", "."));
+    if (!isFinite(target) || target === 0) return;
+    const decimals = (digits.split(",")[1] || "").length;
+    const start = performance.now();
+    const dur = 900;
+    const step = (now) => {
+      const k = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - k, 3);
+      const v = target * eased;
+      const shown = decimals
+        ? v.toFixed(decimals).replace(".", ",")
+        : num(Math.round(v));
+      el.textContent = m[1] + shown + m[3];
+      if (k < 1) requestAnimationFrame(step);
+      else el.textContent = final;
+    };
+    requestAnimationFrame(step);
+  };
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting && e.target.dataset.count !== undefined) { run(e.target); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.4 });
+  targets.forEach((el) => io.observe(el));
 }
 
 async function fetchOrcid(force = false) {

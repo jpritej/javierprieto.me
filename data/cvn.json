@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-22",
+ "generatedAt": "2026-09-23",
  "projects": [
   {
    "id": "PTN2025-166788",
@@ -3148,51 +3148,6 @@
  ],
  "supervisions": [
   {
-   "title": "Plataforma Virtual para Comunicación Remota y Gestión de Hardware IoT",
-   "kind": "Trabajo fin de grado",
-   "student": "Víctor Sajín Busuioc",
-   "year": "2026",
-   "university": "Universidad de Salamanca",
-   "grade": "",
-   "international": false
-  },
-  {
-   "title": "Detección de estructuras anatómicas en imágenes TAC mediante IA",
-   "kind": "Trabajo fin de grado",
-   "student": "Iker Pérez Vicente",
-   "year": "2026",
-   "university": "Universidad de Salamanca",
-   "grade": "",
-   "international": false
-  },
-  {
-   "title": "Plataforma para Auditoría y Desarrollo Seguro de Smart Contracts",
-   "kind": "Trabajo fin de grado",
-   "student": "Diego Díaz Aguado",
-   "year": "2026",
-   "university": "Universidad de Salamanca",
-   "grade": "",
-   "international": false
-  },
-  {
-   "title": "Sistema de respaldo distribuido",
-   "kind": "Trabajo fin de grado",
-   "student": "Bozhidar Georgiev Todorov",
-   "year": "2026",
-   "university": "Universidad de Salamanca",
-   "grade": "",
-   "international": false
-  },
-  {
-   "title": "Gestión Forestal Descentralizada: Tokenización y DAO para la Conservación de Bosques",
-   "kind": "Trabajo fin de grado",
-   "student": "Antonio Sosa Pérez",
-   "year": "2026",
-   "university": "Universidad de Salamanca",
-   "grade": "",
-   "international": false
-  },
-  {
    "title": "HappyTransplant",
    "kind": "Trabajo fin de grado",
    "student": "Marta Ying Muñoz Del Fraile",
@@ -3463,10 +3418,726 @@
    "international": false
   }
  ],
+ "teaching": [
+  {
+   "course": "Criptografía, blockchain y criptomonedas",
+   "programType": "Máster oficial",
+   "subjectType": "Obligatoria",
+   "degree": "Máster Universitario en Ciberseguridad",
+   "official": true,
+   "modality": "Práctica (Aula-Problemas)",
+   "start": "2025-09-16",
+   "end": "",
+   "hours": "3 Créditos",
+   "institution": "Universidad de Salamanca",
+   "faculty": "Facultad de Ciencias",
+   "department": "Informática y Automática",
+   "city": "Salamanca, Castilla y León, España",
+   "language": ""
+  },
+  {
+   "course": "Herramientas de diseño interior",
+   "programType": "Máster (título propio)",
+   "subjectType": "",
+   "degree": "Máster en Arquitectura y Diseño Interior",
+   "official": false,
+   "modality": "Virtual",
+   "start": "2025-09-01",
+   "end": "2026-06-30",
+   "hours": "1 Horas",
+   "institution": "Universidad de Salamanca",
+   "faculty": "Facultad de Bellas Artes",
+   "department": "",
+   "city": "Salamanca, Castilla y León, España",
+   "language": "Español"
+  },
+  {
+   "course": "Visualización de Datos Sociales Digitales",
+   "programType": "Máster oficial",
+   "subjectType": "Optativa 22",
+   "degree": "Máster Interuniversitario en Ciencia de Datos Aplicada a las Ciencias Sociales",
+   "official": true,
+   "modality": "Virtual",
+   "start": "2024-09-16",
+   "end": "",
+   "hours": "1 Créditos",
+   "institution": "Universidad de Salamanca",
+   "faculty": "Facultad de Ciencias Sociales",
+   "department": "Informática y Automática",
+   "city": "Salamanca, Castilla y León, España",
+   "language": ""
+  },
+  {
+   "course": "Informática II",
+   "programType": "Grado",
+   "subjectType": "Troncal",
+   "degree": "Graduado o Graduada en Matemáticas",
+   "official": true,
+   "modality": "Prácticas de Laboratorio",
+   "start": "2019-10-01",
+   "end": "2023-07-28",
+   "hours": "3 Créditos",
+   "institution": "Universidad de Salamanca",
+   "faculty": "Facultad de Ciencias",
+   "department": "Informática y Automática",
+   "city": "Salamanca, Castilla y León, España",
+   "language": ""
+  },
+  {
+   "course": "Edición Digital Multimedia",
+   "programType": "Grado",
+   "subjectType": "Optativa",
+   "degree": "Graduado o Graduada en Información y Documentación",
+   "official": true,
+   "modality": "Prácticas de Laboratorio",
+   "start": "2019-09-16",
+   "end": "",
+   "hours": "6 Créditos",
+   "institution": "Universidad de Salamanca",
+   "faculty": "Facultad de Traducción y Documentación",
+   "department": "Informática y Automática",
+   "city": "Salamanca, Castilla y León, España",
+   "language": ""
+  },
+  {
+   "course": "IoT Industrial, Plataformas IoT y Aplicaciones por Sectores",
+   "programType": "Máster oficial",
+   "subjectType": "Obligatoria",
+   "degree": "Máster Universitario en Industria 4.0",
+   "official": true,
+   "modality": "",
+   "start": "2018-11-08",
+   "end": "2020-06-30",
+   "hours": "120 Horas",
+   "institution": "Universidad Internacional de La Tipo de entidad: Universidad Rioja",
+   "faculty": "",
+   "department": "",
+   "city": "Rioja, La, España",
+   "language": "Español"
+  },
+  {
+   "course": "Inbound Marketing. IOT (internet de las cosas)",
+   "programType": "Máster (título propio)",
+   "subjectType": "",
+   "degree": "Máster de Marketing Digital",
+   "official": false,
+   "modality": "",
+   "start": "2016-12-09",
+   "end": "2016-12-09",
+   "hours": "2 Horas",
+   "institution": "Universidad de Santiago de",
+   "faculty": "Facultad de Ciencias Económicas y Empresariales",
+   "department": "",
+   "city": "Santiago de Compostela, Galicia, España",
+   "language": ""
+  },
+  {
+   "course": "Internet de las Cosas e Integración de sistemas y herramientas",
+   "programType": "Máster (título propio)",
+   "subjectType": "",
+   "degree": "Máster en Internet of Things",
+   "official": false,
+   "modality": "Virtual",
+   "start": "2016-11-14",
+   "end": "2023-09-15",
+   "hours": "75 Horas",
+   "institution": "Universidad de Salamanca",
+   "faculty": "Facultad de Ciencias",
+   "department": "",
+   "city": "Salamanca, Castilla y León, España",
+   "language": ""
+  },
+  {
+   "course": "Introducción a las Smart Cities",
+   "programType": "Máster (título propio)",
+   "subjectType": "",
+   "degree": "Máster en Regeneración Urbana, Rehabilitación y Diseño",
+   "official": false,
+   "modality": "",
+   "start": "2016-10-03",
+   "end": "2017-06-30",
+   "hours": "2 Horas 21",
+   "institution": "Universidad de Salamanca",
+   "faculty": "Facultad de Bellas Artes",
+   "department": "",
+   "city": "Salamanca, Castilla y León, España",
+   "language": "Español"
+  },
+  {
+   "course": "Procesado masivo de datos: El ecosistema Hadoop",
+   "programType": "Máster (título propio)",
+   "subjectType": "",
+   "degree": "Máster en Big Data Science",
+   "official": false,
+   "modality": "",
+   "start": "2016-10-01",
+   "end": "2019-09-30",
+   "hours": "15 Horas",
+   "institution": "Universidad de Valladolid",
+   "faculty": "Escuela Técnica Superior de Ingenieros de Telecomunicación",
+   "department": "",
+   "city": "Valladolid, Castilla y León, España",
+   "language": ""
+  },
+  {
+   "course": "Programación II",
+   "programType": "Grado",
+   "subjectType": "Troncal",
+   "degree": "Graduado o Graduada en Ingeniería Infomática",
+   "official": true,
+   "modality": "Prácticas de Laboratorio",
+   "start": "2015-10-01",
+   "end": "",
+   "hours": "6 Créditos",
+   "institution": "Universidad de Salamanca",
+   "faculty": "Facultad de Ciencias",
+   "department": "Informática y Automática",
+   "city": "Salamanca, Castilla y León, España",
+   "language": ""
+  },
+  {
+   "course": "Técnicas Informáticas en Física",
+   "programType": "Grado",
+   "subjectType": "Troncal",
+   "degree": "Graduado o Graduada en Física",
+   "official": true,
+   "modality": "Teórica (3) y Práctica (3)",
+   "start": "2015-09-06",
+   "end": "2018-08-31",
+   "hours": "6 Créditos",
+   "institution": "Universidad de Salamanca",
+   "faculty": "Facultad de Ciencias",
+   "department": "Informática y Automática",
+   "city": "Salamanca, Castilla y León, España",
+   "language": "Español"
+  },
+  {
+   "course": "Radiocomunicaciones",
+   "programType": "Ingeniería Técnica",
+   "subjectType": "Troncal",
+   "degree": "Ingeniero Técnico de Telecomunicación, especialidad en Sistemas de Telecomunicación",
+   "official": true,
+   "modality": "Práctica (Aula-Problemas)",
+   "start": "2010-10-01",
+   "end": "2011-09-30",
+   "hours": "20 Horas",
+   "institution": "Universidad de Valladolid",
+   "faculty": "Escuela Técnica Superior de Ingenieros de Telecomunicación",
+   "department": "Teoría de la Señal y Comunicaciones e IT",
+   "city": "Valladolid, Castilla y León, España",
+   "language": "Español"
+  }
+ ],
+ "publications": [
+  {
+   "kind": "Artículo científico",
+   "year": "2026",
+   "quartile": 2,
+   "doi": ""
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2026",
+   "quartile": 2,
+   "doi": "10.1016/j.jisa.2026.104467"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2026",
+   "quartile": 1,
+   "doi": "10.1016/j.engappai.2026.114569"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2026",
+   "quartile": 1,
+   "doi": "10.1016/j.mlwa.2026.100864"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2026",
+   "quartile": 2,
+   "doi": "10.1007/s10489-026-07122-3"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2025",
+   "quartile": 2,
+   "doi": "10.3390/electronics14244819"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2025",
+   "quartile": 1,
+   "doi": "10.1016/j.iot.2025.101753"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2025",
+   "quartile": 2,
+   "doi": "10.1109/ACCESS.2025.3586798"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2025",
+   "quartile": 2,
+   "doi": "10.1109/ACCESS.2025.3538170"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2024",
+   "quartile": 3,
+   "doi": "10.3390/en17246399"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2024",
+   "quartile": 2,
+   "doi": "10.3390/jmse12122250"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2024",
+   "quartile": 1,
+   "doi": "10.1016/j.eswa.2024.124512"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2024",
+   "quartile": null,
+   "doi": "10.4108/eetiot.6565"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2024",
+   "quartile": 2,
+   "doi": "10.3390/s24124016"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2024",
+   "quartile": 1,
+   "doi": "10.1016/j.neucom.2024.127415"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2024",
+   "quartile": null,
+   "doi": "10.1109/TMLCN.2024.3360915"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2023",
+   "quartile": 3,
+   "doi": "10.1515/jib-2023-0002"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2023",
+   "quartile": 1,
+   "doi": "10.1016/j.iot.2023.100959"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2023",
+   "quartile": 2,
+   "doi": "10.9781/ijimai.2023.08.005"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2022",
+   "quartile": 2,
+   "doi": "10.1109/ACCESS.2022.3205351"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2022",
+   "quartile": 3,
+   "doi": "10.3390/en15093046"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2022",
+   "quartile": 1,
+   "doi": "10.1093/jigpal/jzac010"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2022",
+   "quartile": 2,
+   "doi": "10.3390/electronics11040576"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2021",
+   "quartile": 2,
+   "doi": "10.3390/s21010236"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2020",
+   "quartile": 2,
+   "doi": "10.3390/su13010283"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2020",
+   "quartile": 1,
+   "doi": "10.1016/j.neucom.2020.05.117"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2020",
+   "quartile": null,
+   "doi": "10.1093/jigpal/jzaa039"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2020",
+   "quartile": 3,
+   "doi": "10.1080/01969722.2020.1798643"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2020",
+   "quartile": 2,
+   "doi": "10.3390/su12145706"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2020",
+   "quartile": 2,
+   "doi": "10.3390/su12125000"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2020",
+   "quartile": 1,
+   "doi": "10.1016/j.neucom.2020.02.125"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2020",
+   "quartile": 1,
+   "doi": "10.1007/s12652-020-01942-y"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2020",
+   "quartile": 2,
+   "doi": "10.1016/j.adhoc.2019.102047"
+  },
+  {
+   "kind": "",
+   "year": "",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2019",
+   "quartile": 1,
+   "doi": "10.33166/AETiC.2019.05.003"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2019",
+   "quartile": 1,
+   "doi": "10.1016/j.future.2019.09.042"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2019",
+   "quartile": null,
+   "doi": "10.3390/en12081521"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2019",
+   "quartile": 3,
+   "doi": "10.1631/FITEE.1700840"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2019",
+   "quartile": null,
+   "doi": "10.1109/ACCESS.2019.2892905"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2019",
+   "quartile": 1,
+   "doi": "10.1016/j.inffus.2018.12.007"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2018",
+   "quartile": null,
+   "doi": "10.3390/en11123430"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2018",
+   "quartile": 1,
+   "doi": "10.3390/s18113766"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2018",
+   "quartile": null,
+   "doi": "10.1109/LCOMM.2018.2863387"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2018",
+   "quartile": 3,
+   "doi": "10.1155/2018/6089280"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2018",
+   "quartile": 1,
+   "doi": "10.1155/2018/5905932"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2018",
+   "quartile": 1,
+   "doi": "10.3390/s18030865"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2017",
+   "quartile": null,
+   "doi": "10.3390/en10091397"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2017",
+   "quartile": 2,
+   "doi": "10.3390/s17081749"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2017",
+   "quartile": null,
+   "doi": "10.3390/en10070929"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2017",
+   "quartile": 1,
+   "doi": "10.3390/s17040826"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2016",
+   "quartile": 2,
+   "doi": "10.1109/TSIPN.2016.2631944"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2016",
+   "quartile": 1,
+   "doi": "10.1109/TSP.2016.2515065"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2015",
+   "quartile": null,
+   "doi": "10.1155/2015/479765"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2014",
+   "quartile": 3,
+   "doi": "10.1093/rpd/ncu260"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2013",
+   "quartile": 1,
+   "doi": "10.1016/j.sna.2013.08.028"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2012",
+   "quartile": 1,
+   "doi": "10.1109/TSP.2012.2183126"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2010",
+   "quartile": 1,
+   "doi": "10.1109/TSP.2010.2047394"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2010",
+   "quartile": 2,
+   "doi": "10.1155/2010/126082"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2010",
+   "quartile": null,
+   "doi": "10.1155/2010/102095"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2009",
+   "quartile": null,
+   "doi": "10.2528/PIERB09050409"
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2009",
+   "quartile": null,
+   "doi": "10.2528/PIERB09050502"
+  },
+  {
+   "kind": "Capítulo de libro",
+   "year": "2020",
+   "quartile": null,
+   "doi": "10.1002/9781119711582.ch11"
+  },
+  {
+   "kind": "Capítulo de libro",
+   "year": "2020",
+   "quartile": null,
+   "doi": "10.1016/B978-0-12-817862-1.00010-5"
+  },
+  {
+   "kind": "Capítulo de libro",
+   "year": "2019",
+   "quartile": null,
+   "doi": "10.1016/B978-0-12-803581-8.11439-0"
+  },
+  {
+   "kind": "Capítulo de libro",
+   "year": "2012",
+   "quartile": null,
+   "doi": "10.5772/55263"
+  },
+  {
+   "kind": "Capítulo de libro",
+   "year": "2011",
+   "quartile": null,
+   "doi": "10.5772/15670"
+  },
+  {
+   "kind": "Libro o monografía científica",
+   "year": "2012",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Edición científica",
+   "year": "2026",
+   "quartile": null,
+   "doi": "10.1007/978-3-032-05877-5"
+  },
+  {
+   "kind": "Edición científica",
+   "year": "2025",
+   "quartile": null,
+   "doi": "10.1007/978-3-031-81928-5"
+  },
+  {
+   "kind": "Edición científica",
+   "year": "2024",
+   "quartile": 2,
+   "doi": "10.3390/s24041271"
+  },
+  {
+   "kind": "Edición científica",
+   "year": "2023",
+   "quartile": null,
+   "doi": "10.1007/978-3-031-45155-3"
+  },
+  {
+   "kind": "Edición científica",
+   "year": "2023",
+   "quartile": 1,
+   "doi": "10.3390/jmse11030593"
+  },
+  {
+   "kind": "Edición científica",
+   "year": "2023",
+   "quartile": null,
+   "doi": "10.1007/978-3-031-21229-1"
+  },
+  {
+   "kind": "Edición científica",
+   "year": "2021",
+   "quartile": null,
+   "doi": "10.1007/978-3-030-86162-9"
+  },
+  {
+   "kind": "Edición científica",
+   "year": "2020",
+   "quartile": null,
+   "doi": "10.1007/978-3-030-53829-3"
+  },
+  {
+   "kind": "Edición científica",
+   "year": "2020",
+   "quartile": null,
+   "doi": "10.1007/978-3-030-52535-4"
+  },
+  {
+   "kind": "Edición científica",
+   "year": "2019",
+   "quartile": null,
+   "doi": "10.1007/978-3-030-23813-1"
+  },
+  {
+   "kind": "Edición científica",
+   "year": "2019",
+   "quartile": null,
+   "doi": "10.1007/978-3-319-99608-0"
+  },
+  {
+   "kind": "Edición científica",
+   "year": "2018",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Edición científica",
+   "year": "2018",
+   "quartile": 2,
+   "doi": "10.1155/2018/9741053"
+  },
+  {
+   "kind": "Edición científica",
+   "year": "2018",
+   "quartile": 2,
+   "doi": "10.1155/2018/9612631"
+  },
+  {
+   "kind": "Edición científica",
+   "year": "2017",
+   "quartile": null,
+   "doi": "10.5772/66264"
+  },
+  {
+   "kind": "Edición científica",
+   "year": "2017",
+   "quartile": null,
+   "doi": "10.1007/978-3-319-62410-5"
+  },
+  {
+   "kind": "Edición científica",
+   "year": "2016",
+   "quartile": 3,
+   "doi": "10.1155/2016/3708927"
+  }
+ ],
  "supervision": {
   "phd": 6,
   "master": 6,
-  "degree": 29
+  "degree": 24
  },
  "totals": {
   "projects": 178,

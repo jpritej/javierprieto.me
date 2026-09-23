@@ -1,5 +1,5 @@
-import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=13";
-import { ICON_KEYS } from "./icons.js?v=13";
+import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=15";
+import { ICON_KEYS } from "./icons.js?v=15";
 
 /* ------------------------------------------------------------------ esquema */
 
@@ -189,13 +189,13 @@ const SCHEMA = [
     ]
   },
   {
-    legend: "Docencia",
-    path: "teaching",
+    legend: "Docencia (viene del CVN, no se edita aquí)",
+    path: "__teachingNote",
     fields: [
-      { k: "__lines", l: "Una asignatura por línea", t: "teaching", wide: true, note:
-        "Formato: curso académico | titulación | asignatura | código | carácter. " +
-        "Para poner también el inglés, separa con una barra: Programación II / Programming II. " +
-        "Deja la asignatura vacía si solo quieres listar el programa. Para quitar una asignatura, borra su línea." }
+      { k: "__note", l: "", t: "note", wide: true, note:
+        "La lista de asignaturas, fechas y titulaciones sale de la sección «Formación académica " +
+        "impartida» de tu CVN. Para corregir o añadir algo, actualiza el CVN en orcid.org o en FECYT " +
+        "y reimporta con scripts/import_cvn.py; no se edita a mano en esta página." }
     ]
   },
   {
@@ -221,34 +221,6 @@ const SCHEMA = [
   }
 ];
 
-/* --------------------------------------------------- docencia en texto */
-
-const pair = (v) => (v && (v.es || v.en) ? [v.es, v.en].filter(Boolean).join(" / ") : "");
-
-export function teachingToText(list) {
-  return (list || []).map((x) =>
-    [x.year || "", pair(x.program), pair(x.course), x.code || "", pair(x.type)]
-      .join(" | ").replace(/(\s*\|\s*)+$/, "")).join("\n");
-}
-
-function splitPair(raw) {
-  const [es = "", en = ""] = String(raw || "").split(" / ").map((x) => x.trim());
-  return { es, en: en || es };
-}
-
-export function teachingFromText(text) {
-  return String(text || "").split("\n").map((line) => line.trim()).filter(Boolean).map((line) => {
-    const [year = "", program = "", course = "", code = "", type = ""] = line.split("|").map((x) => x.trim());
-    return {
-      year,
-      program: splitPair(program),
-      course: course ? splitPair(course) : { es: "", en: "" },
-      code,
-      type: type ? splitPair(type) : { es: "", en: "" }
-    };
-  }).filter((x) => x.year);
-}
-
 /* ------------------------------------------------------- acceso por rutas */
 
 const get = (obj, path) => path.split(".").reduce((a, k) => (a == null ? a : a[k]), obj);
@@ -273,10 +245,11 @@ function fieldHTML(path, f, value) {
   const type = f.t || T.text;
   const common = `id="${esc(id)}" data-path="${esc(path)}" `;
   let input;
+  if (type === "note") {
+    return `<div class="f--wide"><p class="note">${esc(f.note || "")}</p></div>`;
+  }
   if (type === T.area) {
     input = `<textarea ${common}>${esc(value ?? "")}</textarea>`;
-  } else if (type === "teaching") {
-    input = `<textarea ${common} rows="16" spellcheck="false" class="mono-area">${esc(teachingToText(site.teaching))}</textarea>`;
   } else if (type === "featured") {
     input = `<div class="stars">
       <input type="search" id="star-q" class="field" placeholder="Buscar entre ${cvnProjects.length} proyectos" value="${esc(starQuery)}">
@@ -336,7 +309,6 @@ function readForm() {
   document.querySelectorAll("[data-path]").forEach((el) => {
     const path = el.dataset.path;
     if (path.endsWith("__token")) { sessionStorage.setItem("gh:token", el.value.trim()); return; }
-    if (path === "teaching.__lines") { site.teaching = teachingFromText(el.value); return; }
     if (path === "featured.__pick") { site.featured = [...starred]; return; }
     let v = el.value;
     if (el.type === "number") v = v === "" ? 0 : Number(v);
