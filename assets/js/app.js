@@ -1,10 +1,10 @@
-import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=25";
-import * as orcid from "./orcid.js?v=25";
-import * as openalex from "./openalex.js?v=25";
-import * as charts from "./charts.js?v=25";
-import { icon, topicIcon, ccBadge } from "./icons.js?v=25";
-import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=25";
-import { exportRows, canExport, stamp } from "./export.js?v=25";
+import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=26";
+import * as orcid from "./orcid.js?v=26";
+import * as openalex from "./openalex.js?v=26";
+import * as charts from "./charts.js?v=26";
+import { icon, topicIcon, ccBadge } from "./icons.js?v=26";
+import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=26";
+import { exportRows, canExport, stamp } from "./export.js?v=26";
 
 const view = document.getElementById("view");
 const ROUTES = ["", "docencia", "proyectos", "publicaciones", "divulgacion", "indicadores"];
@@ -324,10 +324,11 @@ function featuredSection(s) {
   if (!list.length) return "";
   const total = cvn ? cvn.projects.length : 0;
   return section(t("sec.projects"), `<ul class="stack">${li(list, (p) => `
-    <li><strong>${p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a>` : esc(p.title)}</strong>
+    <li><strong>${esc(p.title)}</strong>
     <span class="meta">${[p.role === "Coordinador" || p.lead ? t("p.ip") : p.role, p.program || p.funder,
       p.years || [p.start, p.end].filter(has).join("-"),
-      p.amountText || (p.amountOwn ? money(p.amountOwn) : "")].filter(has).map(esc).join(" · ")}</span></li>`)}</ul>
+      p.amountText || (p.amountOwn ? money(p.amountOwn) : "")].filter(has).map(esc).join(" · ")}${
+      has(p.url) ? ` <a class="badge badge--link" href="${esc(p.url)}" target="_blank" rel="noopener">${t("p.web")}</a>` : ""}</span></li>`)}</ul>
     ${total ? `<p class="more"><a class="btn-more" href="#/proyectos">${t("sec.allprojects")}
       <span class="btn-more__n">${total}</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
