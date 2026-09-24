@@ -1,5 +1,5 @@
-import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=26";
-import { ICON_KEYS } from "./icons.js?v=26";
+import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=27";
+import { ICON_KEYS } from "./icons.js?v=27";
 
 /* ------------------------------------------------------------------ esquema */
 
@@ -406,7 +406,11 @@ async function shrink(file, maxW = 900) {
 
 const b64 = (str) => btoa(String.fromCharCode(...new TextEncoder().encode(str)));
 
-async function gh(path, token, repo, options = {}) {
+/* allow404 solo se usa al comprobar si un fichero ya existe. En una escritura,
+   un 404 significa que el repositorio no existe o que el token no tiene acceso,
+   y hay que avisar: darlo por bueno hacía que se anunciara una publicación
+   que en realidad no había ocurrido. */
+async function gh(path, token, repo, options = {}, allow404 = false) {
   const res = await fetch(`https://api.github.com/repos/${repo}/${path}`, {
     ...options,
     headers: {
@@ -416,12 +420,24 @@ async function gh(path, token, repo, options = {}) {
       ...(options.headers || {})
     }
   });
-  if (!res.ok && res.status !== 404) throw new Error(`GitHub ${res.status}: ${(await res.json()).message || ""}`);
-  return res.status === 404 ? null : res.json();
+  if (res.status === 404 && allow404) return null;
+  if (!res.ok) {
+    let detail = "";
+    try { detail = (await res.json()).message || ""; } catch (_) { /* sin cuerpo */ }
+    if (res.status === 404) {
+      detail = `no se encuentra el repositorio "${repo}" o el token no tiene acceso a él`;
+    } else if (res.status === 401) {
+      detail = "el token no es válido o ha caducado";
+    } else if (res.status === 403) {
+      detail = detail || "al token le falta el permiso Contents: Read and write";
+    }
+    throw new Error(`GitHub ${res.status}: ${detail}`);
+  }
+  return res.json();
 }
 
 async function putFile(repo, branch, token, path, contentB64, message) {
-  const existing = await gh(`contents/${path}?ref=${encodeURIComponent(branch)}`, token, repo);
+  const existing = await gh(`contents/${path}?ref=${encodeURIComponent(branch)}`, token, repo, {}, true);
   return gh(`contents/${path}`, token, repo, {
     method: "PUT",
     body: JSON.stringify({
@@ -443,19 +459,23 @@ async function publish() {
   const btn = document.getElementById("publish");
   btn.disabled = true;
   try {
+    // comprobar acceso antes de escribir, para dar un error claro
+    await gh("", token, repo);
     if (photoData) {
       await putFile(repo, branch, token, "assets/img/foto.jpg", photoData.base64, "Actualizar foto de perfil");
       site.identity.photo = "assets/img/foto.jpg";
     }
     const payload = { ...site };
     delete payload.__hasDraft;
-    await putFile(repo, branch, token, "data/site.json", b64(JSON.stringify(payload, null, 2)),
+    var res = await putFile(repo, branch, token, "data/site.json", b64(JSON.stringify(payload, null, 2)),
       "Actualizar contenido del sitio");
     photoData = null;
     clearDraft();
     site.__hasDraft = false;
     renderForm();
-    flash("Publicado. GitHub Pages tarda entre uno y dos minutos en reconstruir la web.");
+    const sha = (res && res.commit && res.commit.sha || "").slice(0, 7);
+    flash("Publicado" + (sha ? ` (commit ${sha})` : "") +
+      ". GitHub Pages tarda entre uno y dos minutos en reconstruir la web.");
   } catch (err) {
     flash("No se ha publicado: " + err.message, "warn");
   } finally {

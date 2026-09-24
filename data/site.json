@@ -9,12 +9,8 @@
       "en": "Associate Professor"
     },
     "affiliation": {
-      "es": "Departamento de Informática y Automática",
-      "en": "Department of Computer Science and Automation"
-    },
-    "institution": {
-      "es": "Universidad de Salamanca",
-      "en": "University of Salamanca"
+      "es": "Departamento de Informática y Automática · Universidad de Salamanca",
+      "en": "Department of Computer Science and Automation · University of Salamanca"
     },
     "group": {
       "es": "Chair Capítulo IEEE Signal Processing & ComSoc",
@@ -27,8 +23,12 @@
     "emailUser": "javierp",
     "emailHost": "usal.es",
     "photo": "assets/img/retrato-ilustracion.png",
-    "photoDark": "assets/img/retrato-ilustracion-oscuro.png",
-    "cv": ""
+    "cv": "",
+    "institution": {
+      "es": "",
+      "en": ""
+    },
+    "photoDark": "assets/img/retrato-ilustracion-oscuro.png"
   },
   "bio": {
     "es": "Doctor en Tecnologías de la Información y las Comunicaciones por la Universidad de Valladolid (2012, Premio Extraordinario de Doctorado), Ingeniero de Telecomunicación (2008) y graduado en Investigación y Técnicas de Mercado (2010). Ha investigado en CEDETEL, en la Universidad de Valladolid y, como investigador visitante, en el Laboratory for Information & Decision Systems del MIT. Actualmente es Profesor Titular en el grupo BISITE de la Universidad de Salamanca, cofundador y secretario del Instituto AIR y miembro del IBSAL.\n\nSu investigación combina inteligencia artificial explicable, blockchain, IoT y edge computing, y aprendizaje automático cuántico, con aplicación a ciudades inteligentes, sostenibilidad ambiental y salud. Es Editor Jefe de la sección Internet of Things de la revista Smart Cities y editor asociado de IEEE Communications Letters, Sensors y Frontiers in Public Health.\n\nSenior Member del IEEE, preside el Capítulo Conjunto de Communications y Signal Processing de la Sección España y coordina el Grupo Local IEEE Blockchain Spain. Ha sido General Chair del congreso BLOCKCHAIN, Operations Chair de IEEE GLOBECOM 2021 y TPC Chair de IEEE ICUWB 2017.",
@@ -209,75 +209,27 @@
   "service": [
     {
       "role": {
-        "es": "Editor Jefe, sección Internet of Things",
-        "en": "Editor-in-Chief, Internet of Things section"
+        "es": "Editor Jefe",
+        "en": "Editor-in-Chief"
       },
       "org": {
-        "es": "Smart Cities (MDPI)",
-        "en": "Smart Cities (MDPI)"
+        "es": "Smart Cities Journal, sección Internet of Things, Computing, and Communications Technologies in Smart Cities",
+        "en": "Smart Cities, Internet of Things, Computing, and Communications Technologies in Smart Cities section"
       },
-      "years": "",
-      "url": "https://www.mdpi.com/journal/smartcities/editors?search=javier+prieto"
+      "years": "2019-",
+      "url": "https://www.mdpi.com/journal/smartcities/editors?search=Javier+Prieto"
     },
     {
       "role": {
-        "es": "Senior Associate Editor",
-        "en": "Senior Associate Editor"
+        "es": "Presidente",
+        "en": "Chapter Chair"
       },
       "org": {
-        "es": "IEEE Communications Letters",
-        "en": "IEEE Communications Letters"
+        "es": "IEEE Spain Signal Processing and Communications Joint Chapter",
+        "en": "IEEE Spain Signal Processing and Communications Joint Chapter"
       },
-      "years": "",
-      "url": "https://www.comsoc.org/reviewer-and-editor-appreciation"
-    },
-    {
-      "role": {
-        "es": "Editor asociado",
-        "en": "Associate editor"
-      },
-      "org": {
-        "es": "Frontiers in Public Health",
-        "en": "Frontiers in Public Health"
-      },
-      "years": "",
-      "url": "https://www.frontiersin.org/journals/public-health/sections/digital-public-health/editors?search=Javier%20Prieto"
-    },
-    {
-      "role": {
-        "es": "Editor asociado",
-        "en": "Associate editor"
-      },
-      "org": {
-        "es": "Sensors (MDPI)",
-        "en": "Sensors (MDPI)"
-      },
-      "years": "",
-      "url": ""
-    },
-    {
-      "role": {
-        "es": "Editor asociado",
-        "en": "Associate editor"
-      },
-      "org": {
-        "es": "Wireless Communications and Mobile Computing",
-        "en": "Wireless Communications and Mobile Computing"
-      },
-      "years": "",
-      "url": "https://onlinelibrary.wiley.com/page/journal/6302/homepage/editorial-board"
-    },
-    {
-      "role": {
-        "es": "Chair del Capítulo Conjunto de Communications y Signal Processing",
-        "en": "Chair, Communications and Signal Processing Joint Chapter"
-      },
-      "org": {
-        "es": "IEEE Sección España",
-        "en": "IEEE Spain Section"
-      },
-      "years": "",
-      "url": "https://spain.chapters.comsoc.org"
+      "years": "2023-2027",
+      "url": "https://spain.chapters.comsoc.org/board/"
     },
     {
       "role": {
@@ -288,25 +240,73 @@
         "es": "IEEE Sección España",
         "en": "IEEE Spain Section"
       },
-      "years": "",
+      "years": "2026-2027",
       "url": "https://ieeespain.org/grupos/capitulos/"
     },
     {
       "role": {
-        "es": "Fundador y coordinador de la iniciativa Blockchain en España",
-        "en": "Founder and coordinator, Blockchain initiative in Spain"
+        "es": "Fundador y Coordinador del Grupo IEEE Spain Blockchain",
+        "en": "Founder and Coordinator of the IEEE Spain Blockchain Group"
       },
       "org": {
-        "es": "IEEE Sección España",
-        "en": "IEEE Spain Section"
+        "es": "IEEE Blockchain",
+        "en": "IEEE Blockchain"
       },
       "years": "2020-2024",
       "url": "https://ieeespain.org/industria/ieee-blockchain-initiative/"
+    },
+    {
+      "role": {
+        "es": "Editor Asociado",
+        "en": "Associate Editor"
+      },
+      "org": {
+        "es": "Frontiers in Public Health",
+        "en": "Frontiers in Public Health"
+      },
+      "years": "2022-",
+      "url": "https://www.frontiersin.org/journals/public-health/sections/digital-public-health/editors?search=Javier%20Prieto"
+    },
+    {
+      "role": {
+        "es": "Editor Asociado",
+        "en": "Associate Editor"
+      },
+      "org": {
+        "es": "Sensors",
+        "en": "Sensors"
+      },
+      "years": "2024-2026",
+      "url": "https://www.mdpi.com/journal/sensors/editors?search=Javier+Prieto"
+    },
+    {
+      "role": {
+        "es": "Editor Asociado Senior",
+        "en": "Senior Associate Editor"
+      },
+      "org": {
+        "es": "IEEE Communications Letters",
+        "en": "IEEE Communications Letters"
+      },
+      "years": "2016-2024",
+      "url": "https://www.comsoc.org/reviewer-and-editor-appreciation"
+    },
+    {
+      "role": {
+        "es": "Editor Asociado",
+        "en": "Associate Editor"
+      },
+      "org": {
+        "es": "Wireless Communications and Mobile Computing",
+        "en": "Wireless Communications and Mobile Computing"
+      },
+      "years": "2016-2024",
+      "url": "https://onlinelibrary.wiley.com/page/journal/6302/homepage/editorial-board"
     }
   ],
   "featuredDois": [],
   "settings": {
-    "repo": "javierprieto/javierprieto.me",
+    "repo": "jpritej/javierprieto.me",
     "branch": "main"
   },
   "patents": [
@@ -383,9 +383,14 @@
   ],
   "featured": [
     "PTN2025-166788",
-    "101256747",
-    "PC_TCUE25_041",
-    "TSI-100130-2024-0134"
+    "PLEC2023-010266",
+    "101110022",
+    "101135927",
+    "101120726",
+    "BF138",
+    "CNS2022-135101",
+    "101083898",
+    "0192_CIBERIA_3_E"
   ],
   "display": {
     "timeline": "latest"
@@ -402,6 +407,11 @@
       "summary": {
         "es": "Entrevista sobre el proyecto, liderado junto a Juan Manuel Corchado, que combinó IA e IoT para predecir la evolución de la pandemia de covid-19 y apoyar la toma de decisiones sanitarias.",
         "en": "Interview about the project, co-led with Juan Manuel Corchado, that combined AI and blockchain to predict the evolution of the covid-19 pandemic and support public-health decisions."
+      },
+      "video": "",
+      "quote": {
+        "es": "",
+        "en": ""
       }
     },
     {
@@ -414,6 +424,12 @@
       "summary": {
         "es": "Entrevista sobre LexCity, la plataforma de realidad virtual para el aprendizaje musical que dirijo junto a José Manuel Muñoz Rodríguez, pensada para niños de 9 a 12 años.",
         "en": "Interview about LexCity, a virtual-reality platform for music learning I lead with José Manuel Muñoz Rodríguez, aimed at children aged 9 to 12."
+      },
+      "video": "",
+      "photo": "",
+      "quote": {
+        "es": "",
+        "en": ""
       }
     },
     {
@@ -428,7 +444,12 @@
         "es": "Crónica del congreso GLOBECOM 2021 en Madrid, del que fui Operations Chair, con más de 3000 asistentes en formato híbrido.",
         "en": "Report on GLOBECOM 2021 in Madrid, where I served as Operations Chair, with more than 3,000 attendees in hybrid format."
       },
-      "photo": "assets/img/press/globecom-2021.jpg"
+      "video": "",
+      "photo": "assets/img/press/globecom-2021.jpg",
+      "quote": {
+        "es": "",
+        "en": ""
+      }
     },
     {
       "id": "salamancartv-chromosome-2019",
@@ -441,6 +462,11 @@
       "summary": {
         "es": "Sobre CHROMOSOME, el proyecto que combina IA, blockchain y computación social para lograr hábitos de consumo energético más eficientes, con piloto en viviendas sociales de Salamanca.",
         "en": "About CHROMOSOME, a project combining AI, blockchain and social computing to build more efficient energy habits, piloted in social housing in Salamanca."
+      },
+      "photo": "",
+      "quote": {
+        "es": "",
+        "en": ""
       }
     },
     {
@@ -453,6 +479,12 @@
       "summary": {
         "es": "Reportaje sobre CHROMOSOME: técnicas de inteligencia artificial y sociológicas para recomendaciones personalizadas de ahorro energético, con contratos inteligentes y recompensas en blockchain.",
         "en": "Feature on CHROMOSOME: AI and sociological techniques for personalised energy-saving recommendations, with smart contracts and blockchain-based rewards."
+      },
+      "video": "",
+      "photo": "",
+      "quote": {
+        "es": "",
+        "en": ""
       }
     },
     {
@@ -465,6 +497,12 @@
       "summary": {
         "es": "Sobre CIBERIA, el proyecto europeo liderado por la USAL que ofrece a pymes de Castilla y León y Portugal un programa gratuito de vigilancia y respuesta ante ciberataques.",
         "en": "About CIBERIA, the European project led by USAL offering small businesses in Castilla y León and Portugal a free cyberattack monitoring and response programme."
+      },
+      "video": "",
+      "photo": "",
+      "quote": {
+        "es": "",
+        "en": ""
       }
     },
     {
@@ -478,6 +516,12 @@
       "summary": {
         "es": "Artículo con el Grupo de Comunicaciones Inalámbricas de Cedetel sobre localización en interiores mediante WiFi, aprovechando la infraestructura ya existente en museos, parkings o residencias.",
         "en": "Article with Cedetel's Wireless Communications Group on indoor WiFi-based positioning, reusing existing infrastructure in museums, car parks or care homes."
+      },
+      "video": "",
+      "photo": "",
+      "quote": {
+        "es": "",
+        "en": ""
       }
     },
     {
@@ -490,6 +534,12 @@
       "summary": {
         "es": "Reportaje sobre los proyectos de ciudad inteligente del grupo BISITE, entre ellos Ecocasa, sensorización de viviendas sociales para mejorar la eficiencia energética y el confort.",
         "en": "Feature on the BISITE group's smart-city projects, including Ecocasa, sensing social housing to improve energy efficiency and comfort."
+      },
+      "video": "",
+      "photo": "",
+      "quote": {
+        "es": "",
+        "en": ""
       }
     },
     {
@@ -503,6 +553,11 @@
       "summary": {
         "es": "Vídeo de divulgación de Eco2for, la plataforma blockchain para el intercambio de créditos de carbono que desarrollamos para combatir el cambio climático y revitalizar zonas rurales.",
         "en": "Outreach video on Eco2for, the blockchain platform for trading carbon credits that we developed to fight climate change and revitalise rural areas."
+      },
+      "photo": "",
+      "quote": {
+        "es": "",
+        "en": ""
       }
     },
     {
@@ -516,6 +571,12 @@
       "summary": {
         "es": "Sobre SILOSENS, un dispositivo IoT de bajo coste con sensor láser para medir la cantidad de pienso restante en los silos de una granja y avisar cuando es necesario rellenarlos.",
         "en": "About SILOSENS, a low-cost IoT device with a laser sensor that measures remaining feed in farm silos and alerts when refilling is needed."
+      },
+      "video": "",
+      "photo": "",
+      "quote": {
+        "es": "",
+        "en": ""
       }
     },
     {
@@ -529,6 +590,12 @@
       "summary": {
         "es": "Sobre el curso que impartí en la Escuela Técnica Superior de Ingenieros de Telecomunicación de la UVA sobre herramientas TIC aplicadas a las ciudades inteligentes.",
         "en": "About the course I taught at UVA's School of Telecommunication Engineering on ICT tools applied to smart cities."
+      },
+      "video": "",
+      "photo": "",
+      "quote": {
+        "es": "",
+        "en": ""
       }
     },
     {
@@ -542,6 +609,8 @@
         "es": "Perfil a raíz de CHROMOSOME, el proyecto de ahorro energético en el hogar con inteligencia artificial y blockchain.",
         "en": "Profile prompted by CHROMOSOME, the household energy-saving project using artificial intelligence and blockchain."
       },
+      "video": "",
+      "photo": "",
       "quote": {
         "es": "No es raro que este zamorano haya sido uno de los elegidos por el Programa de Atracción del Talento de la Fundación Salamanca Ciudad de Cultura.",
         "en": "No es raro que este zamorano haya sido uno de los elegidos por el Programa de Atracción del Talento de la Fundación Salamanca Ciudad de Cultura."
@@ -616,5 +685,14 @@
       "photo": "assets/img/rea/tecnicas-informaticas-fisica.jpg"
     }
   ],
-  "projectLinks": {}
+  "projectLinks": {
+    "101083898": "https://digis3.eu/es/",
+    "101110022": "https://smartdelivery.usal.es",
+    "101120726": "https://daiedge.eu",
+    "101135927": "https://nous-project.eu",
+    "PTN2025-166788": "https://ostara-med.eu",
+    "PLEC2023-010266": "https://www.sofiadev.eu",
+    "BF138": "https://eco2for.com",
+    "0192_CIBERIA_3_E": "https://ciberia.usal.es"
+  }
 }
