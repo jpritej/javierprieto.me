@@ -305,7 +305,6 @@ input.field { flex: 1 1 240px; }
 .pub__m { font-family: var(--sans); font-size: .85rem; color: var(--muted); margin-top: .18rem; }
 .pub__m em { font-style: normal; color: var(--ink-soft); }
 .pub__m a { text-decoration: none; }
-.pub__m a:hover { text-decoration: underline; }
 @media (max-width: 560px) {
   .pubyear { grid-template-columns: 1fr; gap: .2rem; }
   .pubyear__y { position: static; }
@@ -635,9 +634,10 @@ code, .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 
   .hero--vector, .hero:has(.hero__photo--vector) { padding-bottom: clamp(1rem, 3vw, 1.6rem); }
 }
 
-/* nombre de la portada en el verde del tema */
-.hero h1 { color: var(--accent-ink); }
-@media (prefers-color-scheme: dark) { .hero h1 { color: var(--accent-ink); } }
+/* Un solo verde para el nombre, los títulos de sección y la barra que los
+   subraya: el mismo var(--accent) en los tres sitios. */
+.hero h1 { color: var(--accent); }
+.section-head h2 { color: var(--accent); }
 
 /* editor de webs de proyectos en la administración */
 .linkrow {
