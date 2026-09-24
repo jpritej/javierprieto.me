@@ -1,5 +1,5 @@
-import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=27";
-import { ICON_KEYS } from "./icons.js?v=27";
+import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=28";
+import { ICON_KEYS } from "./icons.js?v=28";
 
 /* ------------------------------------------------------------------ esquema */
 
@@ -411,7 +411,13 @@ const b64 = (str) => btoa(String.fromCharCode(...new TextEncoder().encode(str)))
    y hay que avisar: darlo por bueno hacía que se anunciara una publicación
    que en realidad no había ocurrido. */
 async function gh(path, token, repo, options = {}, allow404 = false) {
-  const res = await fetch(`https://api.github.com/repos/${repo}/${path}`, {
+  // sin barra final cuando no hay ruta: GitHub redirige y Safari corta la
+  // petición al llevar cabecera de autorización
+  const url = path ? `https://api.github.com/repos/${repo}/${path}`
+                   : `https://api.github.com/repos/${repo}`;
+  let res;
+  try {
+    res = await fetch(url, {
     ...options,
     headers: {
       Accept: "application/vnd.github+json",
@@ -419,7 +425,10 @@ async function gh(path, token, repo, options = {}, allow404 = false) {
       "X-GitHub-Api-Version": "2022-11-28",
       ...(options.headers || {})
     }
-  });
+    });
+  } catch (err) {
+    throw new Error("no se ha podido contactar con GitHub (¿sin conexión, o alguna extensión bloqueando la petición?)");
+  }
   if (res.status === 404 && allow404) return null;
   if (!res.ok) {
     let detail = "";
