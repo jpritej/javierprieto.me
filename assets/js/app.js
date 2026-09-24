@@ -1,10 +1,10 @@
-import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=29";
-import * as orcid from "./orcid.js?v=29";
-import * as openalex from "./openalex.js?v=29";
-import * as charts from "./charts.js?v=29";
-import { icon, topicIcon, ccBadge } from "./icons.js?v=29";
-import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=29";
-import { exportRows, canExport, stamp } from "./export.js?v=29";
+import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=30";
+import * as orcid from "./orcid.js?v=30";
+import * as openalex from "./openalex.js?v=30";
+import * as charts from "./charts.js?v=30";
+import { icon, topicIcon, ccBadge } from "./icons.js?v=30";
+import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=30";
+import { exportRows, canExport, stamp } from "./export.js?v=30";
 
 const view = document.getElementById("view");
 const ROUTES = ["", "docencia", "proyectos", "publicaciones", "divulgacion", "indicadores"];
@@ -160,7 +160,13 @@ function timeline() {
       start: isFinite(start) ? start : current.start,
       end
     };
-  }).sort((a, b) => (b.start || 0) - (a.start || 0));
+  }).sort((a, b) => {
+    // Manda cuándo terminó la relación, no cuándo empezó: lo vigente arriba.
+    // Entre dos vigentes (o dos acabadas el mismo año), primero la más larga.
+    const ea = a.end || Infinity, eb = b.end || Infinity;
+    if (ea !== eb) return eb - ea;
+    return (a.start || 0) - (b.start || 0);
+  });
 
   return section(t("sec.path"), `<ul class="stack">${li(items, (a) => {
     const span = a.start ? a.start + "–" + (a.end || t("present")) : "";
