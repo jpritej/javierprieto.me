@@ -1,5 +1,5 @@
-import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=21";
-import { ICON_KEYS } from "./icons.js?v=21";
+import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=23";
+import { ICON_KEYS } from "./icons.js?v=23";
 
 /* ------------------------------------------------------------------ esquema */
 

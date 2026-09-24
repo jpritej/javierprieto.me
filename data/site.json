@@ -110,8 +110,8 @@
   },
   "metrics": {
     "theses": 6,
-    "projects": 180,
-    "fundingEur": 40948643,
+    "projects": 178,
+    "fundingEur": 40038798,
     "patents": 3,
     "citations": 0,
     "hIndex": 0,
@@ -123,8 +123,8 @@
     },
     "scholarUpdatedAt": "",
     "citationSource": "openalex",
-    "supervisionMaster": 10,
-    "supervisionDegree": 27
+    "supervisionMaster": 6,
+    "supervisionDegree": 24
   },
   "theses": [
     {
@@ -319,7 +319,7 @@
       "number": "ES3039483A1",
       "year": "2024",
       "owner": "Universidad de Salamanca",
-      "url": ""
+      "url": "https://consultas2.oepm.es/InvenesWeb/detalle?referencia=P202430311"
     },
     {
       "title": {
@@ -363,7 +363,7 @@
       "number": "ES2397388",
       "year": "2011",
       "owner": "Universidad de Valladolid",
-      "url": ""
+      "url": "https://consultas2.oepm.es/InvenesWeb/detalle?referencia=P201100870"
     },
     {
       "title": {
@@ -374,7 +374,7 @@
       "number": "ES2372512",
       "year": "2008",
       "owner": "Universidad de Valladolid",
-      "url": ""
+      "url": "https://consultas2.oepm.es/InvenesWeb/detalle?referencia=P200803212"
     }
   ],
   "featuredProjects": [

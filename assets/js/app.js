@@ -1,10 +1,10 @@
-import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=21";
-import * as orcid from "./orcid.js?v=21";
-import * as openalex from "./openalex.js?v=21";
-import * as charts from "./charts.js?v=21";
-import { icon, topicIcon, ccBadge } from "./icons.js?v=21";
-import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=21";
-import { exportRows, canExport, stamp } from "./export.js?v=21";
+import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=23";
+import * as orcid from "./orcid.js?v=23";
+import * as openalex from "./openalex.js?v=23";
+import * as charts from "./charts.js?v=23";
+import { icon, topicIcon, ccBadge } from "./icons.js?v=23";
+import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=23";
+import { exportRows, canExport, stamp } from "./export.js?v=23";
 
 const view = document.getElementById("view");
 const ROUTES = ["", "docencia", "proyectos", "publicaciones", "divulgacion", "indicadores"];
@@ -195,10 +195,19 @@ function teachingSection() {
 function patentsSection(s) {
   const list = (s.patents || []).filter((x) => L(x.title));
   if (!list.length) return "";
-  return section(t("sec.patents"), `<ul class="stack">${li(list, (x) => `
-    <li><strong>${x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(L(x.title))}</a>` : esc(L(x.title))}</strong>
-    <span class="meta">${[x.type, x.number, x.year, x.owner].filter(has).map(esc).join(" · ")}</span></li>`)}</ul>`,
-    String(list.length));
+  // El número de registro hace de enlace, en recuadro, igual que el DOI.
+  return section(t("sec.patents"), `<ul class="stack">${li(list, (x) => {
+    const ref = has(x.number)
+      ? (has(x.url)
+        ? `<a class="badge badge--link" href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.number)}</a>`
+        : `<span class="badge">${esc(x.number)}</span>`)
+      : "";
+    const meta = [x.type, x.year, x.owner].filter(has).map(esc).join(" · ");
+    return `<li>
+      <strong>${esc(L(x.title))}</strong>
+      <span class="meta">${meta}${ref ? " " + ref : ""}</span>
+    </li>`;
+  })}</ul>`, String(list.length));
 }
 
 /* ---------- vista: perfil ----------------------------------------------- */
@@ -209,8 +218,11 @@ function summaryStrip() {
   const cites = manual ? m.citations : (oa ? oa.citations : m.citations);
   const h = manual ? m.hIndex : (oa ? oa.hIndex : m.hIndex);
   const c = counts();
-  const cards = [[num(c.pubs), t("m.pubs")], [num(cites), t("m.citations")],
-                 [num(h), t("m.h")], [num(c.projects), t("m.projects")]];
+  const src = manual ? "Scholar" : "OpenAlex";
+  const cards = [[num(c.pubs), t("m.pubs")],
+                 [num(cites), `${t("m.citations")} · ${src}`],
+                 [num(h), `${t("m.h")} · ${src}`],
+                 [num(c.projects), t("m.projects")]];
   return `<a class="kpis kpis--link" href="#/indicadores" aria-label="${t("nav.metrics")}">
     ${li(cards, ([n, l]) => kpi(n, l, true))}</a>`;
 }
@@ -1069,6 +1081,21 @@ function bindCopyBio() {
   });
 }
 
+function bindToTop() {
+  const btn = document.getElementById("to-top");
+  if (!btn || btn.dataset.bound) return;
+  btn.dataset.bound = "1";
+  btn.addEventListener("click", () => {
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+  });
+  const onScroll = () => {
+    btn.classList.toggle("is-visible", (window.scrollY || 0) > 600);
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
+
 function bindMobileNav() {
   const btn = document.getElementById("nav-toggle");
   const nav = document.getElementById("nav");
@@ -1182,6 +1209,7 @@ async function boot() {
   await loadSite();
   render();
   bindMobileNav();
+  bindToTop();
   document.querySelectorAll(".lang button").forEach((b) =>
     b.addEventListener("click", () => { setLang(b.dataset.lang); render(); }));
   window.addEventListener("hashchange", () => { window.scrollTo(0, 0); range = null; render(); });
