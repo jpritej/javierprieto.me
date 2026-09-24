@@ -1,10 +1,10 @@
-import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=19";
-import * as orcid from "./orcid.js?v=19";
-import * as openalex from "./openalex.js?v=19";
-import * as charts from "./charts.js?v=19";
-import { icon, topicIcon, ccBadge } from "./icons.js?v=19";
-import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=19";
-import { exportRows, canExport, stamp } from "./export.js?v=19";
+import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=21";
+import * as orcid from "./orcid.js?v=21";
+import * as openalex from "./openalex.js?v=21";
+import * as charts from "./charts.js?v=21";
+import { icon, topicIcon, ccBadge } from "./icons.js?v=21";
+import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=21";
+import { exportRows, canExport, stamp } from "./export.js?v=21";
 
 const view = document.getElementById("view");
 const ROUTES = ["", "docencia", "proyectos", "publicaciones", "divulgacion", "indicadores"];
@@ -181,7 +181,7 @@ function teachItem(x) {
   const place = [x.institution, x.city ? x.city.split(",")[0] : ""].filter(has).join(" · ");
   return `<li>
     <strong>${esc(x.course)}</strong>
-    ${x.official ? "" : `<span class="badge">${t("t.nonOfficial")}</span>`}
+    ${x.official ? "" : `<span class="badge">${t("t.ownDegree")}</span>`}
     <span class="meta">${[esc(x.degree), place, range].filter(has).join(" · ")}</span>
   </li>`;
 }
@@ -220,9 +220,11 @@ function viewProfile() {
   // La portada admite foto, ilustración vectorial (svg, sin marco) o nada.
   const art = s.identity.photo || "";
   const isVector = /\.svg$|retrato-ilustracion/i.test(art);
-  const photo = art
-    ? `<img src="${esc(art)}" alt="${isVector ? "" : esc(s.identity.name)}"${isVector ? ' role="presentation"' : ""} loading="lazy">`
-    : "";
+  const dark = s.identity.photoDark || "";
+  const img = `<img src="${esc(art)}" alt="${isVector ? "" : esc(s.identity.name)}"${isVector ? ' role="presentation"' : ""} loading="lazy">`;
+  const photo = !art ? ""
+    : dark ? `<picture><source srcset="${esc(dark)}" media="(prefers-color-scheme: dark)">${img}</picture>`
+    : img;
 
   const bio = L(s.bio).split(/\n{2,}/).filter(Boolean).map((p) => `<p>${esc(p)}</p>`).join("");
   const topics = (s.topics || []).filter((x) => L(x));
@@ -246,7 +248,8 @@ function viewProfile() {
     <div>
       <h1>${esc(s.identity.name)}</h1>
       <p class="hero__role">${esc(L(s.identity.role))}</p>
-      <p class="hero__aff">${esc(L(s.identity.affiliation))}${has(L(s.identity.group)) ? "<br>" + esc(L(s.identity.group)) : ""}</p>
+      <p class="hero__aff">${[L(s.identity.affiliation), L(s.identity.institution), L(s.identity.group)]
+        .filter(has).map(esc).join("<br>")}</p>
       ${networks(s)}
     </div>
     ${photo ? `<figure class="hero__photo${isVector ? " hero__photo--vector" : ""}">${photo}</figure>` : ""}
@@ -254,11 +257,10 @@ function viewProfile() {
   ${summaryStrip()}
 
   ${section(t("sec.about"), `<div class="prose" id="bio-text">${bio}</div>
-    <p class="more"><button type="button" class="btn-more" id="copy-bio">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <p class="more"><button type="button" class="icon-btn" id="copy-bio" title="${t("about.copy")}" aria-label="${t("about.copy")}">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path></svg>
-      <span data-label>${t("about.copy")}</span>
-    </button></p>`)}
+    </button><span class="copy-msg" id="copy-msg" role="status"></span></p>`)}
   ${topics.length ? section(t("sec.topics"), `<div class="topic-grid" data-reveal>${li(topics, (x) => `
     <div class="topic-card">
       <span class="topic-card__i">${topicIcon(x.icon)}</span>
@@ -280,7 +282,16 @@ function viewProfile() {
   ${patentsSection(s)}
 
   ${service.length ? section(t("sec.service"), `<ul class="stack">${li(service, (x) => `
-    <li><strong>${esc(L(x.role))}</strong><span class="meta">${[L(x.org), x.years].filter(has).map(esc).join(" · ")}</span></li>`)}</ul>`) : ""}`;
+    <li class="row-span">
+      <span>
+        <strong>${esc(L(x.role))}</strong>
+        <span class="meta">${esc(L(x.org))}</span>
+      </span>
+      <span class="row-span__end">
+        ${has(x.years) ? `<span class="meta">${esc(x.years)}</span>` : ""}
+        ${has(x.url) ? `<a class="badge badge--link" href="${esc(x.url)}" target="_blank" rel="noopener">${t("p.web")}</a>` : ""}
+      </span>
+    </li>`)}</ul>`) : ""}`;
 }
 
 
@@ -494,6 +505,7 @@ function pressFlyoutContent(x) {
         ${x.date ? `<span>·</span><span>${esc(fdate(x.date))}${x.dateApprox ? " " + t("press.approx") : ""}</span>` : ""}
         <span class="badge" style="margin-left:auto">${esc(topicLabel(x.topic))}</span></div>
       <h3>${esc(x.title)}</h3>
+      ${x.quote ? `<blockquote class="press-quote">${esc(L(x.quote))}</blockquote>` : ""}
       <p class="prose">${esc(L(x.summary))}</p>
       <div class="press-flyout__actions">
         ${x.url ? `<a class="btn" href="${esc(x.url)}" target="_blank" rel="noopener">${t("press.readAt", x.outlet)}</a>` : ""}
@@ -799,8 +811,7 @@ function pubCharts() {
       <figcaption>${t("pubs.byKind")}</figcaption>
       <div class="panel__box panel__box--s"><canvas id="c-pubkind"></canvas></div>
     </figure>
-  </div>
-  <p class="note" style="margin:-1rem 0 1.6rem">${t("pubs.quartileNote", withQ.length, pubs.length)}</p>`;
+  </div>`;
 }
 
 function paintPubCharts() {
@@ -1047,14 +1058,14 @@ function bindCopyBio() {
   if (!btn || !src) return;
   btn.addEventListener("click", async () => {
     const text = [...src.querySelectorAll("p")].map((p) => p.textContent.trim()).join("\n\n");
-    const label = btn.querySelector("[data-label]");
+    const msg = document.getElementById("copy-msg");
     try {
       await navigator.clipboard.writeText(text);
-      label.textContent = t("about.copied");
+      if (msg) msg.textContent = t("about.copied");
     } catch (_) {
-      label.textContent = t("about.copyFail");
+      if (msg) msg.textContent = t("about.copyFail");
     }
-    setTimeout(() => { label.textContent = t("about.copy"); }, 2200);
+    setTimeout(() => { if (msg) msg.textContent = ""; }, 2200);
   });
 }
 

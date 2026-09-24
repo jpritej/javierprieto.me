@@ -1,6 +1,23 @@
 {
- "generatedAt": "2026-09-23",
+ "generatedAt": "2026-09-24",
  "projects": [
+  {
+   "id": "tokencia-incentivos-tokenizados-con-blockchain-y-gaminifaci-",
+   "title": "TOKENCIA: Incentivos tokenizados con blockchain y gaminifación para fomentar la participación, la motivación y la asistencia del estudiantado universitario",
+   "kind": "innovacion",
+   "program": "",
+   "code": "",
+   "funder": "Universidad de Salamanca",
+   "host": "",
+   "role": "Miembro de equipo",
+   "ip": "Albano Carrera González",
+   "lead": false,
+   "scope": "Universitaria",
+   "start": "2026",
+   "end": "2027",
+   "amountTotal": 0,
+   "amountOwn": 0
+  },
   {
    "id": "PTN2025-166788",
    "title": "OSTARA: Operationalizing Agroecology for Resilient Mediterranean Agriculture",
@@ -17,6 +34,40 @@
    "end": "2029",
    "amountTotal": 1625235,
    "amountOwn": 275000
+  },
+  {
+   "id": "LANZADERA_TCUE26_D24_006",
+   "title": "MIRIAM: Experiencia inMersiva mediante avatares vIRtuales interactivos e IA en entornos Multiplataforma",
+   "kind": "competitivo",
+   "program": "Lanzadera Universitaria de Proyectos con Empresas de la Universidad de Salamanca",
+   "code": "LANZADERA_TCUE26_D24_006",
+   "funder": "Junta de Castilla y León",
+   "host": "Universidad de Salamanca",
+   "role": "Investigador principal",
+   "ip": "Javier Parra Domínguez; Javier Prieto Tejedor",
+   "lead": true,
+   "scope": "Autonómica",
+   "start": "2026",
+   "end": "2027",
+   "amountTotal": 6000,
+   "amountOwn": 6000
+  },
+  {
+   "id": "metamusic-metaverso-para-una-educaci-n-musical-inclusiva-ada",
+   "title": "METAMUSIC: Metaverso para una educación musical inclusiva, adaptativa y basada en la interacción tecnológica",
+   "kind": "innovacion",
+   "program": "",
+   "code": "",
+   "funder": "Agencia Estatal de Investigación",
+   "host": "",
+   "role": "Coordinador",
+   "ip": "Javier Prieto Tejedor",
+   "lead": true,
+   "scope": "Nacional",
+   "start": "2026",
+   "end": "2029",
+   "amountTotal": 978865,
+   "amountOwn": 978865
   },
   {
    "id": "101256747",
@@ -163,7 +214,7 @@
    "funder": "Junta de Castilla y León",
    "host": "",
    "role": "Coordinador",
-   "ip": "Sara Serrate González",
+   "ip": "Javier Prieto Tejedor",
    "lead": true,
    "scope": "Autonómica",
    "start": "2025",
@@ -228,7 +279,7 @@
    "kind": "contrato",
    "program": "Planes Estratégicos de I+D",
    "code": "10/23/VA/0010, 10/23/VA/0011",
-   "funder": "Instituto para la Competitividad Empresarial de",
+   "funder": "Instituto para la Competitividad Empresarial de Castilla y León",
    "host": "Universidad de Salamanca proyectos piloto, de formulación conceptual y diseño de productos y de procesos o servicios",
    "role": "",
    "ip": "Javier Prieto Tejedor",
@@ -926,7 +977,7 @@
    "program": "Programa XIV: Convocatoria de proyectos de investigación de la Universidad de Salamanca financiada con recursos liberados disponibles en proyectos y convenios de investigación para el fomento de la investigación y transferenciaPrograma XIV: Convocatoria de proyectos de investigación de la Universidad de Salamanca financiada con recursos liberados disponibles en proyectos y convenios de investigación para el fomento de la investigación y transferencia",
    "code": "18.R056",
    "funder": "",
-   "host": "Universidad de Salamanca",
+   "host": "Universidad de Salamanca fundamental (incluyendo excavaciones arqueológicas, etc.).",
    "role": "",
    "ip": "Javier Prieto Tejedor",
    "lead": true,
@@ -1061,7 +1112,7 @@
    "kind": "contrato",
    "program": "Planes Estratégicos de I+D",
    "code": "10/18/VA/0024",
-   "funder": "Instituto para la Competitividad Empresarial de Castilla y León",
+   "funder": "Instituto para la Competitividad Empresarial de",
    "host": "Universidad de Salamanca desarrollo incluida traslacional",
    "role": "",
    "ip": "Juan Manuel Corchado Rodríguez",
@@ -1724,7 +1775,7 @@
    "kind": "contrato",
    "program": "Proyectos de Investigación y Desarrollo",
    "code": "IDI-20200175",
-   "funder": "",
+   "funder": "Centro para el Desarrollo Tecnológico Industrial",
    "host": "",
    "role": "",
    "ip": "Juan Manuel Corchado Rodríguez",
@@ -1860,7 +1911,7 @@
    "kind": "contrato",
    "program": "Subvenciones dirigidas a Planes Estratégicos en materia de I+D, cofinanciadas por el Fondo Europeo de Desarrollo Regional (FEDER)",
    "code": "10/18/SA/0003",
-   "funder": "Instituto para la Competitividad Empresarial de",
+   "funder": "",
    "host": "Universidad de Salamanca desarrollo incluida traslacional",
    "role": "",
    "ip": "Juan Manuel Corchado Rodríguez",
@@ -2829,7 +2880,7 @@
    "kind": "competitivo",
    "program": "Proyectos de I+D en Cooperación Nacional",
    "code": "IDI-20140621",
-   "funder": "Centro para el Desarrollo Tecnológico Industrial",
+   "funder": "Centro para el Desarrollo Tecnológico Industrial Ministerio de Ciencia e Innovación Junta de Castilla y León Ministerio de Ciencia e Innovación. Investigación Junta de Castilla y León",
    "host": "Universidad de Salamanca",
    "role": "Otros",
    "ip": "Juan Manuel Corchado Rodríguez",
@@ -2838,7 +2889,7 @@
    "start": "2014",
    "end": "2015",
    "amountTotal": 75020,
-   "amountOwn": 75020
+   "amountOwn": 80213
   },
   {
    "id": "TIN2012-38080-C04-03",
@@ -2907,23 +2958,6 @@
    "end": "2012",
    "amountTotal": 6000,
    "amountOwn": 6000
-  },
-  {
-   "id": "IPT-2011-1411-900000",
-   "title": "SHERLOC: Sistema Híbrido de Estrés Remoto y Localización Personal, tanto en Interiores como en Exteriores",
-   "kind": "competitivo",
-   "program": "Subprograma INNPACTO 2011",
-   "code": "IPT-2011-1411-900000",
-   "funder": "Ministerio de Ciencia e Innovación Junta de Castilla y León Ministerio de Ciencia e Innovación. Investigación Junta de Castilla y León",
-   "host": "Universidad de Valladolid",
-   "role": "Miembro de equipo",
-   "ip": "Patricia Fernández Reguero",
-   "lead": false,
-   "scope": "Nacional",
-   "start": "2011",
-   "end": "2013",
-   "amountTotal": 642871,
-   "amountOwn": 80213
   },
   {
    "id": "plan-de-actuaci-n-para-el-2011-entre-la-consejer-a-de-foment",
@@ -3148,6 +3182,69 @@
  ],
  "supervisions": [
   {
+   "title": "Agendas en disputa: brechas entre la agenda institucional y la social en la política de salud en Colombia mediante modelado de tópicos y similitud semántica",
+   "kind": "Trabajo fin de máster",
+   "student": "Sebastián Felipe García Torres",
+   "year": "2026",
+   "university": "Universidad de Salamanca",
+   "grade": "",
+   "international": false
+  },
+  {
+   "title": "La inteligencia artificial y la confidencialidad documental: Implicaciones éticas y propuesta de buenas prácticas en el manejo de la información sensible",
+   "kind": "Trabajo fin de grado",
+   "student": "Pedro Domingues Parra",
+   "year": "2026",
+   "university": "Universidad de Salamanca",
+   "grade": "8.5",
+   "international": false
+  },
+  {
+   "title": "Aprendizaje automático para la caracterización de perfiles de abandono escolar temprano y la intervención socioeducativa",
+   "kind": "Trabajo fin de máster",
+   "student": "Pablo Collado Redrejo",
+   "year": "2026",
+   "university": "Universidad de Salamanca",
+   "grade": "10.0 (MH)",
+   "international": false
+  },
+  {
+   "title": "SolGuard: Plataforma web de análisis estático de seguridad para Smart Contracts en Solidity",
+   "kind": "Trabajo fin de máster",
+   "student": "Marta Ying Muñoz Del Fraile",
+   "year": "2026",
+   "university": "Universidad de Salamanca",
+   "grade": "",
+   "international": false
+  },
+  {
+   "title": "Detección de estructuras anatómicas en imágenes TAC mediante IA",
+   "kind": "Trabajo fin de grado",
+   "student": "Iker Pérez Vicente",
+   "year": "2026",
+   "university": "Universidad de Salamanca",
+   "grade": "7.0",
+   "international": false
+  },
+  {
+   "title": "Modelos de XAI para la propagación de enfermedades",
+   "kind": "Trabajo fin de máster",
+   "student": "Hamza Benali",
+   "year": "2026",
+   "university": "Universidad de Salamanca",
+   "grade": "9.0",
+   "international": false
+  },
+  {
+   "title": "Gestión Forestal Descentralizada: Tokenización y DAO para la Conservación de Bosques",
+   "kind": "Trabajo fin de grado",
+   "student": "Antonio Sosa Pérez",
+   "year": "2026",
+   "university": "Universidad de Salamanca",
+   "grade": "9.0",
+   "international": false
+  },
+  {
    "title": "HappyTransplant",
    "kind": "Trabajo fin de grado",
    "student": "Marta Ying Muñoz Del Fraile",
@@ -3238,7 +3335,7 @@
    "international": false
   },
   {
-   "title": "Clara Martín Jiménez",
+   "title": "Extensiones de los números reales en redes neuronales convolucionales",
    "kind": "Trabajo fin de grado",
    "student": "Clara Martín Jiménez",
    "year": "2020",
@@ -3428,7 +3525,7 @@
    "modality": "Práctica (Aula-Problemas)",
    "start": "2025-09-16",
    "end": "",
-   "hours": "3 Créditos",
+   "hours": "3 Créditos 25",
    "institution": "Universidad de Salamanca",
    "faculty": "Facultad de Ciencias",
    "department": "Informática y Automática",
@@ -3454,7 +3551,7 @@
   {
    "course": "Visualización de Datos Sociales Digitales",
    "programType": "Máster oficial",
-   "subjectType": "Optativa 22",
+   "subjectType": "Optativa",
    "degree": "Máster Interuniversitario en Ciencia de Datos Aplicada a las Ciencias Sociales",
    "official": true,
    "modality": "Virtual",
@@ -3544,7 +3641,7 @@
    "institution": "Universidad de Salamanca",
    "faculty": "Facultad de Ciencias",
    "department": "",
-   "city": "Salamanca, Castilla y León, España",
+   "city": "Salamanca, Castilla y León, España 23",
    "language": ""
   },
   {
@@ -3556,7 +3653,7 @@
    "modality": "",
    "start": "2016-10-03",
    "end": "2017-06-30",
-   "hours": "2 Horas 21",
+   "hours": "2 Horas",
    "institution": "Universidad de Salamanca",
    "faculty": "Facultad de Bellas Artes",
    "department": "",
@@ -3592,7 +3689,7 @@
    "institution": "Universidad de Salamanca",
    "faculty": "Facultad de Ciencias",
    "department": "Informática y Automática",
-   "city": "Salamanca, Castilla y León, España",
+   "city": "Salamanca, Castilla y León, España 26",
    "language": ""
   },
   {
@@ -3606,7 +3703,7 @@
    "end": "2018-08-31",
    "hours": "6 Créditos",
    "institution": "Universidad de Salamanca",
-   "faculty": "Facultad de Ciencias",
+   "faculty": "Facultad de Ciencias 24",
    "department": "Informática y Automática",
    "city": "Salamanca, Castilla y León, España",
    "language": "Español"
@@ -3634,6 +3731,12 @@
    "year": "2026",
    "quartile": 2,
    "doi": ""
+  },
+  {
+   "kind": "Artículo científico",
+   "year": "2026",
+   "quartile": 1,
+   "doi": "10.1109/OJCOMS.2026.3724237"
   },
   {
    "kind": "Artículo científico",
@@ -3818,7 +3921,7 @@
   {
    "kind": "Artículo científico",
    "year": "2020",
-   "quartile": 1,
+   "quartile": null,
    "doi": "10.1007/s12652-020-01942-y"
   },
   {
@@ -3860,7 +3963,7 @@
   {
    "kind": "Artículo científico",
    "year": "2019",
-   "quartile": null,
+   "quartile": 1,
    "doi": "10.1109/ACCESS.2019.2892905"
   },
   {
@@ -3914,7 +4017,7 @@
   {
    "kind": "Artículo científico",
    "year": "2017",
-   "quartile": 2,
+   "quartile": 1,
    "doi": "10.3390/s17081749"
   },
   {
@@ -3938,7 +4041,7 @@
   {
    "kind": "Artículo científico",
    "year": "2016",
-   "quartile": 1,
+   "quartile": null,
    "doi": "10.1109/TSP.2016.2515065"
   },
   {
@@ -3980,7 +4083,7 @@
   {
    "kind": "Artículo científico",
    "year": "2010",
-   "quartile": null,
+   "quartile": 2,
    "doi": "10.1155/2010/102095"
   },
   {
@@ -3994,6 +4097,12 @@
    "year": "2009",
    "quartile": null,
    "doi": "10.2528/PIERB09050502"
+  },
+  {
+   "kind": "Capítulo de libro",
+   "year": "2026",
+   "quartile": null,
+   "doi": "10.14201/0AQ0394115118"
   },
   {
    "kind": "Capítulo de libro",
@@ -4136,18 +4245,18 @@
  ],
  "supervision": {
   "phd": 6,
-  "master": 6,
-  "degree": 24
+  "master": 10,
+  "degree": 27
  },
  "totals": {
-  "projects": 178,
-  "asLead": 58,
-  "budgetTotal": 182265670,
-  "managed": 40038798,
+  "projects": 180,
+  "asLead": 60,
+  "budgetTotal": 182607664,
+  "managed": 40948643,
   "byKind": {
+   "innovacion": 18,
    "competitivo": 99,
-   "contrato": 63,
-   "innovacion": 16
+   "contrato": 63
   }
  }
 }

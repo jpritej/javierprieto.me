@@ -1,6 +1,6 @@
 {
   "_comment": "Todo este fichero se edita desde /admin/. No hace falta tocarlo a mano.",
-  "updatedAt": "2026-09-23",
+  "updatedAt": "2026-09-24",
   "identity": {
     "name": "Javier Prieto",
     "shortName": "Javier Prieto",
@@ -9,12 +9,16 @@
       "en": "Associate Professor"
     },
     "affiliation": {
-      "es": "Departamento de Informática y Automática, Universidad de Salamanca",
-      "en": "Department of Computer Science and Automation, University of Salamanca"
+      "es": "Departamento de Informática y Automática",
+      "en": "Department of Computer Science and Automation"
+    },
+    "institution": {
+      "es": "Universidad de Salamanca",
+      "en": "University of Salamanca"
     },
     "group": {
-      "es": "Grupo BISITE · IBSAL · IEEE",
-      "en": "BISITE Research Group · IBSAL · IEEE"
+      "es": "Chair Capítulo IEEE Signal Processing & ComSoc",
+      "en": "Chair IEEE Signal Processing & ComSoc Chapter"
     },
     "location": {
       "es": "Salamanca, España",
@@ -23,6 +27,7 @@
     "emailUser": "javierp",
     "emailHost": "usal.es",
     "photo": "assets/img/retrato-ilustracion.png",
+    "photoDark": "assets/img/retrato-ilustracion-oscuro.png",
     "cv": ""
   },
   "bio": {
@@ -105,8 +110,8 @@
   },
   "metrics": {
     "theses": 6,
-    "projects": 178,
-    "fundingEur": 40038798,
+    "projects": 180,
+    "fundingEur": 40948643,
     "patents": 3,
     "citations": 0,
     "hIndex": 0,
@@ -118,8 +123,8 @@
     },
     "scholarUpdatedAt": "",
     "citationSource": "openalex",
-    "supervisionMaster": 6,
-    "supervisionDegree": 24
+    "supervisionMaster": 10,
+    "supervisionDegree": 27
   },
   "theses": [
     {
@@ -211,7 +216,20 @@
         "es": "Smart Cities (MDPI)",
         "en": "Smart Cities (MDPI)"
       },
-      "years": ""
+      "years": "",
+      "url": "https://www.mdpi.com/journal/smartcities/editors?search=javier+prieto"
+    },
+    {
+      "role": {
+        "es": "Senior Associate Editor",
+        "en": "Senior Associate Editor"
+      },
+      "org": {
+        "es": "IEEE Communications Letters",
+        "en": "IEEE Communications Letters"
+      },
+      "years": "",
+      "url": "https://www.comsoc.org/reviewer-and-editor-appreciation"
     },
     {
       "role": {
@@ -219,21 +237,47 @@
         "en": "Associate editor"
       },
       "org": {
-        "es": "IEEE Communications Letters",
-        "en": "IEEE Communications Letters"
+        "es": "Frontiers in Public Health",
+        "en": "Frontiers in Public Health"
       },
-      "years": ""
+      "years": "",
+      "url": "https://www.frontiersin.org/journals/public-health/sections/digital-public-health/editors?search=Javier%20Prieto"
+    },
+    {
+      "role": {
+        "es": "Editor asociado",
+        "en": "Associate editor"
+      },
+      "org": {
+        "es": "Sensors (MDPI)",
+        "en": "Sensors (MDPI)"
+      },
+      "years": "",
+      "url": ""
+    },
+    {
+      "role": {
+        "es": "Editor asociado",
+        "en": "Associate editor"
+      },
+      "org": {
+        "es": "Wireless Communications and Mobile Computing",
+        "en": "Wireless Communications and Mobile Computing"
+      },
+      "years": "",
+      "url": "https://onlinelibrary.wiley.com/page/journal/6302/homepage/editorial-board"
     },
     {
       "role": {
         "es": "Chair del Capítulo Conjunto de Communications y Signal Processing",
-        "en": "Chair of the Communications and Signal Processing Joint Chapter"
+        "en": "Chair, Communications and Signal Processing Joint Chapter"
       },
       "org": {
         "es": "IEEE Sección España",
         "en": "IEEE Spain Section"
       },
-      "years": ""
+      "years": "",
+      "url": "https://spain.chapters.comsoc.org"
     },
     {
       "role": {
@@ -244,7 +288,20 @@
         "es": "IEEE Sección España",
         "en": "IEEE Spain Section"
       },
-      "years": ""
+      "years": "",
+      "url": "https://ieeespain.org/grupos/capitulos/"
+    },
+    {
+      "role": {
+        "es": "Fundador y coordinador de la iniciativa Blockchain en España",
+        "en": "Founder and coordinator, Blockchain initiative in Spain"
+      },
+      "org": {
+        "es": "IEEE Sección España",
+        "en": "IEEE Spain Section"
+      },
+      "years": "2020-2024",
+      "url": "https://ieeespain.org/industria/ieee-blockchain-initiative/"
     }
   ],
   "featuredDois": [],
@@ -370,7 +427,8 @@
       "summary": {
         "es": "Crónica del congreso GLOBECOM 2021 en Madrid, del que fui Operations Chair, con más de 3000 asistentes en formato híbrido.",
         "en": "Report on GLOBECOM 2021 in Madrid, where I served as Operations Chair, with more than 3,000 attendees in hybrid format."
-      }
+      },
+      "photo": "assets/img/press/globecom-2021.jpg"
     },
     {
       "id": "salamancartv-chromosome-2019",
@@ -481,8 +539,12 @@
       "url": "https://www.laopiniondezamora.es/zamora/2019/09/23/casas-sostenibles/1192138.html",
       "topic": "blockchain",
       "summary": {
-        "es": "Sobre CHROMOSOME: mecanismos inteligentes para lograr un ahorro en el consumo energético del hogar, con inteligencia artificial, blockchain y computación social.",
-        "en": "About CHROMOSOME: smart mechanisms to save on household energy consumption, using artificial intelligence, blockchain and social computing."
+        "es": "Perfil a raíz de CHROMOSOME, el proyecto de ahorro energético en el hogar con inteligencia artificial y blockchain.",
+        "en": "Profile prompted by CHROMOSOME, the household energy-saving project using artificial intelligence and blockchain."
+      },
+      "quote": {
+        "es": "No es raro que este zamorano haya sido uno de los elegidos por el Programa de Atracción del Talento de la Fundación Salamanca Ciudad de Cultura.",
+        "en": "No es raro que este zamorano haya sido uno de los elegidos por el Programa de Atracción del Talento de la Fundación Salamanca Ciudad de Cultura."
       }
     }
   ],

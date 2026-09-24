@@ -24,7 +24,7 @@ const UI = {
     "d.rea": "Recursos educativos abiertos",
     "d.reaWith": "con",
     "sec.rea": "Recursos educativos abiertos",
-    "t.nonOfficial": "No oficial",
+    "t.ownDegree": "Título propio",
     "t.intl": "Mención internacional",
     "p.byCount": "Reparto por número",
     "p.byAmount": "Reparto por importe gestionado",
@@ -56,7 +56,7 @@ const UI = {
     "nav.admin": "Administrar",
     "hero.contact": "Escribir",
     "sec.about": "Trayectoria",
-    "about.copy": "Copiar el texto",
+    "about.copy": "Copiar la trayectoria",
     "about.copied": "Copiado",
     "about.copyFail": "No se ha podido copiar",
     "sec.topics": "Líneas de investigación",
@@ -133,7 +133,7 @@ const UI = {
     "d.rea": "Open educational resources",
     "d.reaWith": "with",
     "sec.rea": "Open educational resources",
-    "t.nonOfficial": "Non-official",
+    "t.ownDegree": "University-specific degree",
     "t.intl": "International mention",
     "p.byCount": "Share by number",
     "p.byAmount": "Share by amount managed",
@@ -298,7 +298,7 @@ export function num(n) {
 export function money(n) {
   if (!n) return "0 €";
   const v = Number(n);
-  if (v >= 1000000) return (v / 1000000).toFixed(v % 1000000 === 0 ? 0 : 1).replace(".", ",") + " M€";
+  if (v >= 1000000) return Math.round(v / 1000000) + " M€";
   if (v >= 1000) return num(Math.round(v / 1000)) + " k€";
   return num(v) + " €";
 }

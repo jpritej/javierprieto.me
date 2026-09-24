@@ -1,5 +1,5 @@
-import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=19";
-import { ICON_KEYS } from "./icons.js?v=19";
+import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=21";
+import { ICON_KEYS } from "./icons.js?v=21";
 
 /* ------------------------------------------------------------------ esquema */
 
@@ -14,14 +14,17 @@ const SCHEMA = [
       { k: "shortName", l: "Nombre corto (cabecera)" },
       { k: "role.es", l: "Cargo (ES)" },
       { k: "role.en", l: "Cargo (EN)" },
-      { k: "affiliation.es", l: "Afiliación (ES)", wide: true },
-      { k: "affiliation.en", l: "Afiliación (EN)", wide: true },
+      { k: "affiliation.es", l: "Departamento, primera línea (ES)", wide: true },
+      { k: "affiliation.en", l: "Department, first line (EN)", wide: true },
+      { k: "institution.es", l: "Institución, segunda línea (ES)" },
+      { k: "institution.en", l: "Institution, second line (EN)" },
       { k: "group.es", l: "Grupo e institutos (ES)" },
       { k: "group.en", l: "Grupo e institutos (EN)" },
       { k: "emailUser", l: "Correo, antes de la @" },
       { k: "emailHost", l: "Correo, dominio después de la @" },
       { k: "cv", l: "Enlace al CV en PDF", t: T.url },
-      { k: "photo", l: "Foto", t: "photo", wide: true }
+      { k: "photo", l: "Foto o ilustración", t: "photo", wide: true },
+      { k: "photoDark", l: "Versión para modo oscuro (ruta del fichero)", wide: true }
     ]
   },
   {
@@ -177,6 +180,8 @@ const SCHEMA = [
         { value: "ehealth", label: "eHealth y radiómica" } ] },
       { k: "video", l: "ID de vídeo de YouTube (solo si hay vídeo, sin el resto de la URL)" },
       { k: "photo", l: "Foto propia (ruta), si no hay vídeo" },
+      { k: "quote.es", l: "Cita literal del medio, si quieres destacar una (ES)", t: T.area, wide: true },
+      { k: "quote.en", l: "Pull quote (EN)", t: T.area, wide: true },
       { k: "summary.es", l: "Tu resumen, nunca el texto del medio (ES)", t: T.area, wide: true },
       { k: "summary.en", l: "Your own summary (EN)", t: T.area, wide: true }
     ]
@@ -214,7 +219,8 @@ const SCHEMA = [
     item: [
       { k: "role.es", l: "Cargo (ES)" }, { k: "role.en", l: "Role (EN)" },
       { k: "org.es", l: "Organización (ES)" }, { k: "org.en", l: "Organisation (EN)" },
-      { k: "years", l: "Años" }
+      { k: "years", l: "Años (por ejemplo 2020-2024)" },
+      { k: "url", l: "Enlace del cargo", t: T.url, wide: true }
     ]
   },
   {

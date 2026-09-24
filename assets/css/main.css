@@ -650,3 +650,35 @@ code, .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 
 .linkrow__t em { display: block; font-style: normal; color: var(--muted); font-size: .78rem; }
 .linkrow .field { font-size: .82rem; padding: .35rem .5rem; }
 @media (max-width: 620px) { .linkrow { grid-template-columns: 1fr; } }
+
+/* ---------- retoques finales --------------------------------------------- */
+
+/* copiar: solo el icono, sin cuerpo de botón */
+.icon-btn {
+  border: 0; background: transparent; color: var(--muted); cursor: pointer;
+  width: 40px; height: 40px; border-radius: 6px;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: color .18s ease, background .18s ease;
+}
+.icon-btn:hover { color: var(--accent); background: var(--accent-wash); }
+.copy-msg { font-family: var(--sans); font-size: .82rem; color: var(--accent); margin-left: .5rem; }
+
+/* años y enlace alineados a la derecha, como en los puestos */
+.row-span { display: flex; align-items: flex-start; gap: 1rem; }
+.row-span > span:first-child { min-width: 0; }
+.row-span__end {
+  margin-left: auto; display: flex; align-items: center; gap: .5rem;
+  flex: none; font-variant-numeric: tabular-nums;
+}
+@media (max-width: 560px) {
+  .row-span { flex-direction: column; gap: .4rem; }
+  .row-span__end { margin-left: 0; }
+}
+
+/* ningún subrayado al pasar el ratón por los botones y pastillas */
+.chip:hover, .badge--link:hover, .btn-more:hover, .rea-card:hover, .press-card:hover { text-decoration: none; }
+
+.press-quote {
+  margin: 0; padding: .1rem 0 .1rem 1rem; border-left: 3px solid var(--accent);
+  font-size: 1.08rem; line-height: 1.55; color: var(--ink); font-style: italic;
+}
