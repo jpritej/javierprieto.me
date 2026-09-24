@@ -9,8 +9,8 @@
       "en": "Associate Professor"
     },
     "affiliation": {
-      "es": "Departamento de Informática y Automática · Universidad de Salamanca",
-      "en": "Department of Computer Science and Automation · University of Salamanca"
+      "es": "Departamento de Informática y Automática",
+      "en": "Department of Computer Science and Automation"
     },
     "group": {
       "es": "Chair Capítulo IEEE Signal Processing & ComSoc",
@@ -25,8 +25,8 @@
     "photo": "assets/img/retrato-ilustracion.png",
     "cv": "",
     "institution": {
-      "es": "",
-      "en": ""
+      "es": "Universidad de Salamanca",
+      "en": "University of Salamanca"
     },
     "photoDark": "assets/img/retrato-ilustracion-oscuro.png"
   },
