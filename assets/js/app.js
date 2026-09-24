@@ -1,10 +1,10 @@
-import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=28";
-import * as orcid from "./orcid.js?v=28";
-import * as openalex from "./openalex.js?v=28";
-import * as charts from "./charts.js?v=28";
-import { icon, topicIcon, ccBadge } from "./icons.js?v=28";
-import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=28";
-import { exportRows, canExport, stamp } from "./export.js?v=28";
+import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=29";
+import * as orcid from "./orcid.js?v=29";
+import * as openalex from "./openalex.js?v=29";
+import * as charts from "./charts.js?v=29";
+import { icon, topicIcon, ccBadge } from "./icons.js?v=29";
+import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=29";
+import { exportRows, canExport, stamp } from "./export.js?v=29";
 
 const view = document.getElementById("view");
 const ROUTES = ["", "docencia", "proyectos", "publicaciones", "divulgacion", "indicadores"];
@@ -133,7 +133,8 @@ function pubItem(w) {
 
 function timeline() {
   if (!orc) return "";
-  const raw = [...orc.employments, ...orc.educations].filter((a) => a.org);
+  // solo experiencia laboral: la formación ya se cuenta en la biografía
+  const raw = orc.employments.filter((a) => a.org);
   if (!raw.length) return "";
 
   // Varios puestos en la misma institución se agrupan: ORCID los registra uno a uno.
