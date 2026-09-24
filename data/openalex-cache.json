@@ -1,0 +1,106 @@
+{
+ "fetchedAt": "2026-09-24T09:17:21+00:00",
+ "id": "https://openalex.org/A5029218215",
+ "citations": 4791,
+ "works": 248,
+ "hIndex": 36,
+ "i10Index": 89,
+ "impact": 2.9193548387096775,
+ "byYear": [
+  {
+   "year": 1999,
+   "works": 1,
+   "citations": 377
+  },
+  {
+   "year": 2009,
+   "works": 4,
+   "citations": 66
+  },
+  {
+   "year": 2010,
+   "works": 13,
+   "citations": 163
+  },
+  {
+   "year": 2011,
+   "works": 2,
+   "citations": 5
+  },
+  {
+   "year": 2012,
+   "works": 4,
+   "citations": 146
+  },
+  {
+   "year": 2013,
+   "works": 3,
+   "citations": 53
+  },
+  {
+   "year": 2014,
+   "works": 1,
+   "citations": 19
+  },
+  {
+   "year": 2015,
+   "works": 4,
+   "citations": 18
+  },
+  {
+   "year": 2016,
+   "works": 8,
+   "citations": 159
+  },
+  {
+   "year": 2017,
+   "works": 9,
+   "citations": 220
+  },
+  {
+   "year": 2018,
+   "works": 23,
+   "citations": 1131
+  },
+  {
+   "year": 2019,
+   "works": 36,
+   "citations": 1330
+  },
+  {
+   "year": 2020,
+   "works": 30,
+   "citations": 548
+  },
+  {
+   "year": 2021,
+   "works": 13,
+   "citations": 177
+  },
+  {
+   "year": 2022,
+   "works": 15,
+   "citations": 81
+  },
+  {
+   "year": 2023,
+   "works": 20,
+   "citations": 117
+  },
+  {
+   "year": 2024,
+   "works": 19,
+   "citations": 138
+  },
+  {
+   "year": 2025,
+   "works": 18,
+   "citations": 36
+  },
+  {
+   "year": 2026,
+   "works": 25,
+   "citations": 7
+  }
+ ]
+}
