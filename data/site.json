@@ -1,6 +1,6 @@
 {
   "_comment": "Todo este fichero se edita desde /admin/. No hace falta tocarlo a mano.",
-  "updatedAt": "2026-09-24",
+  "updatedAt": "2026-09-26",
   "identity": {
     "name": "Javier Prieto",
     "shortName": "Javier Prieto",
@@ -100,13 +100,19 @@
       "icon": "cienciavitae"
     },
     {
+      "label": "OpenAlex",
+      "url": "https://openalex.org/A5029218215",
+      "icon": "openalex"
+    },
+    {
       "label": "LinkedIn",
-      "url": "https://www.linkedin.com/in/javi-prieto/",
-      "icon": "linkedin"
+      "icon": "linkedin",
+      "url": "https://www.linkedin.com/in/javi-prieto/"
     }
   ],
   "profiles": {
-    "orcid": "0000-0001-8175-2201"
+    "orcid": "0000-0001-8175-2201",
+    "openalex": ""
   },
   "metrics": {
     "theses": 6,
