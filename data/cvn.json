@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-23",
+ "generatedAt": "2026-09-26",
  "projects": [
   {
    "id": "PTN2025-166788",
@@ -3631,507 +3631,1482 @@
  "publications": [
   {
    "kind": "Artículo científico",
+   "title": "Autoencoding-Based Self-Supervised Learning for Enhanced Representation of Network Traffic Patterns",
    "year": "2026",
    "quartile": 2,
    "doi": ""
   },
   {
    "kind": "Artículo científico",
+   "title": "Adversarial robustness evaluation of hybrid CNN-LSTM-transformer NIDS on evolving threats",
    "year": "2026",
    "quartile": 2,
    "doi": "10.1016/j.jisa.2026.104467"
   },
   {
    "kind": "Artículo científico",
+   "title": "Refining skip connections in convolutional encoder–decoder networks for whole meningioma segmentation using shifted window transformer blocks",
    "year": "2026",
    "quartile": 1,
    "doi": "10.1016/j.engappai.2026.114569"
   },
   {
    "kind": "Artículo científico",
+   "title": "AI-powered predictive control for hybrid renewable microgrids: Integrating photovoltaic generation and battery storage in smart homes and industrial applications",
    "year": "2026",
    "quartile": 1,
    "doi": "10.1016/j.mlwa.2026.100864"
   },
   {
    "kind": "Artículo científico",
+   "title": "Alonso Rincón; Javier Prieto Tejedor; Óscar García García",
    "year": "2026",
    "quartile": 2,
    "doi": "10.1007/s10489-026-07122-3"
   },
   {
    "kind": "Artículo científico",
+   "title": "FloorTag: A Hybrid Indoor Localization System Based on Floor-Deployed Visual Markers and Pedometer Integration",
    "year": "2025",
    "quartile": 2,
    "doi": "10.3390/electronics14244819"
   },
   {
    "kind": "Artículo científico",
+   "title": "Survey of smartphone-based datasets for indoor localization: A machine learning perspective",
    "year": "2025",
    "quartile": 1,
    "doi": "10.1016/j.iot.2025.101753"
   },
   {
    "kind": "Artículo científico",
+   "title": "Hybrid Physics-LSTM Framework for Wind Power Prediction and Control in Virtual Microgrid Simulations",
    "year": "2025",
    "quartile": 2,
    "doi": "10.1109/ACCESS.2025.3586798"
   },
   {
    "kind": "Artículo científico",
+   "title": "Class Imbalance in Network Traffic Classification: An Adaptive Weight Ensemble-of-Ensemble Learning Method",
    "year": "2025",
    "quartile": 2,
    "doi": "10.1109/ACCESS.2025.3538170"
   },
   {
    "kind": "Artículo científico",
+   "title": "A Learning Probabilistic Boolean Network Model of a Smart Grid with Applications in System Maintenance",
    "year": "2024",
    "quartile": 3,
    "doi": "10.3390/en17246399"
   },
   {
    "kind": "Artículo científico",
+   "title": "Edge Computing Architecture for the Management of Underwater Cultural Heritage",
    "year": "2024",
    "quartile": 2,
    "doi": "10.3390/jmse12122250"
   },
   {
    "kind": "Artículo científico",
+   "title": "Prediction of footwear demand using Prophet and SARIMA",
    "year": "2024",
    "quartile": 1,
    "doi": "10.1016/j.eswa.2024.124512"
   },
   {
    "kind": "Artículo científico",
+   "title": "Proof-of-resource: A resource-efficient consensus mechanism for IoT devices in blockchain networks",
    "year": "2024",
    "quartile": null,
    "doi": "10.4108/eetiot.6565"
   },
   {
    "kind": "Artículo científico",
+   "title": "revistas en cat.: 596 Fuente de impacto: CiteScore Índice de impacto: 2.1 Posición de publicación: 146 Categoría: Engineering (miscellaneous) Revista dentro del 25%: No Num",
    "year": "2024",
    "quartile": 2,
    "doi": "10.3390/s24124016"
   },
   {
    "kind": "Artículo científico",
+   "title": "Trustworthy Artificial Intelligence -based federated architecture for symptomatic disease detection",
    "year": "2024",
    "quartile": 1,
    "doi": "10.1016/j.neucom.2024.127415"
   },
   {
    "kind": "Artículo científico",
+   "title": "Unleashing the Potential of Knowledge Distillation for IoT Traffic Classification",
    "year": "2024",
    "quartile": null,
    "doi": "10.1109/TMLCN.2024.3360915"
   },
   {
    "kind": "Artículo científico",
+   "title": "An overview of machine learning and deep learning techniques for predicting epileptic seizures",
    "year": "2023",
    "quartile": 3,
    "doi": "10.1515/jib-2023-0002"
   },
   {
    "kind": "Artículo científico",
+   "title": "Industrial data monetization: A blockchain-based industrial IoT data trading system",
    "year": "2023",
    "quartile": 1,
    "doi": "10.1016/j.iot.2023.100959"
   },
   {
    "kind": "Artículo científico",
+   "title": "Pollutant Time Series Analysis for Improving Air-Quality in Smart Cities",
    "year": "2023",
    "quartile": 2,
    "doi": "10.9781/ijimai.2023.08.005"
   },
   {
    "kind": "Artículo científico",
+   "title": "Security in the Internet of Things Application Layer: Requirements, Threats, and Solutions",
    "year": "2022",
    "quartile": 2,
    "doi": "10.1109/ACCESS.2022.3205351"
   },
   {
    "kind": "Artículo científico",
+   "title": "Towards a Blockchain-Based Peer-to-Peer Energy Marketplace",
    "year": "2022",
    "quartile": 3,
    "doi": "10.3390/en15093046"
   },
   {
    "kind": "Artículo científico",
+   "title": "Blockchain-Based Land Registry Platforms: A Survey on Their Implementation and Potential Challenges",
    "year": "2022",
    "quartile": 1,
    "doi": "10.1093/jigpal/jzac010"
   },
   {
    "kind": "Artículo científico",
+   "title": "Towards the Prioritised Use of Transportation Infrastructures: The Case of Vehicle-Specific Dynamic Access Restrictions in City Centres",
    "year": "2022",
    "quartile": 2,
    "doi": "10.3390/electronics11040576"
   },
   {
    "kind": "Artículo científico",
+   "title": "Alonso Rincón; Roberto Casado Vara; Javier Prieto Tejedor; Fernando De la Prieta Pintado; Sara Rodríguez González; Javier Parra Domínguez; Mohd Saberi Mohamad; Saber Trabelsi; Enrique Díaz Plaza; Jose Alberto Garcia Coria; Tan Yigitcanlar; Paulo Novais; Sigeru Omatu",
    "year": "2021",
    "quartile": 2,
    "doi": "10.3390/s21010236"
   },
   {
    "kind": "Artículo científico",
+   "title": "Increasing Profitability and Monitoring Environmental Performance: A Case Study in the Agri-Food Industry through an Edge-IoT Platform pattern extraction in energy optimization processes: A new perspective with manuscript number",
    "year": "2020",
    "quartile": 2,
    "doi": "10.3390/su13010283"
   },
   {
    "kind": "Artículo científico",
+   "title": "Virtual agent organizations for user behaviour pattern extraction in energy optimization processes: A new perspective with manuscript number",
    "year": "2020",
    "quartile": 1,
    "doi": "10.1016/j.neucom.2020.05.117"
   },
   {
    "kind": "Artículo científico",
+   "title": "Blockchain-based architecture for the control of logistics activities: Pharmaceutical utilities case study",
    "year": "2020",
    "quartile": null,
    "doi": "10.1093/jigpal/jzaa039"
   },
   {
    "kind": "Artículo científico",
+   "title": "revistas en cat.: 21 Roberto Carlos Casado Vara; Inés Sittón Candanedo; Fernando De la Prieta Pintado; Sara Rodríguez González; José Luis Calvo Rolle; Ganesh Kumar Venayagamoorthy; Pastora Isabel Vega Cruz; Javier Prieto Tejedor",
    "year": "2020",
    "quartile": 3,
    "doi": "10.1080/01969722.2020.1798643"
   },
   {
    "kind": "Artículo científico",
+   "title": "Deep Reinforcement Learning for the Management of Software-Defined Networks and Network Function Virtualization in an Edge-IoT Architecture",
    "year": "2020",
    "quartile": 2,
    "doi": "10.3390/su12145706"
   },
   {
    "kind": "Artículo científico",
+   "title": "A Sustainable Approach for the Management and Valorization of Underwater Cultural Heritage: New Perspectives from the TECTONIC Project",
    "year": "2020",
    "quartile": 2,
    "doi": "10.3390/su12125000"
   },
   {
    "kind": "Artículo científico",
+   "title": "Artificial neural network analysis of the academic performance of students in virtual learning environments",
    "year": "2020",
    "quartile": 1,
    "doi": "10.1016/j.neucom.2020.02.125"
   },
   {
    "kind": "Artículo científico",
+   "title": "Profile generation system using artificial intelligence for information recovery and analysis",
    "year": "2020",
    "quartile": 1,
    "doi": "10.1007/s12652-020-01942-y"
   },
   {
    "kind": "Artículo científico",
+   "title": "An intelligent Edge-IoT platform for monitoring livestock and crops in a dairy farming scenario",
    "year": "2020",
    "quartile": 2,
    "doi": "10.1016/j.adhoc.2019.102047"
   },
   {
    "kind": "",
+   "title": "",
    "year": "",
    "quartile": null,
    "doi": ""
   },
   {
    "kind": "Artículo científico",
+   "title": "Blockchain Technology in IoT Systems: Review of the Challenges",
    "year": "2019",
    "quartile": 1,
    "doi": "10.33166/AETiC.2019.05.003"
   },
   {
    "kind": "Artículo científico",
+   "title": "IoT network slicing on virtual layers of homogeneous data for improved algorithm operation in smart buildings",
    "year": "2019",
    "quartile": 1,
    "doi": "10.1016/j.future.2019.09.042"
   },
   {
    "kind": "Artículo científico",
+   "title": "Virtual Organization Structure for Agent-Based Local Electricity Trading",
    "year": "2019",
    "quartile": null,
    "doi": "10.3390/en12081521"
   },
   {
    "kind": "Artículo científico",
+   "title": "revistas en cat.: 103 Ricardo S",
    "year": "2019",
    "quartile": 3,
    "doi": "10.1631/FITEE.1700840"
   },
   {
    "kind": "Artículo científico",
+   "title": "Distributed continuous-time fault estimation control for multiple devices in IoT networks",
    "year": "2019",
    "quartile": null,
    "doi": "10.1109/ACCESS.2019.2892905"
   },
   {
    "kind": "Artículo científico",
+   "title": "revistas en cat.: 155 Roberto Carlos Casado Vara; Pablo Chamoso Santos; Fernando De la Prieta Pintado; Javier Prieto Tejedor; Juan Manuel Corchado Rodríguez",
    "year": "2019",
    "quartile": 1,
    "doi": "10.1016/j.inffus.2018.12.007"
   },
   {
    "kind": "Artículo científico",
+   "title": "Fault-Tolerant Temperature Control Algorithm for IoT Networks in Smart Buildings",
    "year": "2018",
    "quartile": null,
    "doi": "10.3390/en11123430"
   },
   {
    "kind": "Artículo científico",
+   "title": "revistas en cat.: 103 Soumya Prakash Rana; Javier Prieto; Maitreyee Dey; Sandra Dudley; Juan Manuel Corchado",
    "year": "2018",
    "quartile": 1,
    "doi": "10.3390/s18113766"
   },
   {
    "kind": "Artículo científico",
+   "title": "A Robust Multi-Sensor PHD Filter Based on Multi-Sensor Measurement Clustering",
    "year": "2018",
    "quartile": null,
    "doi": "10.1109/LCOMM.2018.2863387"
   },
   {
    "kind": "Artículo científico",
+   "title": "revistas en cat.: 88 Alfonso González Briones; José Antonio Castellanos; Yeray Mezquita; Javier Prieto; Juan Manuel Corchado",
    "year": "2018",
    "quartile": 3,
    "doi": "10.1155/2018/6089280"
   },
   {
    "kind": "Artículo científico",
+   "title": "An Ising Spin-based Model to Explore Efficient Flexibility in Distributed Power Systems",
    "year": "2018",
    "quartile": 1,
    "doi": "10.1155/2018/5905932"
   },
   {
    "kind": "Artículo científico",
+   "title": "Energy Optimization Using a Case-Based Reasoning Strategy",
    "year": "2018",
    "quartile": 1,
    "doi": "10.3390/s18030865"
   },
   {
    "kind": "Artículo científico",
+   "title": "Energy Flexibility Management Based on Predictive Dispatch Model of Domestic Energy Management System",
    "year": "2017",
    "quartile": null,
    "doi": "10.3390/en10091397"
   },
   {
    "kind": "Artículo científico",
+   "title": "revistas en cat.: 92 Óscar García; Javier Prieto; Ricardo S",
    "year": "2017",
    "quartile": 2,
    "doi": "10.3390/s17081749"
   },
   {
    "kind": "Artículo científico",
+   "title": "Stochastic Navigation in Smart Cities",
    "year": "2017",
    "quartile": null,
    "doi": "10.3390/en10070929"
   },
   {
    "kind": "Artículo científico",
+   "title": "revistas en cat.: 97 Óscar García; Ricardo S",
    "year": "2017",
    "quartile": 1,
    "doi": "10.3390/s17040826"
   },
   {
    "kind": "Artículo científico",
+   "title": "Convergence of Distributed Flooding and Its Application for Distributed Bayesian Filtering",
    "year": "2016",
    "quartile": 2,
    "doi": "10.1109/TSIPN.2016.2631944"
   },
   {
    "kind": "Artículo científico",
+   "title": "Win",
    "year": "2016",
    "quartile": 1,
    "doi": "10.1109/TSP.2016.2515065"
   },
   {
    "kind": "Artículo científico",
+   "title": "Unified Fingerprinting/Ranging Localization in Harsh Environments",
    "year": "2015",
    "quartile": null,
    "doi": "10.1155/2015/479765"
   },
   {
    "kind": "Artículo científico",
+   "title": "revistas en cat.: 82 Javier Prieto Tejedor; Alonso Alonso Alonso; Ramón de la Rosa Steinz; Albano Carrera González",
    "year": "2014",
    "quartile": 3,
    "doi": "10.1093/rpd/ncu260"
   },
   {
    "kind": "Artículo científico",
+   "title": "Pedestrian navigation fusing Inertial and RSS/TOF measurements with adaptive movement/measurement models: experimental evaluation and theoretical limits",
    "year": "2013",
    "quartile": 1,
    "doi": "10.1016/j.sna.2013.08.028"
   },
   {
    "kind": "Artículo científico",
+   "title": "Lorenzo Toledo; Evaristo J",
    "year": "2012",
    "quartile": 1,
    "doi": "10.1109/TSP.2012.2183126"
   },
   {
    "kind": "Artículo científico",
+   "title": "Lorenzo Toledo; Alfonso Bahillo Martínez; Patricia Fernández Reguero; Javier Prieto Tejedor; Evaristo J",
    "year": "2010",
    "quartile": 1,
    "doi": "10.1109/TSP.2010.2047394"
   },
   {
    "kind": "Artículo científico",
+   "title": "Lorenzo Toledo; Patricia Fernández Reguero; Javier Prieto Tejedor; Ramón J",
    "year": "2010",
    "quartile": 2,
    "doi": "10.1155/2010/126082"
   },
   {
    "kind": "Artículo científico",
+   "title": "Lorenzo Toledo; Patricia Fernández Reguero; Javier Prieto Tejedor; Ramón J",
    "year": "2010",
    "quartile": null,
    "doi": "10.1155/2010/102095"
   },
   {
    "kind": "Artículo científico",
+   "title": "revistas en cat.: 80 Alfonso Bahillo Martínez; Santiago Mazuelas Franco; Javier Prieto Tejedor; Rubén M",
    "year": "2009",
    "quartile": null,
    "doi": "10.2528/PIERB09050409"
   },
   {
    "kind": "Artículo científico",
+   "title": "revistas en cat.: 1.810 Javier Prieto Tejedor; Alfonso Bahillo Martínez; Santiago Mazuelas Franco; Rubén M",
    "year": "2009",
    "quartile": null,
    "doi": "10.2528/PIERB09050502"
   },
   {
    "kind": "Capítulo de libro",
+   "title": "revistas en cat.: 1.810 Soumya Prakash Rana; Maitreyee Dey; Javier Prieto Tejedor; Sandra Dudley",
    "year": "2020",
    "quartile": null,
    "doi": "10.1002/9781119711582.ch11"
   },
   {
    "kind": "Capítulo de libro",
+   "title": "Islanded microgrid management based on blockchain communication",
    "year": "2020",
    "quartile": null,
    "doi": "10.1016/B978-0-12-817862-1.00010-5"
   },
   {
    "kind": "Capítulo de libro",
+   "title": "Smart Contract for Monitoring and Control of Logistics Activities: Garbage Utilities Case Study in a Smart City",
    "year": "2019",
    "quartile": null,
    "doi": "10.1016/B978-0-12-803581-8.11439-0"
   },
   {
    "kind": "Capítulo de libro",
+   "title": "Lorenzo Toledo; Evaristo J",
    "year": "2012",
    "quartile": null,
    "doi": "10.5772/55263"
   },
   {
    "kind": "Capítulo de libro",
+   "title": "Lorenzo Toledo; Evaristo J",
    "year": "2011",
    "quartile": null,
    "doi": "10.5772/15670"
   },
   {
    "kind": "Libro o monografía científica",
+   "title": "Estimacion adaptativa Bayesiana aplicada a la localizacion de usuarios moviles",
    "year": "2012",
    "quartile": null,
    "doi": ""
   },
   {
    "kind": "Edición científica",
+   "title": "Blockchain and Applications, 7th International Congress",
    "year": "2026",
    "quartile": null,
    "doi": "10.1007/978-3-032-05877-5"
   },
   {
    "kind": "Edición científica",
+   "title": "Blockchain and Applications, 6th International Congress",
    "year": "2025",
    "quartile": null,
    "doi": "10.1007/978-3-031-81928-5"
   },
   {
    "kind": "Edición científica",
+   "title": "Emerging Technologies in Edge Computing and Networking",
    "year": "2024",
    "quartile": 2,
    "doi": "10.3390/s24041271"
   },
   {
    "kind": "Edición científica",
+   "title": "Blockchain and Applications, 5th International Congress",
    "year": "2023",
    "quartile": null,
    "doi": "10.1007/978-3-031-45155-3"
   },
   {
    "kind": "Edición científica",
+   "title": "Advanced Technologies for Maritime and Underwater Archaeology",
    "year": "2023",
    "quartile": 1,
    "doi": "10.3390/jmse11030593"
   },
   {
    "kind": "Edición científica",
+   "title": "Blockchain and Applications, 4th International Congress",
    "year": "2023",
    "quartile": null,
    "doi": "10.1007/978-3-031-21229-1"
   },
   {
    "kind": "Edición científica",
+   "title": "Blockchain and Applications, 3rd International Congress",
    "year": "2021",
    "quartile": null,
    "doi": "10.1007/978-3-030-86162-9"
   },
   {
    "kind": "Edición científica",
+   "title": "Distributed Computing and Artificial Intelligence, Special Sessions, 17th International Conference",
    "year": "2020",
    "quartile": null,
    "doi": "10.1007/978-3-030-53829-3"
   },
   {
    "kind": "Edición científica",
+   "title": "Blockchain and Applications, 2nd International Congress",
    "year": "2020",
    "quartile": null,
    "doi": "10.1007/978-3-030-52535-4"
   },
   {
    "kind": "Edición científica",
+   "title": "Blockchain and Applications, International Congress on",
    "year": "2019",
    "quartile": null,
    "doi": "10.1007/978-3-030-23813-1"
   },
   {
    "kind": "Edición científica",
+   "title": "Dolores Jiménez; María N",
    "year": "2019",
    "quartile": null,
    "doi": "10.1007/978-3-319-99608-0"
   },
   {
    "kind": "Edición científica",
+   "title": "I Ibero-American Congress of Smart Cities (ICSC-CITIES 2018)",
    "year": "2018",
    "quartile": null,
    "doi": ""
   },
   {
    "kind": "Edición científica",
+   "title": "IoT Approaches for Distributed Computing",
    "year": "2018",
    "quartile": 2,
    "doi": "10.1155/2018/9741053"
   },
   {
    "kind": "Edición científica",
+   "title": "Real-Time Communication in Wireless Sensor Networks",
    "year": "2018",
    "quartile": 2,
    "doi": "10.1155/2018/9612631"
   },
   {
    "kind": "Edición científica",
+   "title": "Bayesian Inference",
    "year": "2017",
    "quartile": null,
    "doi": "10.5772/66264"
   },
   {
    "kind": "Edición científica",
+   "title": "Distributed Computing and Artificial Intelligence, 14th International Conference",
    "year": "2017",
    "quartile": null,
    "doi": "10.1007/978-3-319-62410-5"
   },
   {
    "kind": "Edición científica",
+   "title": "Alexandropoulos; Lorenzo Mucchi; Javier Prieto; Yuan Shen",
    "year": "2016",
    "quartile": 3,
    "doi": "10.1155/2016/3708927"
+  },
+  {
+   "kind": "Congreso",
+   "title": "Replicating Network Topologies through the use of LLMs",
+   "venue": "The 9th International Conference on Mobile Internet Security (MOBISEC 2025)",
+   "year": "2025",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Cognitive System Based on Threat Intelligence and Continuous Simulation for the Prevention of Cyber-Attacks in the Value Chain of the Tourism Sector",
+   "venue": "7th International Congress on Blockchain and Applications (BLOCKCHAIN 2025)",
+   "year": "2025",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Decentralized Hybrid Auction Protocol for Renewable Energy Communities: An Analysis of the iDreco Auction Protocol",
+   "venue": "7th International Congress on Blockchain and Applications (BLOCKCHAIN 2025)",
+   "year": "2025",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Follow-Up on the GILL Hub: An Open Platform for Gender-Smart Innovation and Entrepreneurship",
+   "venue": "22nd International Conference on Distributed Computing and Artificial Intelligence (DCAI 2025)",
+   "year": "2025",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Hybrid CNN-LSTM Model for Energy Consumption Prediction Using Fourier Transform Features in Renewable Energy Communities",
+   "venue": "22nd International Conference on Distributed Computing and Artificial Intelligence (DCAI 2025)",
+   "year": "2025",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Neural Embedding-Based Recommendation System for Carbon Credit Project Matchmaking",
+   "venue": "22nd International Conference on Distributed Computing and Artificial Intelligence (DCAI 2025)",
+   "year": "2025",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Recent Trends in AI Techniques for Brain Tumors",
+   "venue": "19th International Conference on Practical Applications of Computational Biology and Bioinformatics (PACBBB 2025)",
+   "year": "2025",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Recommendation System for the Degradation of Underwater Cultural Heritage Based on Machine Learning and Generative Artificial Intelligence",
+   "venue": "22nd International Conference on Distributed Computing and Artificial Intelligence (DCAI 2025)",
+   "year": "2025",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "SmartDelivery: IoT Platform for Last Mile Delivery Optimization with Real-Time Data and ML-Based Algorithm Selection",
+   "venue": "22nd International Conference on Distributed Computing and Artificial Intelligence (DCAI 2025)",
+   "year": "2025",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Towards a Decentralized and Transparent Carbon Market: Blockchain and IoT in Carbon Farming",
+   "venue": "22nd International Conference on Distributed Computing and Artificial Intelligence (DCAI 2025)",
+   "year": "2025",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Trustworthy AI-Based Conversational Recommender Agent: A Gender Innovation Approach",
+   "venue": "22nd International Conference on Distributed Computing and Artificial Intelligence (DCAI 2025)",
+   "year": "2025",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Autoencoding-based self-supervised learning for enhanced representation of network traffic patterns",
+   "venue": "2025 IEEE International Conference on Machine Learning for Communication and Networking (ICMLCN)",
+   "year": "2025",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "A Smart-Grid Device Model that Learns by Probabilistic Boolean Network",
+   "venue": "21st International Scientific Conference on Engineering and Architecture (CCIA 2024)",
+   "year": "2024",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Data-Driven Academic Performance Evaluation: A Smart Platform Approach",
+   "venue": "23rd EPIA Conference on Artificial Intelligence (EPIA 2024)",
+   "year": "2024",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "A Smart Contract-Based Peer-to-Peer Energy Trading System",
+   "venue": "6th International Congress Blockchain and Applications (BLOCKCHAIN 2024)",
+   "year": "2024",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Active Security for Connected Device Lifecycle: The CERTIFY Architecture",
+   "venue": "21st International Conference Distributed Computing and Artificial Intelligence (DCAI 2024)",
+   "year": "2024",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Enhancing Environmental Sustainability: Decentralized Dataspace Architecture via DAOs and Oracles",
+   "venue": "21st International Conference Distributed Computing and Artificial Intelligence (DCAI 2024)",
+   "year": "2024",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Integrating Pretrained VGG19 and Bi-LSTM for Violence Detection in Video",
+   "venue": "21st International Conference Distributed Computing and Artificial Intelligence (DCAI 2024)",
+   "year": "2024",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "KPIs for the Evaluation of Footwear Supply Forecasting Using Holt-winters",
+   "venue": "15th International Symposium on Ambient Intelligence (ISAMI 2024)",
+   "year": "2024",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Revolutionizing Next-Generation Sequencing: Advanced Analysis Pipeline and Integrated Solutions",
+   "venue": "18th International Conference on Practical Applications of Computational Biology and Bioinformatics (PACBB 2024)",
+   "year": "2024",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Towards the Optimization of the Spanish Land Registry System",
+   "venue": "2023 Fifth International Conference on Blockchain Computing and Applications (BCCA 2023)",
+   "year": "2023",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Blockchain-Based Platforms for Carbon Offsetting: A Survey of Existing Approaches and Their Potential to Promote Carbon Farming for Smallholders",
+   "venue": "5th International Congress on Blockchain and Applications (BLOCKCHAIN 2023)",
+   "year": "2023",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Blockchain-Enabled Reward System for Sustainable Last-Mile Delivery in Urban Logistics: A Case Study on SimFleet Platform",
+   "venue": "24th International Conference on Practical applications of Agents and Multi-Agent Systems (PAAMS 2023)",
+   "year": "2023",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Environmental Parameters that Negatively Impact Underwater Cultural Heritage",
+   "venue": "20th International Conference Distributed Computing and Artificial Intelligence (DCAI 2023)",
+   "year": "2023",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Federated Learning of Explainable Artificial Intelligence (FED-XAI): A Review",
+   "venue": "20th International Conference Distributed Computing and Artificial Intelligence (DCAI 2023)",
+   "year": "2023",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Network Automation: From Intent-Based Networking to Cloud-Native Networking",
+   "venue": "20th International Conference Distributed Computing and Artificial Intelligence (DCAI 2023)",
+   "year": "2023",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Review of Physical Aggression Detection Techniques in Video Using Explainable Artificial Intelligence",
+   "venue": "14th International Symposium on Ambient Intelligence (ISAMI 2023)",
+   "year": "2023",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "A Novel Aging-Based Proof of Stake Consensus Mechanism",
+   "venue": "2nd Sustainable Smart Cities and Territories (SSCT 2023)",
+   "year": "2023",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Indoor Access Control System Through Symptomatic Examination Using IoT Technology, Fog Computing and Cloud Computing",
+   "venue": "Hybrid Artificial Intelligent Systems (HAIS 2022)",
+   "year": "2022",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Automating the Implementation of Unsupervised Machine Learning Processes in Smart Cities Scenarios",
+   "venue": "19th International Conference on Distributed Computing and Artificial Intelligence (DCAI 2022)",
+   "year": "2022",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Computer Vision: A Review on 3D Object Recognition",
+   "venue": "19th International Conference on Distributed Computing and Artificial Intelligence (DCAI 2022)",
+   "year": "2022",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Cryptocurrencies, Survey on Legal Frameworks and Regulation Around the World",
+   "venue": "4th International Congress on Blockchain and Applications (BLOCKCHAIN 2022)",
+   "year": "2022",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Cryptocurrencies, Systematic Literature Review on Their Current Context and Challenges",
+   "venue": "4th International Congress on Blockchain and Applications (BLOCKCHAIN 2022)",
+   "year": "2022",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Machine Learning and Deep Learning Techniques for Epileptic Seizures Prediction: A Brief Review",
+   "venue": "16th International Conference Practical Applications of Computational Biology and Bioinformatics (PACBB2022)",
+   "year": "2022",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Machine Lerning for the Analysis of Vegetation in the Heritage City of Salamanca",
+   "venue": "20th International Conference on Practical Applications of Agents and Multi-Agent Systems (PAAMS 2022)",
+   "year": "2022",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Quantum AI: Achievements and Challenges in the Interplay of Quantum Computing and Artificial Intelligence",
+   "venue": "13th International Symposium on Ambient Intelligence (ISAMI 2022)",
+   "year": "2022",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "The Importance of Classifying Artificial Intelligence as a Digital Asset. A Bibliometric Study",
+   "venue": "19th International Conference on Distributed Computing and Artificial Intelligence (DCAI 2022)",
+   "year": "2022",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Time Series Forecasting for Improving Quality of Life and Ecosystem Services in Smart Cities",
+   "venue": "13th International Symposium on Ambient Intelligence (ISAMI 2022)",
+   "year": "2022",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "A Review on Deep Reinforcement Learning for the management of SDN and NFV in Edge-IoT",
+   "venue": "2021 IEEE Global Communications Conference (IEEE GLOBECOM 2021)",
+   "year": "2021",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Edge Computing and Internet of Things Based Platform to Improve the Quality of Life of the Silver Economy on Leisure Cruise Ships",
+   "venue": "2021 International Symposium on Computer Science and Intelligent Controls (ISCSIC)",
+   "year": "2021",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Cryptocurrencies and Price Prediction: A Survey",
+   "venue": "3rd International Congress on Blockchain and Applications (BLOCKCHAIN 2021)",
+   "year": "2021",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Multiagent Architecture for a Codebook-Based Bug Management System",
+   "venue": "12th International Symposium on Ambient Intelligence (ISAMI 2021)",
+   "year": "2021",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Blockchain Module for Securing Data Traffic of Industrial Production Machinery on Industrial Platforms 4.0",
+   "venue": "Sustainable Smart Cities and Territories (SSCT 2021)",
+   "year": "2021",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Enhanced Cybersecurity in Smart Cities: Integration Methods of OPC UA and Suricata",
+   "venue": "Sustainable Smart Cities and Territories (SSCT 2021)",
+   "year": "2021",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Reducing Emissions Prioritising Transport Utility",
+   "venue": "Sustainable Smart Cities and Territories (SSCT 2021)",
+   "year": "2021",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Comparison of Efficient Planning and Optimization Methods of Last Mile Delivery Resources",
+   "venue": "Broadband Communications, Networks, and Systems (BROADNETS 2020)",
+   "year": "2020",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Deep Learning for House Categorisation, a Proposal Towards Automation in Land Registry",
+   "venue": "Hybrid Artificial Intelligent Systems",
+   "year": "2020",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Quaternion Neural Networks: State-of-the-Art and Research Challenges",
+   "venue": "Intelligent Data Engineering and Automated Learning (IDEAL 2020)",
+   "year": "2020",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "A Review of k-NN Algorithm Based on Classical and Quantum Machine Learning",
+   "venue": "2020 International Conference Distributed Computing and Artificial Intelligence (DCAI2020)",
+   "year": "2020",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Extraction of Travellers’ Preferences Using Their Tweets",
+   "venue": "International Symposium on Ambient Intelligence (ISAMI 2020)",
+   "year": "2020",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Integration of IoT Technologies in the Maritime Industry",
+   "venue": "17th International Conference Distributed Computing and Artificial Intelligence (DCAI 2020)",
+   "year": "2020",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Livestock Welfare by Means of an Edge Computing and IoT Platform",
+   "venue": "International Symposium on Ambient Intelligence (ISAMI 2020)",
+   "year": "2020",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Video Analysis System Using Deep Learning Algorithms",
+   "venue": "International Symposium on Ambient Intelligence (ISAMI 2020)",
+   "year": "2020",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Blockchain-Based Systems in Land Registry, A Survey of Their Use and Economic Implications",
+   "venue": "13th International Conference on Computational Intelligence in Security for Information Systems (CISIS 2020)",
+   "year": "2020",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Deep Reinforcement Learning for the management of Software-Defined Networks in Smart Farming",
+   "venue": "2020 International Conference on Omni-layer Intelligent Systems (COINS 2020)",
+   "year": "2020",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Efficient Collaborative Strategy for Last Mile Package Delivery Optimization, Salamanca Case Study",
+   "venue": "16th International Conference on Intelligent Environments (IE2020)",
+   "year": "2020",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Improving temperature control in smart buildings based in IoT network slicing technique",
+   "venue": "2019 IEEE Global Communications Conference",
+   "year": "2019",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Heterogeneous data optimization for improving energy efficiency in smart buildings",
+   "venue": "II Ibero-American Congress of Smart Cities",
+   "year": "2019",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Legal Aspects and Emerging Risks in the Use of Smart Contracts Based on Blockchain",
+   "venue": "2019 International Conference on Knowledge Management in Organizations",
+   "year": "2019",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "A Survey on Software-Defined Networks and Edge Computing over IoT",
+   "venue": "2019 International Conference on Practical Applications of Agents and Multi-Agent Systems",
+   "year": "2019",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Blockchain Technology: A Review of the Current Challenges of Cryptocurrency",
+   "venue": "2019 International Congress on Blockchain and Applications",
+   "year": "2019",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Blockchain-Based Architecture: A MAS Proposal for Efficient Agri-Food Supply Chains",
+   "venue": "2019 International Symposium on Ambient Intelligence",
+   "year": "2019",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Adaptive Fault-Tolerant Tracking Control Algorithm for IoT Systems: Smart Building Case Study",
+   "venue": "14th International Conference on Soft Computing Models in Industrial and Environmental Applications",
+   "year": "2019",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Smart PPE and CPE Platform for Electric Industry Workforce",
+   "venue": "International Workshop on Soft Computing Models in Industrial and Environmental Applications (SOCO 2019)",
+   "year": "2019",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Intelligent multi-agent system for water reduction in automotive irrigation processes",
+   "venue": "9th International Symposium on Internet of Ubiquitous and Pervasive Things (IUPT 2019)",
+   "year": "2019",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "A multi-agent system framework for autonomous crop irrigation",
+   "venue": "2019 2nd International Conference on Computer Applications & Information Security",
+   "year": "2019",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Blockchain framework for IoT data quality via edge computing",
+   "venue": "1st Workshop on Blockchain-enabled Networked Sensor Systems",
+   "year": "2018",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Optimization of V2V communications using Voronoi diagrams in smart cities",
+   "venue": "I Ibero-American Congress of Smart Cities",
+   "year": "2018",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Reuse of wasted thermal energy in power plants for agricultural crops by means of multi-agent approach",
+   "venue": "2018 International Conference on Smart Energy Systems and Technologies",
+   "year": "2018",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "How blockchain improves the supply chain: case study alimentary supply chain",
+   "venue": "International Workshop on IoT approaches for distributed computing, communications and new applications",
+   "year": "2018",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Semantic Analysis System for Industry 4.0",
+   "venue": "2018 International Conference on Knowledge Management in Organizations",
+   "year": "2018",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Use of Gamification Techniques to Encourage Garbage Recycling. A Smart City Approach",
+   "venue": "2018 International Conference on Knowledge Management in Organizations",
+   "year": "2018",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "ComVOA: Virtual organizations of agents to optimize energy consumption using comfort agreements",
+   "venue": "1st International Conference on Data For Low Energy Buildings 2018",
+   "year": "2018",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Cooperative Algorithm to Improve Temperature Control in Recovery Unit of Healthcare Facilities",
+   "venue": "15th International Symposium on Distributed Computing and Artificial Intelligence",
+   "year": "2018",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "EnerVMAS: Virtual Agent Organizations to Optimize Energy Consumption Using Intelligent Temperature Calibration",
+   "venue": "2018 International Conference on Hybrid Artificial Intelligence Systems",
+   "year": "2018",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Intelligent Livestock Feeding System by Means of Silos with IoT Technology",
+   "venue": "15th International Symposium on Distributed Computing and Artificial Intelligence",
+   "year": "2018",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "SiloMAS: A MAS for Smart Silos to Optimize Food and Water Consumption on Livestock Holdings",
+   "venue": "15th International Symposium on Distributed Computing and Artificial Intelligence",
+   "year": "2018",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "How Blockchain Could Improve Fraud Detection in Power Distribution Grid",
+   "venue": "13th International Conference on Soft Computing Models in Industrial and Environmental Applications 184",
+   "year": "2018",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Smart Contract for Monitoring and Control of Logistics Activities: Pharmaceutical Utilities Case Study",
+   "venue": "13th International Conference on Soft Computing Models in Industrial and Environmental Applications",
+   "year": "2018",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Feasibility of single-agent localization from sequential measurements",
+   "venue": "2018 IEEE International Conference on Communications",
+   "year": "2018",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "A generalized framework for wireless localization in gerontechnology",
+   "venue": "17th IEEE International Conference on Ubiquitous Wireless Broadband (ICUWB)",
+   "year": "2017",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "A Serious Game to Reduce Consumption in Smart Buildings",
+   "venue": "International Conference on Practical Applications of Agents and Multi-Agent Systems",
+   "year": "2017",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Organization-based Multi-Agent Structure of the Smart Home Electricity System",
+   "venue": "4th International Workshop on Computational Energy Management in Smart Grids",
+   "year": "2017",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "A Short Revisit of Nonlinear Gaussian Filters: State-of-the-art and Some Concerns",
+   "venue": "IEEE International Conference on Ubiquitous Wireless Broadband - ICUWB’2016",
+   "year": "2016",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Fitting for Smoothing: Continuous-Time Target Track Estimation",
+   "venue": "2016 International Conference on Indoor Positioning and Indoor Navigation (IPIN)",
+   "year": "2016",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Smart feeding in farming through IoT in silos",
+   "venue": "International Symposium on Intelligent Systems Technologies and Applications (ISTA’16)",
+   "year": "2016",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "A Novel Pilot Expansion Approach for MIMO Channel Estimation and Tracking",
+   "venue": "IEEE International Conference on Ubiquitous Wireless Broadband - ICUWB’2015",
+   "year": "2015",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "On the Use and Misuse of Bayesian Filters",
+   "venue": "International Conference on Information Fusion - Fusion 2015",
+   "year": "2015",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Unified Fingerprinting/Ranging Localization for e-Healthcare Systems",
+   "venue": "International Symposium on Ambient Intelligence",
+   "year": "2015",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Pedestrian Navigation in Harsh Environments using Wireless and Inertial Measurements",
+   "venue": "10th Workshop on Positioning, Navigation and Communication",
+   "year": "2013",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Fusing Technologies for a Continuous Positioning Solution Developed on a Smartphone",
+   "venue": "7th International Conference on Computing and Convergence Technology (ICCIT, ICEI and ICACT)",
+   "year": "2012",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Self-Calibration of TOA/Distance Relationship for Wireless Localization in Harsh Environments",
+   "venue": "2012 IEEE International Conference on Communications",
+   "year": "2012",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Human Shadow Effect Assessment when Integrating Inertial Navigation System with Signal Strength Measurements for Pedestrian Dead Reckoning",
+   "venue": "PIERS - Progress In Electromagnetics Research Symposium 2012",
+   "year": "2012",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Posterior Cramér-Rao Lower Bound for RSS/TOA-based Indoor Localization Systems",
+   "venue": "2011 International Conference on Indoor Positioning and Indoor Navigation (IPIN)",
+   "year": "2011",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Cota de Cramér-Rao a posteriori para Sistemas de Localización Inalámbrica basados en RSS y TOA",
+   "venue": "Annual Seminar on Automation, Industrial Electronics and Instrumentation (SAAEI'11)",
+   "year": "2011",
+   "scope": "Unión Europea",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Estimación de distancias en redes IEEE 802.15.4 usando TOF y RSS",
+   "venue": "Annual Seminar on Automation, Industrial Electronics and Instrumentation (SAAEI'11) 190",
+   "year": "2011",
+   "scope": "Nacional",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "Hybrid RSS-RTT localization scheme for wireless networks",
+   "venue": "2010 International Conference on Indoor Positioning and Indoor Navigation (IPIN)",
+   "year": "2010",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "On the minimization of different sources of error for an RTT-based indoor localization system without any calibration stage",
+   "venue": "2010 International Conference on Indoor Positioning and Indoor Navigation (IPIN)",
+   "year": "2010",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
+  },
+  {
+   "kind": "Congreso",
+   "title": "NLOS Mitigation prior to Range Estimation Smoothing for Wireless Location Systems",
+   "venue": "2010 IEEE International Conference on Communications",
+   "year": "2010",
+   "scope": "Internacional no UE",
+   "quartile": null,
+   "doi": ""
   }
  ],
  "supervision": {

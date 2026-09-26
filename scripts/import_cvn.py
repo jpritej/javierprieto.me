@@ -271,11 +271,60 @@ def parse_publications(lines):
             if pos and tot and int(tot.group(1)) > 0:
                 quartile = min(4, max(1, math.ceil(int(pos.group(1)) / int(tot.group(1)) * 4)))
         doi = re.search(r"\b10\.\d{4,9}/[^\s<>\"]+", txt)
+        # la cita va antes del primer campo; el título es el tramo entre el
+        # punto que cierra los autores y el que abre la revista
+        cita = re.split(r"\s*Tipo de producción:", txt)[0]
+        cita = re.sub(r"\s+", " ", cita).strip()
+        partes = [x.strip() for x in cita.split(". ") if x.strip()]
+        titulo = partes[1] if len(partes) > 1 else (partes[0] if partes else "")
         out.append({
             "kind": kind.group(1).strip() if kind else "",
+            "title": titulo,
             "year": year[0][2] if year else "",
             "quartile": quartile,
             "doi": (doi.group(0).rstrip(".,>") if doi else ""),
+        })
+    return out
+
+
+def parse_conferences(lines):
+    """Congresos: sección aparte del CVN, con campos propios (no tiene
+    'Tipo de producción', así que hay que tratarla por separado)."""
+    start = next((i for i, l in enumerate(lines)
+                  if l.strip() == "Trabajos presentados en congresos nacionales o internacionales"), None)
+    if start is None:
+        return []
+
+    blocks, cur, counter = [], None, 1
+    for l in lines[start + 1:]:
+        s_ = l.strip()
+        if s_ == str(counter):
+            if cur is not None:
+                blocks.append(cur)
+            cur, counter = [], counter + 1
+            continue
+        if cur is not None:
+            cur.append(s_)
+    if cur is not None:
+        blocks.append(cur)
+
+    out = []
+    for b in blocks:
+        txt = " ".join(x for x in b if x)
+        title = re.search(r"Título del trabajo:\s*(.+?)(?:\s+Nombre del congreso:|$)", txt)
+        venue = re.search(r"Nombre del congreso:\s*(.+?)(?:\s+Tipo evento:|$)", txt)
+        year = re.findall(r"\d{2}/\d{2}/(\d{4})", txt)
+        scope = re.search(r"Ámbito geográfico:\s*(Unión Europea|Internacional no UE|Nacional|Autonómica|Local|Universitaria)", txt)
+        if not title:
+            continue
+        out.append({
+            "kind": "Congreso",
+            "title": re.sub(r"\s+", " ", title.group(1)).strip(),
+            "venue": re.sub(r"\s+", " ", venue.group(1)).strip() if venue else "",
+            "year": year[0] if year else "",
+            "scope": scope.group(1) if scope else "",
+            "quartile": None,
+            "doi": "",
         })
     return out
 
@@ -286,7 +335,7 @@ def main():
     lines = clean(pdf_text(pathlib.Path(sys.argv[1])))
     got = {name: parse(block(lines, a, b), head) for name, a, b, head in SECTIONS}
     teaching = parse_teaching(lines)
-    publications = parse_publications(lines)
+    publications = parse_publications(lines) + parse_conferences(lines)
 
     projects = ([project(r, "competitivo") for r in got["competitivos"]] +
                 [project(r, "contrato") for r in got["contratos"]] +
@@ -370,7 +419,9 @@ def main():
     print(f"tesis doctorales: {len(phd)} · TFM: {len(master)} · TFG y PFC: {len(degree)}")
     print(f"docencia impartida: {len(teaching)} asignaturas/cursos, {sum(1 for x in teaching if x['official'])} oficiales")
     qs = Counter(f"Q{p['quartile']}" for p in publications if p["quartile"])
-    print(f"publicaciones en el CVN: {len(publications)} · con cuartil JCR: {sum(qs.values())} {dict(sorted(qs.items()))}")
+    kinds = Counter(p["kind"] for p in publications)
+    print(f"publicaciones en el CVN: {len(publications)} {dict(kinds)}")
+    print(f"  con cuartil JCR: {sum(qs.values())} {dict(sorted(qs.items()))}")
     print(f"propiedad industrial: {len(patents)} registros, {m['patents']} patentes de invención")
 
 

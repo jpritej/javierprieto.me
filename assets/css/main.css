@@ -696,3 +696,31 @@ code, .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 
 .to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
 .to-top:hover { border-color: var(--accent); color: var(--accent); }
 @media (prefers-reduced-motion: reduce) { .to-top { transition: opacity .01s, visibility .01s; } }
+
+/* versión en abierto: se distingue del DOI con el acento secundario */
+.badge--oa {
+  text-decoration: none; color: var(--accent-2); border-color: var(--accent-2);
+  background: color-mix(in srgb, var(--accent-2) 10%, transparent);
+  display: inline-flex; align-items: center; gap: .25rem;
+}
+.badge--oa:hover { background: color-mix(in srgb, var(--accent-2) 20%, transparent); color: var(--accent-2); }
+
+/* visor de PDF en ventana flotante */
+.pdf-view { position: fixed; inset: 0; z-index: 35; }
+.pdf-view__backdrop { position: absolute; inset: 0; background: rgba(9, 20, 25, .6); }
+.pdf-view__panel {
+  position: absolute; inset: clamp(.5rem, 3vw, 2.5rem);
+  background: var(--surface); border-radius: 4px; overflow: hidden;
+  display: flex; flex-direction: column; box-shadow: 0 24px 60px rgba(9, 20, 25, .4);
+}
+.pdf-view__bar {
+  display: flex; align-items: center; gap: .7rem; padding: .6rem .8rem;
+  border-bottom: 1px solid var(--line); flex: none;
+}
+.pdf-view__title {
+  font-family: var(--sans); font-size: .9rem; font-weight: 500; color: var(--ink);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-right: auto;
+}
+.pdf-view__warn { margin: .6rem .8rem 0; flex: none; }
+.pdf-view iframe { flex: 1 1 auto; width: 100%; border: 0; background: var(--paper); }
+@media (max-width: 560px) { .pdf-view__panel { inset: 0; border-radius: 0; } }

@@ -1,5 +1,8 @@
-import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=30";
-import { ICON_KEYS } from "./icons.js?v=30";
+import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=37";
+import { ICON_KEYS } from "./icons.js?v=37";
+import * as cv from "./cv.js?v=37";
+import * as orcidApi from "./orcid.js?v=37";
+import * as openalexApi from "./openalex.js?v=37";
 
 /* ------------------------------------------------------------------ esquema */
 
@@ -57,6 +60,8 @@ const SCHEMA = [
     legend: "Identificadores para la ingesta automática",
     path: "profiles",
     fields: [
+      { k: "openalex", l: "Identificador de OpenAlex (A..., opcional)", note:
+        "Si lo rellenas, las citas y el índice h se piden con él en vez de con el ORCID. Útil cuando has reclamado el perfil y fusionado duplicados." },
       { k: "orcid", l: "ORCID iD (solo el número)", note:
         "De aquí salen publicaciones y trayectoria (ORCID) y citas, índice h e i10 (OpenAlex)." }
     ]
@@ -645,6 +650,59 @@ async function initGate() {
 }
 
 initGate();
+
+/* ------------------------------------------------------------- CV académico */
+
+let cvnData = null, orcidData = null, oaData = null, oaMap = null;
+
+async function cvSources() {
+  if (!cvnData) {
+    try { cvnData = await (await fetch("../data/cvn.json", { cache: "no-cache" })).json(); }
+    catch (_) { cvnData = { projects: [], publications: [], teaching: [], theses: [], supervisions: [] }; }
+  }
+  const id = site.profiles?.orcid;
+  if (id && !orcidData) {
+    try { await orcidApi.load(id, { base: "../", onData: (d) => { if (d) orcidData = d; } }); }
+    catch (_) { /* seguimos sin ORCID */ }
+  }
+  const oaId = site.profiles?.openalex || id;
+  if (oaId && !oaData) {
+    try { oaData = await openalexApi.load(oaId, { base: "../" }); } catch (_) {}
+  }
+  if (oaId && !oaMap) {
+    try { oaMap = await openalexApi.loadOpenAccess(oaId, {}); } catch (_) { oaMap = {}; }
+  }
+  return { site, cvn: cvnData, orcid: orcidData, openalex: oaData, oaMap: oaMap || {} };
+}
+
+async function exportCv(lang, format) {
+  const btn = document.getElementById(`cv-${format}-${lang}`);
+  const before = btn ? btn.textContent : "";
+  if (btn) { btn.disabled = true; btn.textContent = "..."; }
+  try {
+    const data = cv.collect({ ...(await cvSources()), lang });
+    if (format === "tex") {
+      cv.download(`CV_${lang === "en" ? "EN" : "ES"}_JavierPrieto.tex`, cv.toLatex(data),
+        "application/x-tex;charset=utf-8");
+      flash("Descargado el .tex. Compílalo con pdflatex o súbelo a Overleaf.");
+    } else {
+      const w = window.open("", "_blank");
+      if (!w) { flash("El navegador ha bloqueado la ventana. Permite las ventanas emergentes de este sitio.", "warn"); return; }
+      w.document.write(cv.toPrintHtml(data));
+      w.document.close();
+      flash("Se abre la vista de impresión: elige «Guardar como PDF» en el destino.");
+    }
+  } catch (err) {
+    flash("No se ha podido generar el CV: " + err.message, "warn");
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = before; }
+  }
+}
+
+["es", "en"].forEach((lang) => ["tex", "pdf"].forEach((fmt) => {
+  const el = document.getElementById(`cv-${fmt}-${lang}`);
+  if (el) el.addEventListener("click", () => exportCv(lang, fmt));
+}));
 
 (async () => {
   site = await loadSite("../");

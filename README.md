@@ -109,6 +109,21 @@ para saltarse la comprobación. Lo que sí es cierto siempre, con o sin este
 cerrojo: nadie puede publicar cambios reales sin el token de GitHub, que solo
 existe en tu sesión y nunca se guarda en ningún fichero.
 
+## Exportar el CV académico
+
+En `/admin/`, sección «Exportar CV académico», cuatro botones: PDF y LaTeX, en
+castellano y en inglés. Se arman con `site.json`, `cvn.json`, ORCID y OpenAlex,
+así que salen siempre al día sin mantener nada aparte.
+
+- **PDF**: abre una vista de impresión del navegador ya maquetada; se guarda con
+  «Guardar como PDF» en el destino de impresión. Rápido y sin instalar nada.
+- **LaTeX**: descarga un `.tex` compilable con pdflatex o en Overleaf, para
+  retocarlo antes de entregarlo. Usa los verdes de la web sobre fondo blanco.
+
+Si `babel` con la opción `spanish` no está instalado en tu distribución de
+LaTeX, comenta esa línea del preámbulo y compila igual; el resto del documento
+no depende de ella.
+
 ## Exportar a Excel
 
 Las pestañas de publicaciones y proyectos llevan un botón que genera un `.xlsx`

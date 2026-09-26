@@ -1,16 +1,18 @@
-import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=30";
-import * as orcid from "./orcid.js?v=30";
-import * as openalex from "./openalex.js?v=30";
-import * as charts from "./charts.js?v=30";
-import { icon, topicIcon, ccBadge } from "./icons.js?v=30";
-import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=30";
-import { exportRows, canExport, stamp } from "./export.js?v=30";
+import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=37";
+import * as orcid from "./orcid.js?v=37";
+import * as openalex from "./openalex.js?v=37";
+import { normDoi } from "./openalex.js?v=37";
+import * as charts from "./charts.js?v=37";
+import { icon, topicIcon, ccBadge } from "./icons.js?v=37";
+import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=37";
+import { exportRows, canExport, stamp } from "./export.js?v=37";
 
 const view = document.getElementById("view");
 const ROUTES = ["", "docencia", "proyectos", "publicaciones", "divulgacion", "indicadores"];
 
 let orc = null;            // datos de ORCID
 let oa = null;             // métricas de OpenAlex
+let oaLinks = {};          // DOI -> versión en abierto (OpenAlex)
 let orcStatus = "loading";
 let filters = { q: "", type: "", year: "" };
 let range = null;          // [desde, hasta] en la vista de indicadores
@@ -125,6 +127,15 @@ function pubItem(w) {
   bits.push(`<span class="badge">${esc(workType(w.type))}</span>`);
   if (w.doi) bits.push(`<a class="badge badge--link" href="https://doi.org/${esc(w.doi)}" target="_blank" rel="noopener">doi:${esc(w.doi)}</a>`);
   else if (w.url) bits.push(`<a class="badge badge--link" href="${esc(w.url)}" target="_blank" rel="noopener">${t("link")}</a>`);
+  const open = w.doi ? oaLinks[normDoi(w.doi)] : null;
+  if (open) {
+    bits.push(`<a class="badge badge--oa" href="${esc(open.url)}" target="_blank" rel="noopener"
+      ${open.pdf ? `data-pdf="${esc(open.url)}" data-pdf-title="${esc(w.title)}"` : ""}
+      title="${t("pubs.oaTitle")}">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-1px">
+        <rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 7.5-2"></path></svg>
+      ${open.pdf ? "PDF" : t("pubs.oa")}</a>`);
+  }
   return `<article class="pub">
     <span class="pub__t">${esc(w.title)}${w.subtitle ? ". " + esc(w.subtitle) : ""}</span>
     <div class="pub__m">${bits.join(" · ")}</div>
@@ -584,6 +595,15 @@ function bindPress() {
   document.getElementById("press-flyout").addEventListener("click", (e) => {
     if (e.target.hasAttribute("data-close")) closePress();
   });
+  if (!window.__pdfBound) {
+    window.__pdfBound = true;
+    document.addEventListener("click", (e) => {
+      if (e.target.closest("[data-pdf-close]")) closePdf();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closePdf();
+    });
+  }
   if (!window.__pressEscBound) {
     window.__pressEscBound = true;
     document.addEventListener("keydown", pressEscHandler);
@@ -848,8 +868,53 @@ function paintPubCharts() {
   charts.mountDoughnut("c-pubkind", top.map(([k]) => k), top.map(([, v]) => v));
 }
 
+/* Visor de PDF en ventana flotante. Algunos editores prohíben que su PDF se
+   muestre dentro de otra web, así que el visor ofrece siempre el enlace de
+   salida y avisa si no consigue cargarlo. */
+function openPdf(url, title) {
+  const box = document.getElementById("pdf-view");
+  if (!box) return;
+  box.hidden = false;
+  document.body.style.overflow = "hidden";
+  box.querySelector(".pdf-view__title").textContent = title || "";
+  const out = box.querySelector(".pdf-view__out");
+  out.href = url;
+  const frame = box.querySelector("iframe");
+  frame.src = url;
+  box.querySelector(".pdf-view__warn").hidden = true;
+  clearTimeout(openPdf.timer);
+  openPdf.timer = setTimeout(() => {
+    // si a los 3 s no ha pintado nada, casi siempre es bloqueo del editor
+    try {
+      if (!frame.contentDocument && !frame.contentWindow) throw 0;
+    } catch (_) { /* cross-origin: no podemos saberlo, se deja el aviso suave */ }
+    box.querySelector(".pdf-view__warn").hidden = false;
+  }, 3000);
+}
+
+function closePdf() {
+  const box = document.getElementById("pdf-view");
+  if (!box) return;
+  clearTimeout(openPdf.timer);
+  box.hidden = true;
+  box.querySelector("iframe").src = "about:blank";
+  document.body.style.overflow = "";
+}
+
+function bindPdfLinks(root = document) {
+  root.querySelectorAll("[data-pdf]").forEach((a) => {
+    if (a.dataset.bound) return;
+    a.dataset.bound = "1";
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      openPdf(a.dataset.pdf, a.dataset.pdfTitle);
+    });
+  });
+}
+
 function bindPubs() {
   paintPubCharts();
+  bindPdfLinks();
   const q = document.getElementById("f-q");
   if (!q) return;
   let timer;
@@ -1059,7 +1124,7 @@ function render(opts = {}) {
   if (r === "docencia") bindSupervisions();
   if (r === "proyectos") bindProjects();
   if (r === "divulgacion") bindPress(); else closePress();
-  if (r === "") bindCopyBio();
+  if (r === "") { bindCopyBio(); bindPdfLinks(); }
   closeMobileNav();
   observeReveal();
 }
@@ -1203,8 +1268,14 @@ async function fetchCvn() {
 }
 
 async function fetchOpenAlex() {
-  const id = state.site.profiles?.orcid;
+  // si hay identificador propio de OpenAlex, manda ese; si no, el ORCID
+  const id = state.site.profiles?.openalex || state.site.profiles?.orcid;
   if (!id) return;
+  const mail = (state.site.identity?.emailUser && state.site.identity?.emailHost)
+    ? `${state.site.identity.emailUser}@${state.site.identity.emailHost}` : "";
+  openalex.loadOpenAccess(id, { mail }).then((map) => {
+    if (map && Object.keys(map).length) { oaLinks = map; render(); }
+  });
   await openalex.load(id, {
     mail: (state.site.identity?.emailUser && state.site.identity?.emailHost)
       ? `${state.site.identity.emailUser}@${state.site.identity.emailHost}` : "",
