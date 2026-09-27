@@ -1,8 +1,8 @@
-import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=46";
-import { ICON_KEYS } from "./icons.js?v=46";
-import * as cv from "./cv.js?v=46";
-import * as orcidApi from "./orcid.js?v=46";
-import * as openalexApi from "./openalex.js?v=46";
+import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=47";
+import { ICON_KEYS } from "./icons.js?v=47";
+import * as cv from "./cv.js?v=47";
+import * as orcidApi from "./orcid.js?v=47";
+import * as openalexApi from "./openalex.js?v=47";
 
 /* ------------------------------------------------------------------ esquema */
 

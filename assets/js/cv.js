@@ -223,7 +223,16 @@ export function toLatex(d) {
 \\hypersetup{colorlinks=true,urlcolor=acc2,linkcolor=acc,citecolor=acc,pdfborder={0 0 0}}
 \\titleformat{\\section}{\\large\\bfseries\\color{acc}}{}{0pt}{}[{\\color{acc}\\titlerule[1pt]}]
 \\titlespacing{\\section}{0pt}{14pt}{6pt}
-\\pagestyle{empty}
+\\usepackage{fancyhdr}
+\\pagestyle{fancy}\\fancyhf{}
+\\renewcommand{\\headrulewidth}{0pt}
+\\renewcommand{\\footrulewidth}{0.4pt}
+\\fancyfoot[L]{\\footnotesize\\color{acc}${tex(d.name)}}
+\\fancyfoot[R]{\\footnotesize\\color{acc}\\thepage}
+\\fancypagestyle{plain}{\\fancyhf{}\\renewcommand{\\headrulewidth}{0pt}%
+  \\renewcommand{\\footrulewidth}{0.4pt}%
+  \\fancyfoot[L]{\\footnotesize\\color{acc}${tex(d.name)}}%
+  \\fancyfoot[R]{\\footnotesize\\color{acc}\\thepage}}
 \\setlength{\\parindent}{0pt}
 
 \\begin{document}
@@ -251,7 +260,7 @@ ${sec(t.teaching, items(d.teaching.map((c) =>
   `\\item \\textbf{${tex(c.course)}} \\hfill ${(c.start || "").slice(0, 4)}--${(c.end || "").slice(0, 4) || t.present}\\\\ ${tex(c.degree)}${c.official ? "" : ` (${tex(t.ownDegree)})`}`)))}
 
 ${sec(t.theses, items(d.theses.map((x) =>
-  `\\item \\textbf{${tex(x.title)}}\\\\ ${tex(x.student)}${x.year ? `, ${x.year}` : ""}${x.university ? `. ${tex(x.university)}` : ""}${/cum\\s*laude/i.test(x.grade || "") ? ` \\textit{(${tex(t.cumLaude)})}` : ""}`)))}
+  `\\item \\textbf{${tex(x.title)}}\\\\ ${tex(x.student)}${x.year ? `, ${x.year}` : ""}${x.university ? `. ${tex(x.university)}` : ""}${/cum\s*laude/i.test(x.grade || "") ? ` \\textit{(${tex(t.cumLaude)})}` : ""}`)))}
 
 ${(() => {
   const list = d.projects.filter((p) => p.amountOwn || p.lead);
@@ -272,14 +281,14 @@ ${["journal", "conference", "chapter", "other"].map((k) => {
   const ws = d.worksByKind[k];
   if (!ws.length) return "";
   const label = { journal: t.journals, conference: t.conferences, chapter: t.chapters, other: t.otherPubs }[k];
-  return `\\\\section{${tex(label)}}\\n` + groupByYear(ws).map(([y, list]) =>
-    `{\\\\bfseries\\\\color{acc} ${tex(y)}}\\\\nopagebreak\\\\par\\\\nopagebreak\\n` + apaItems(list.map((w) => {
+  return `\\section{${tex(label)}}\n` + groupByYear(ws).map(([y, list]) =>
+    `{\\bfseries\\color{acc} ${tex(y)}}\\nopagebreak\\par\\nopagebreak\n` + apaItems(list.map((w) => {
       const c = apaCite(w, d.oaMap[String(w.doi || "").toLowerCase()]);
-      return `\\\\item ${tex(c.authors)}${tex(c.year)}${tex(c.title)}${
-        c.venue ? `\\\\textit{${tex(c.venue)}}${tex(c.vol)}${tex(c.pages)}. ` : ""}${
-        c.doi ? `\\\\url{${c.doi}}` : ""}`;
-    }))).join("\\n");
-}).join("\\n")}
+      return `\\item ${tex(c.authors)}${tex(c.year)}${tex(c.title)}${
+        c.venue ? `\\textit{${tex(c.venue)}}${tex(c.vol)}${tex(c.pages)}. ` : ""}${
+        c.doi ? `\\url{${c.doi}}` : ""}`;
+    }))).join("\n");
+}).join("\n")}
 
 \\vfill
 {\\footnotesize\\color{acc} ${tex(t.source)}. ${tex(t.gen)} ${new Date().toISOString().slice(0, 10)}.}
@@ -307,7 +316,7 @@ export function toPrintHtml(d) {
   const qmax = Math.max(1, ...d.quartiles.map(([, n]) => n));
 
   return `<!doctype html>
-<!-- CV generado por cv.js v46 -->
+<!-- CV generado por cv.js v47 -->
 <html lang="${d.lang}"><head><meta charset="utf-8">
 <title>${esc(d.name)} · ${esc(t.cv)}</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
@@ -367,11 +376,6 @@ export function toPrintHtml(d) {
   .lead { color:var(--muted); font-size:9.8pt; margin:0 0 4pt; }
   .year { font-family:"IBM Plex Sans",sans-serif; font-weight:600; color:var(--acc);
           font-size:9.4pt; margin:7pt 0 1pt; }
-  /* pie repetido en todas las páginas al imprimir */
-  .running { position:fixed; bottom:-12mm; left:14mm; right:14mm; display:flex;
-             justify-content:space-between; font-family:"IBM Plex Sans",sans-serif;
-             font-size:8pt; color:var(--muted); border-top:.5pt solid var(--line);
-             padding-top:3pt; }
   footer { margin-top:12pt; padding-top:6pt; border-top:.6pt solid var(--line);
            font-size:8.2pt; color:var(--muted); }
   /* margen real en todas las páginas: sin él, a partir de la 2 el texto
@@ -402,8 +406,6 @@ export function toPrintHtml(d) {
     ${d.networks.map((n) => `<span><b>${esc(n.label)}</b><a href="${esc(n.url)}">${esc(n.id)}</a></span>`).join("")}
   </div>
 </div></header>
-
-<div class="running"><span>${esc(d.name)} · ${esc(t.cv)}</span><span>${esc(d.affiliation[1] || d.affiliation[0] || "")}</span></div>
 
 <main>
 <section><h2>${esc(t.metrics)}</h2>
@@ -465,7 +467,7 @@ ${["journal", "conference", "chapter", "other"].map((k) => {
     }).join("")}</ul>`).join("")}</section>`;
 }).join("")}
 
-<footer>${esc(t.source)}. ${esc(t.gen)} ${new Date().toLocaleDateString(d.lang === "en" ? "en-GB" : "es-ES")}.</footer>
+<footer>${esc(d.name)} · ${esc(t.cv)} · ${esc(t.gen)} ${new Date().toLocaleDateString(d.lang === "en" ? "en-GB" : "es-ES")}<br>${esc(t.source)}.</footer>
 </main>
 <script>window.addEventListener("load", () => setTimeout(() => window.print(), 500));</script>
 </body></html>`;
