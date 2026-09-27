@@ -330,7 +330,7 @@ export function toPrintHtml(d) {
   header .ids b { font-weight:600; opacity:.7; margin-right:3pt; }
   header a { color:#fff; text-decoration:none; }
 
-  main { padding:0; }
+  main { padding:0 18mm; }
 
   h2 { font-family:"IBM Plex Sans",sans-serif; font-size:11.5pt; font-weight:600; color:var(--acc);
        margin:13pt 0 5pt; display:flex; align-items:center; gap:7pt; }
@@ -365,7 +365,7 @@ export function toPrintHtml(d) {
   .year { font-family:"IBM Plex Sans",sans-serif; font-weight:600; color:var(--acc);
           font-size:9.4pt; margin:7pt 0 1pt; }
   /* pie repetido en todas las páginas al imprimir */
-  .running { position:fixed; bottom:-12mm; left:0; right:0; display:flex;
+  .running { position:fixed; bottom:-12mm; left:18mm; right:18mm; display:flex;
              justify-content:space-between; font-family:"IBM Plex Sans",sans-serif;
              font-size:8pt; color:var(--muted); border-top:.5pt solid var(--line);
              padding-top:3pt; }

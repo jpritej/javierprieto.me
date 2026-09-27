@@ -1,12 +1,12 @@
-import { state, initLang, setLang, t, L, esc, num, money, fdate, span, workType, loadSite } from "./store.js?v=40";
-import * as orcid from "./orcid.js?v=40";
-import * as openalex from "./openalex.js?v=40";
-import { normDoi } from "./openalex.js?v=40";
-import { apaCite } from "./cv.js?v=40";
-import * as charts from "./charts.js?v=40";
-import { icon, topicIcon, ccBadge } from "./icons.js?v=40";
-import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=40";
-import { exportRows, canExport, stamp } from "./export.js?v=40";
+import { state, initLang, setLang, t, L, esc, num, money, fdate, span, workType, loadSite } from "./store.js?v=41";
+import * as orcid from "./orcid.js?v=41";
+import * as openalex from "./openalex.js?v=41";
+import { normDoi } from "./openalex.js?v=41";
+import { apaCite } from "./cv.js?v=41";
+import * as charts from "./charts.js?v=41";
+import { icon, topicIcon, ccBadge } from "./icons.js?v=41";
+import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=41";
+import { exportRows, canExport, stamp } from "./export.js?v=41";
 
 const view = document.getElementById("view");
 const ROUTES = ["", "docencia", "proyectos", "publicaciones", "divulgacion", "indicadores"];
