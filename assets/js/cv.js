@@ -307,7 +307,7 @@ export function toPrintHtml(d) {
   const qmax = Math.max(1, ...d.quartiles.map(([, n]) => n));
 
   return `<!doctype html>
-<!-- CV generado por cv.js v45 -->
+<!-- CV generado por cv.js v46 -->
 <html lang="${d.lang}"><head><meta charset="utf-8">
 <title>${esc(d.name)} · ${esc(t.cv)}</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
@@ -321,7 +321,7 @@ export function toPrintHtml(d) {
   /* banda superior con el acento del tema */
   /* La banda ocupa todo el ancho; el texto va en un contenedor propio con su
      hueco, así el margen interior no puede anularse con el desplazamiento. */
-  header { background:var(--acc); color:#fff; padding:0; margin:-16mm 0 8mm; }
+  header { background:var(--acc); color:#fff; padding:0; margin:0 0 8mm; }
   .head-in { padding:13mm 14mm 9mm; }
   header h1 { font-family:"IBM Plex Sans",sans-serif; font-size:27pt; font-weight:700;
               margin:0 0 3pt; letter-spacing:-.025em; }
@@ -378,7 +378,11 @@ export function toPrintHtml(d) {
      empezaba pegado al borde superior */
   /* sin margen lateral: la banda llega a los bordes. El hueco del texto lo
      pone cada bloque, no la página. */
+  /* La primera página no lleva margen superior, así la banda llega al borde
+     sin tirar de ella con un margen negativo (que en pantalla la recortaba y
+     al imprimir dejaba una franja blanca). El resto de páginas sí respiran. */
   @page { size:A4; margin:16mm 0 18mm; }
+  @page :first { margin-top:0; }
   /* nada de azul de navegador ni subrayados: el DOI va discreto y en el tono
      del tema, como en un CV impreso */
   a { color:inherit; text-decoration:none; }
