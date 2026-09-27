@@ -16,7 +16,9 @@ const T = {
     metrics: "Indicadores", present: "actualidad",
     quartiles: "Artículos por cuartil JCR", funding: "Financiación gestionada",
     citations: "Citas", hindex: "Índice h", totalPubs: "Publicaciones",
-    ownDegree: "título propio", source: "Fuentes: ORCID, OpenAlex y CVN de FECYT"
+    ownDegree: "título propio", source: "Fuentes: ORCID, OpenAlex y CVN de FECYT",
+    journals: "Artículos en revista", conferences: "Contribuciones a congresos",
+    chapters: "Libros y capítulos", otherPubs: "Otras publicaciones", cumLaude: "cum laude"
   },
   en: {
     cv: "Academic CV", gen: "Generated on",
@@ -29,7 +31,9 @@ const T = {
     metrics: "Indicators", present: "present",
     quartiles: "Articles by JCR quartile", funding: "Funding managed",
     citations: "Citations", hindex: "h-index", totalPubs: "Publications",
-    ownDegree: "university-specific degree", source: "Sources: ORCID, OpenAlex and FECYT CVN"
+    ownDegree: "university-specific degree", source: "Sources: ORCID, OpenAlex and FECYT CVN",
+    journals: "Journal articles", conferences: "Conference contributions",
+    chapters: "Books and chapters", otherPubs: "Other publications", cumLaude: "cum laude"
   }
 };
 
@@ -116,14 +120,22 @@ export function collect({ site, cvn, orcid, openalex, oaMap = {}, lang = "es" })
     networks: cvNetworks(site),
     bio: pick(site.bio, lang).split(/\n{2,}/).filter(Boolean),
     positions: ((orcid && orcid.employments) || []).filter((e) => e.org),
-    teaching: (cvn && cvn.teaching) || [],
+    teaching: [...((cvn && cvn.teaching) || [])].sort((a, b) => {
+      const ea = a.end ? Number(a.end.slice(0, 4)) : Infinity;
+      const eb = b.end ? Number(b.end.slice(0, 4)) : Infinity;
+      return ea !== eb ? eb - ea : String(a.start || "").localeCompare(String(b.start || ""));
+    }),
     theses: (cvn && cvn.theses) || [],
     supervisions: (cvn && cvn.supervisions) || [],
-    projects,
+    projects: [...projects].sort((a, b) => String(b.start || "").localeCompare(String(a.start || ""))),
+    projectsByYear: groupBy(projects, (p) => p.start || "s. f."),
     projectsLead: projects.filter((p) => p.lead).length,
     funding: projects.reduce((a, p) => a + (p.amountOwn || 0), 0),
     patents: site.patents || [],
-    service: site.service || [],
+    service: [...(site.service || [])].sort((a, b) => {
+      const y = (v) => { const m = String(v || "").match(/(\d{4})\s*$/); return m ? Number(m[1]) : Infinity; };
+      return y(b.years) - y(a.years);
+    }),
     quartiles,
     kinds: [...kinds.entries()].sort((a, b) => b[1] - a[1]),
     pubsTotal: works.length || pubs.length,
@@ -131,8 +143,34 @@ export function collect({ site, cvn, orcid, openalex, oaMap = {}, lang = "es" })
     hIndex: (openalex && openalex.hIndex) || m.hIndex || 0,
     works,
     oaMap,
-    worksByYear: groupByYear(works)
+    worksByYear: groupByYear(works),
+    worksByKind: splitByKind(works, oaMap)
   };
+}
+
+function groupBy(list, keyOf) {
+  const m = new Map();
+  list.forEach((x) => {
+    const k = keyOf(x);
+    if (!m.has(k)) m.set(k, []);
+    m.get(k).push(x);
+  });
+  return [...m.entries()].sort((a, b) => String(b[0]).localeCompare(String(a[0])));
+}
+
+/* Un CV académico separa revistas, congresos y capítulos. El tipo sale de
+   OpenAlex cuando está, y si no del que trae ORCID. */
+function splitByKind(works, oaMap) {
+  const groups = { journal: [], conference: [], chapter: [], other: [] };
+  works.forEach((w) => {
+    const meta = oaMap[String(w.doi || "").toLowerCase()] || {};
+    const ty = (meta.type || w.type || "").toLowerCase();
+    if (/journal|article/.test(ty) && !/proceedings/.test(ty)) groups.journal.push(w);
+    else if (/proceedings|conference/.test(ty)) groups.conference.push(w);
+    else if (/book-chapter|chapter|book/.test(ty)) groups.chapter.push(w);
+    else groups.other.push(w);
+  });
+  return groups;
 }
 
 function groupByYear(works) {
@@ -156,6 +194,8 @@ const tex = (s) => String(s ?? "")
 export function toLatex(d) {
   const { t } = d;
   const years = (a, b) => a ? `${a}--${b || t.present}` : "";
+  const svcYears = (x) => x.start ? `${x.start}--${x.end || t.present}`
+    : (String(x.years || "").match(/^(\d{4})\s*[-–—]\s*$/) ? `${RegExp.$1}--${t.present}` : (x.years || ""));
   const sec = (title, body) => body ? `\n\\section{${tex(title)}}\n${body}` : "";
   const items = (arr) => arr.length ? `\\begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]\n${arr.join("\n")}\n\\end{itemize}\n` : "";
   const apaItems = (arr) => arr.length ? `\\begin{apalist}\n${arr.join("\n")}\n\\end{apalist}\n` : "";
@@ -211,25 +251,35 @@ ${sec(t.teaching, items(d.teaching.map((c) =>
   `\\item \\textbf{${tex(c.course)}} \\hfill ${(c.start || "").slice(0, 4)}--${(c.end || "").slice(0, 4) || t.present}\\\\ ${tex(c.degree)}${c.official ? "" : ` (${tex(t.ownDegree)})`}`)))}
 
 ${sec(t.theses, items(d.theses.map((x) =>
-  `\\item \\textbf{${tex(x.title)}}\\\\ ${tex(x.student)}${x.year ? `, ${x.year}` : ""}${x.university ? `. ${tex(x.university)}` : ""}`)))}
+  `\\item \\textbf{${tex(x.title)}}\\\\ ${tex(x.student)}${x.year ? `, ${x.year}` : ""}${x.university ? `. ${tex(x.university)}` : ""}${/cum\\s*laude/i.test(x.grade || "") ? ` \\textit{(${tex(t.cumLaude)})}` : ""}`)))}
 
-${sec(t.projects, items(d.projects.filter((p) => p.amountOwn || p.lead).slice(0, 40).map((p) =>
-  `\\item \\textbf{${tex(p.title)}}${p.lead ? " \\textit{(IP)}" : ""} \\hfill ${years(p.start, p.end)}\\\\ ${tex(p.funder || p.program)}${p.amountOwn ? `. ${money(p.amountOwn)}` : ""}`)))}
+${(() => {
+  const list = d.projects.filter((p) => p.amountOwn || p.lead);
+  if (!list.length) return "";
+  return `\\section{${tex(t.projects)}}\n` + groupBy(list, (p) => p.start || "s. f.").map(([y, ps]) =>
+    `{\\bfseries\\color{acc} ${tex(y)}}\\nopagebreak\\par\\nopagebreak\n` + items(ps.map((p) =>
+      `\\item \\textbf{${tex(p.title)}}${p.lead ? " \\textit{(IP)}" : ""} \\hfill ${years(p.start, p.end)}\\\\ ${tex(p.funder || p.program)}${p.amountOwn ? `. ${money(p.amountOwn)}` : ""}`))
+  ).join("\n");
+})()}
 
 ${sec(t.patents, items(d.patents.map((x) =>
   `\\item \\textbf{${tex(pick(x.title, d.lang))}}${x.number ? ` (${tex(x.number)})` : ""}${x.year ? `, ${x.year}` : ""}. ${tex(x.type)}`)))}
 
 ${sec(t.editorial, items(d.service.map((x) =>
-  `\\item \\textbf{${tex(pick(x.role, d.lang))}}, ${tex(pick(x.org, d.lang))}${x.years ? ` \\hfill ${tex(x.years)}` : ""}`)))}
+  `\\item \\textbf{${tex(pick(x.role, d.lang))}}, ${tex(pick(x.org, d.lang))}${svcYears(x) ? ` \\hfill ${tex(svcYears(x))}` : ""}`)))}
 
-${d.worksByYear.length ? `\\section{${tex(t.pubs)}}\n` + d.worksByYear.map(([y, ws]) =>
-  `{\\bfseries\\color{acc} ${tex(y)}}\\nopagebreak\\par\\nopagebreak\n` + apaItems(ws.map((w) => {
-    const c = apaCite(w, d.oaMap[String(w.doi || "").toLowerCase()]);
-    return `\\item ${tex(c.authors)}${tex(c.year)}${tex(c.title)}${
-      c.venue ? `\\textit{${tex(c.venue)}}${tex(c.vol)}${tex(c.pages)}. ` : ""}${
-      c.doi ? `\\url{${c.doi}}` : ""}`;
-  }))
-  ).join("\n") : ""}
+${["journal", "conference", "chapter", "other"].map((k) => {
+  const ws = d.worksByKind[k];
+  if (!ws.length) return "";
+  const label = { journal: t.journals, conference: t.conferences, chapter: t.chapters, other: t.otherPubs }[k];
+  return `\\\\section{${tex(label)}}\\n` + groupByYear(ws).map(([y, list]) =>
+    `{\\\\bfseries\\\\color{acc} ${tex(y)}}\\\\nopagebreak\\\\par\\\\nopagebreak\\n` + apaItems(list.map((w) => {
+      const c = apaCite(w, d.oaMap[String(w.doi || "").toLowerCase()]);
+      return `\\\\item ${tex(c.authors)}${tex(c.year)}${tex(c.title)}${
+        c.venue ? `\\\\textit{${tex(c.venue)}}${tex(c.vol)}${tex(c.pages)}. ` : ""}${
+        c.doi ? `\\\\url{${c.doi}}` : ""}`;
+    }))).join("\\n");
+}).join("\\n")}
 
 \\vfill
 {\\footnotesize\\color{acc} ${tex(t.source)}. ${tex(t.gen)} ${new Date().toISOString().slice(0, 10)}.}
@@ -246,6 +296,8 @@ const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) =>
 export function toPrintHtml(d) {
   const { t } = d;
   const years = (a, b) => a ? `${a}–${b || t.present}` : "";
+  const svcYears = (x) => x.start ? `${x.start}–${x.end || t.present}`
+    : (String(x.years || "").match(/^(\d{4})\s*[-–—]\s*$/) ? `${RegExp.$1}–${t.present}` : (x.years || ""));
   const money = (n) => new Intl.NumberFormat("es-ES").format(Math.round(n || 0)) + " €";
   // en la tarjeta la cifra larga rompe el ancho: se abrevia como en la web
   const moneyShort = (n) => n >= 1e6 ? `${Math.round(n / 1e6)} M€`
@@ -312,6 +364,11 @@ export function toPrintHtml(d) {
   .lead { color:var(--muted); font-size:9.8pt; margin:0 0 4pt; }
   .year { font-family:"IBM Plex Sans",sans-serif; font-weight:600; color:var(--acc);
           font-size:9.4pt; margin:7pt 0 1pt; }
+  /* pie repetido en todas las páginas al imprimir */
+  .running { position:fixed; bottom:-12mm; left:0; right:0; display:flex;
+             justify-content:space-between; font-family:"IBM Plex Sans",sans-serif;
+             font-size:8pt; color:var(--muted); border-top:.5pt solid var(--line);
+             padding-top:3pt; }
   footer { margin-top:12pt; padding-top:6pt; border-top:.6pt solid var(--line);
            font-size:8.2pt; color:var(--muted); }
   /* margen real en todas las páginas: sin él, a partir de la 2 el texto
@@ -337,6 +394,8 @@ export function toPrintHtml(d) {
   </div>
 </header>
 
+<div class="running"><span>${esc(d.name)} · ${esc(t.cv)}</span><span>${esc(d.affiliation[1] || d.affiliation[0] || "")}</span></div>
+
 <main>
 <section><h2>${esc(t.metrics)}</h2>
   <div class="kpis">
@@ -361,13 +420,20 @@ ${block(t.teaching, d.teaching.map((c) => `<li><div class="row">
   <span class="when">${(c.start || "").slice(0, 4)}–${(c.end || "").slice(0, 4) || t.present}</span></div></li>`))}
 
 ${block(t.theses, d.theses.map((x) => `<li><div class="row">
-  <span><strong>${esc(x.title)}</strong><span class="sub">${esc(x.student)}${x.university ? " · " + esc(x.university) : ""}</span></span>
+  <span><strong>${esc(x.title)}</strong>${/cum\s*laude/i.test(x.grade || "") ? `<span class="tag">${esc(t.cumLaude)}</span>` : ""}<span class="sub">${esc(x.student)}${x.university ? " · " + esc(x.university) : ""}</span></span>
   <span class="when">${esc(x.year)}</span></div></li>`))}
 
-${block(t.projects, d.projects.filter((p) => p.lead || p.amountOwn).slice(0, 45).map((p) => `<li><div class="row">
-  <span><strong>${esc(p.title)}</strong>${p.lead ? `<span class="tag">IP</span>` : ""}<span class="sub">${esc(p.funder || p.program)}${p.amountOwn ? " · " + money(p.amountOwn) : ""}</span></span>
-  <span class="when">${years(p.start, p.end)}</span></div></li>`),
-  `<p class="lead">${d.projects.length} ${esc(t.projects.toLowerCase())}, ${d.projectsLead} ${esc(t.projectsLead)}</p>`)}
+${(() => {
+  const list = d.projects.filter((p) => p.lead || p.amountOwn);
+  if (!list.length) return "";
+  return `<section><h2>${esc(t.projects)}</h2>
+    <p class="lead">${d.projects.length} ${esc(t.projects.toLowerCase())}, ${d.projectsLead} ${esc(t.projectsLead)}</p>
+    ${groupBy(list, (p) => p.start || "s. f.").map(([y, ps]) =>
+      `<p class="year">${esc(y)}</p><ul>${ps.map((p) => `<li><div class="row">
+        <span><strong>${esc(p.title)}</strong>${p.lead ? `<span class="tag">IP</span>` : ""}<span class="sub">${esc(p.funder || p.program)}${p.amountOwn ? " · " + money(p.amountOwn) : ""}</span></span>
+        <span class="when">${years(p.start, p.end)}</span></div></li>`).join("")}</ul>`).join("")}
+  </section>`;
+})()}
 
 ${block(t.patents, d.patents.map((x) => `<li><div class="row">
   <span><strong>${esc(pick(x.title, d.lang))}</strong><span class="sub">${esc(x.type)}${x.number ? " · " + esc(x.number) : ""}</span></span>
@@ -375,17 +441,20 @@ ${block(t.patents, d.patents.map((x) => `<li><div class="row">
 
 ${block(t.editorial, d.service.map((x) => `<li><div class="row">
   <span><strong>${esc(pick(x.role, d.lang))}</strong><span class="sub">${esc(pick(x.org, d.lang))}</span></span>
-  <span class="when">${esc(x.years || "")}</span></div></li>`))}
+  <span class="when">${esc(svcYears(x))}</span></div></li>`))}
 
-${d.worksByYear.length ? `<section><h2>${esc(t.pubs)}</h2>${
-  d.worksByYear.map(([y, ws]) => `<p class="year">${esc(y)}</p><ul>${
-    ws.map((w) => {
+${["journal", "conference", "chapter", "other"].map((k) => {
+  const ws = d.worksByKind[k];
+  if (!ws.length) return "";
+  const label = { journal: t.journals, conference: t.conferences, chapter: t.chapters, other: t.otherPubs }[k];
+  return `<section><h2>${esc(label)}</h2>${groupByYear(ws).map(([y, list]) =>
+    `<p class="year">${esc(y)}</p><ul>${list.map((w) => {
       const c = apaCite(w, d.oaMap[String(w.doi || "").toLowerCase()]);
       return `<li class="apa">${esc(c.authors)}${esc(c.year)}${esc(c.title)}${
         c.venue ? `<em>${esc(c.venue)}</em>${esc(c.vol)}${esc(c.pages)}. ` : ""}${
         c.doi ? `<a href="${esc(c.doi)}">${esc(c.doi)}</a>` : ""}</li>`;
-    }).join("")
-  }</ul>`).join("")}</section>` : ""}
+    }).join("")}</ul>`).join("")}</section>`;
+}).join("")}
 
 <footer>${esc(t.source)}. ${esc(t.gen)} ${new Date().toLocaleDateString(d.lang === "en" ? "en-GB" : "es-ES")}.</footer>
 </main>

@@ -1,8 +1,8 @@
-import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=37";
-import { ICON_KEYS } from "./icons.js?v=37";
-import * as cv from "./cv.js?v=37";
-import * as orcidApi from "./orcid.js?v=37";
-import * as openalexApi from "./openalex.js?v=37";
+import { loadSite, saveDraft, clearDraft, esc, state } from "./store.js?v=40";
+import { ICON_KEYS } from "./icons.js?v=40";
+import * as cv from "./cv.js?v=40";
+import * as orcidApi from "./orcid.js?v=40";
+import * as openalexApi from "./openalex.js?v=40";
 
 /* ------------------------------------------------------------------ esquema */
 
@@ -224,7 +224,8 @@ const SCHEMA = [
     item: [
       { k: "role.es", l: "Cargo (ES)" }, { k: "role.en", l: "Role (EN)" },
       { k: "org.es", l: "Organización (ES)" }, { k: "org.en", l: "Organisation (EN)" },
-      { k: "years", l: "Años (por ejemplo 2020-2024)" },
+      { k: "start", l: "Año de inicio" },
+      { k: "end", l: "Año de fin (vacío = en curso, se escribe «actualidad» solo)" },
       { k: "url", l: "Enlace del cargo", t: T.url, wide: true }
     ]
   },
@@ -588,7 +589,7 @@ document.getElementById("publish").addEventListener("click", publish);
 const ALLOWED_EMAIL = "jpritej@gmail.com";
 // Client ID de tu propio proyecto en Google Cloud Console (no es secreto,
 // es público por diseño). Sustituye este valor por el tuyo.
-const GOOGLE_CLIENT_ID = "687457219394-7o9deuah4hpb6khm3ja6u14gcc2fgcka.apps.googleusercontent.com";
+const GOOGLE_CLIENT_ID = "TU_CLIENT_ID.apps.googleusercontent.com";
 
 function loadGoogleScript() {
   return new Promise((resolve, reject) => {

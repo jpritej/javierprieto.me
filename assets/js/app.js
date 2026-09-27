@@ -1,11 +1,12 @@
-import { state, initLang, setLang, t, L, esc, num, money, fdate, workType, loadSite } from "./store.js?v=37";
-import * as orcid from "./orcid.js?v=37";
-import * as openalex from "./openalex.js?v=37";
-import { normDoi } from "./openalex.js?v=37";
-import * as charts from "./charts.js?v=37";
-import { icon, topicIcon, ccBadge } from "./icons.js?v=37";
-import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=37";
-import { exportRows, canExport, stamp } from "./export.js?v=37";
+import { state, initLang, setLang, t, L, esc, num, money, fdate, span, workType, loadSite } from "./store.js?v=40";
+import * as orcid from "./orcid.js?v=40";
+import * as openalex from "./openalex.js?v=40";
+import { normDoi } from "./openalex.js?v=40";
+import { apaCite } from "./cv.js?v=40";
+import * as charts from "./charts.js?v=40";
+import { icon, topicIcon, ccBadge } from "./icons.js?v=40";
+import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=40";
+import { exportRows, canExport, stamp } from "./export.js?v=40";
 
 const view = document.getElementById("view");
 const ROUTES = ["", "docencia", "proyectos", "publicaciones", "divulgacion", "indicadores"];
@@ -121,20 +122,33 @@ function kpi(n, label, accent = false, hideIfEmpty = false) {
     <span class="kpi__n" data-count="${esc(n)}">${n}</span><span class="kpi__l">${esc(label)}</span></div>`;
 }
 
+function venueOf(w) {
+  if (w.venue) return w.venue;
+  const m = w.doi ? oaLinks[normDoi(w.doi)] : null;
+  return (m && m.venue) || "";
+}
+
 function pubItem(w) {
   const bits = [];
-  if (w.venue) bits.push(`<em>${esc(w.venue)}</em>`);
+  const venue = venueOf(w);
+  if (venue) bits.push(`<em>${esc(venue)}</em>`);
   bits.push(`<span class="badge">${esc(workType(w.type))}</span>`);
   if (w.doi) bits.push(`<a class="badge badge--link" href="https://doi.org/${esc(w.doi)}" target="_blank" rel="noopener">doi:${esc(w.doi)}</a>`);
   else if (w.url) bits.push(`<a class="badge badge--link" href="${esc(w.url)}" target="_blank" rel="noopener">${t("link")}</a>`);
-  const open = w.doi ? oaLinks[normDoi(w.doi)] : null;
+  const oaw = w.doi ? oaLinks[normDoi(w.doi)] : null;
+  const open = (oaw && oaw.url) ? oaw : null;
+  if (w.doi && oaLinks[normDoi(w.doi)]) {
+    bits.push(`<button type="button" class="badge badge--cite" data-cite="${esc(normDoi(w.doi))}"
+      data-cite-title="${esc(w.title)}" data-cite-year="${esc(w.year || "")}">${t("pubs.cite")}</button>`);
+  }
   if (open) {
     bits.push(`<a class="badge badge--oa" href="${esc(open.url)}" target="_blank" rel="noopener"
       ${open.pdf ? `data-pdf="${esc(open.url)}" data-pdf-title="${esc(w.title)}"` : ""}
       title="${t("pubs.oaTitle")}">
       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-1px">
         <rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 7.5-2"></path></svg>
-      ${open.pdf ? "PDF" : t("pubs.oa")}</a>`);
+      ${open.pdf ? "PDF" : t("pubs.oa")}${puedeIncrustar(open.url) ? "" :
+        `<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg>`}</a>`);
   }
   return `<article class="pub">
     <span class="pub__t">${esc(w.title)}${w.subtitle ? ". " + esc(w.subtitle) : ""}</span>
@@ -205,7 +219,13 @@ function teachItem(x) {
 }
 
 function teachingSection() {
-  const list = cvn ? cvn.teaching : [];
+  // mismo criterio que en experiencia: manda el fin, lo vigente primero
+  const list = [...(cvn ? cvn.teaching : [])].sort((a, b) => {
+    const ea = a.end ? Number(a.end.slice(0, 4)) : Infinity;
+    const eb = b.end ? Number(b.end.slice(0, 4)) : Infinity;
+    if (ea !== eb) return eb - ea;
+    return String(a.start || "").localeCompare(String(b.start || ""));
+  });
   if (!list.length) return "";
   return section(t("sec.courses"), `<ul class="stack">${li(list, teachItem)}</ul>`, String(list.length));
 }
@@ -270,7 +290,12 @@ function viewProfile() {
     })),
     ...(s.projects || []).filter((p) => L(p.title))
   ];
-  const service = (s.service || []).filter((x) => L(x.role));
+  const endYear = (y) => {
+    const m = String(y || "").match(/(\d{4})\s*$/);
+    return m ? Number(m[1]) : Infinity;   // sin año de fin = en curso
+  };
+  const service = (s.service || []).filter((x) => L(x.role))
+    .sort((a, b) => endYear(b.end || b.years) - endYear(a.end || a.years));
   const recent = orc ? orc.works.slice(0, 6) : [];
 
   return `
@@ -318,7 +343,7 @@ function viewProfile() {
         <span class="meta">${esc(L(x.org))}</span>
       </span>
       <span class="row-span__end">
-        ${has(x.years) ? `<span class="meta">${esc(x.years)}</span>` : ""}
+        ${span(x.start, x.end, x.years) ? `<span class="meta">${esc(span(x.start, x.end, x.years))}</span>` : ""}
         ${has(x.url) ? `<a class="badge badge--link" href="${esc(x.url)}" target="_blank" rel="noopener">${t("p.web")}</a>` : ""}
       </span>
     </li>`)}</ul>`) : ""}`;
@@ -364,6 +389,10 @@ function supervisionItem(w) {
   </article>`;
 }
 
+function cumLaude(x) {
+  return /cum\s*laude/i.test(x.grade || "") ? `<span class="badge badge--link">cum laude</span>` : "";
+}
+
 function thesesSection() {
   const list = (cvn && cvn.theses.length ? cvn.theses : (state.site.theses || []).map((x) => ({
     title: L(x.title), student: x.student, year: x.year, university: L(x.university), kind: "Tesis Doctoral"
@@ -371,7 +400,7 @@ function thesesSection() {
   if (!list.length) return "";
   return section(t("sec.theses"), `<div>${li(list, (w) => `<article class="pub">
     <span class="pub__t">${esc(w.title)}</span>
-    <div class="pub__m"><em>${esc(w.student)}</em> · ${esc(w.year)}${w.university ? " · " + esc(w.university) : ""}${w.international ? ` · <span class="badge">${t("t.intl")}</span>` : ""}</div>
+    <div class="pub__m"><em>${esc(w.student)}</em> · ${esc(w.year)}${w.university ? " · " + esc(w.university) : ""}${w.international ? ` <span class="badge">${t("t.intl")}</span>` : ""}${cumLaude(w) ? " " + cumLaude(w) : ""}</div>
   </article>`)}</div>`, String(list.length));
 }
 
@@ -595,15 +624,6 @@ function bindPress() {
   document.getElementById("press-flyout").addEventListener("click", (e) => {
     if (e.target.hasAttribute("data-close")) closePress();
   });
-  if (!window.__pdfBound) {
-    window.__pdfBound = true;
-    document.addEventListener("click", (e) => {
-      if (e.target.closest("[data-pdf-close]")) closePdf();
-    });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closePdf();
-    });
-  }
   if (!window.__pressEscBound) {
     window.__pressEscBound = true;
     document.addEventListener("keydown", pressEscHandler);
@@ -619,8 +639,9 @@ function pressEscHandler(e) {
 function projectItem(p) {
   const star = (state.site.featured || []).includes(p.id);
   const web = (state.site.projectLinks || {})[p.id];
+  const range = p.start ? span(p.start, p.end) : "";
   const meta = [
-    p.program, p.code, p.funder,
+    range, p.program, p.code, p.funder,
     p.lead ? `<em>${t("p.ip")}</em>` : p.role,
     p.scope,
     p.amountOwn ? money(p.amountOwn) : ""
@@ -786,8 +807,10 @@ function bindProjects() {
 /** Publicaciones que pasan el filtro activo (lo comparten vista y exportación). */
 function filteredWorks() {
   if (!orc) return [];
+  // los artículos retractados no se enlazan
   const q = filters.q.toLowerCase();
   return orc.works.filter((w) =>
+    !/^\s*retracted\b|\bretracted:/i.test(w.title || "") &&
     (!filters.type || w.type === filters.type) &&
     (!filters.year || String(w.year) === filters.year) &&
     (!q || (w.title + " " + w.venue).toLowerCase().includes(q)));
@@ -868,6 +891,27 @@ function paintPubCharts() {
   charts.mountDoughnut("c-pubkind", top.map(([k]) => k), top.map(([, v]) => v));
 }
 
+/* Qué se puede mostrar dentro de la web y qué no.
+   Casi todos los editores lo impiden: unos con cabeceras que prohíben el
+   iframe (Elsevier, Wiley, IEEE), otros con verificaciones antibot que dentro
+   de un marco no terminan nunca (Springer), y MDPI rechaza la petición si
+   viene de otro sitio. Los repositorios abiertos, en cambio, sirven el PDF sin
+   condiciones. Así que la lista es de permitidos, no de bloqueados: lo que no
+   esté aquí se abre en una pestaña nueva, que es lo que de verdad funciona. */
+const VISOR_OK = [
+  "arxiv.org", "europepmc.org", "ncbi.nlm.nih.gov", "zenodo.org",
+  "gredos.usal.es", "biorxiv.org", "medrxiv.org", "hal.science",
+  "open-research-europe.ec.europa.eu", "f1000research.com",
+  "riunet.upv.es", "digital.csic.es", "repositorio.unican.es", "uvadoc.uva.es"
+];
+
+function puedeIncrustar(url) {
+  try {
+    const host = new URL(url).hostname.replace(/^www\./, "");
+    return VISOR_OK.some((h) => host === h || host.endsWith("." + h));
+  } catch (_) { return false; }
+}
+
 /* Visor de PDF en ventana flotante. Algunos editores prohíben que su PDF se
    muestre dentro de otra web, así que el visor ofrece siempre el enlace de
    salida y avisa si no consigue cargarlo. */
@@ -901,10 +945,41 @@ function closePdf() {
   document.body.style.overflow = "";
 }
 
+/* Ficha de cita en APA: los autores no caben en el listado, pero sí aquí. */
+function openCite(doi, title, year) {
+  const box = document.getElementById("cite-view");
+  const meta = oaLinks[doi] || {};
+  const c = apaCite({ title, year, doi }, meta);
+  const text = `${c.authors}${c.year}${c.title}${c.venue ? c.venue + c.vol + c.pages + ". " : ""}${c.doi}`;
+  box.querySelector(".cite-view__text").innerHTML =
+    `${esc(c.authors)}${esc(c.year)}${esc(c.title)}` +
+    (c.venue ? `<em>${esc(c.venue)}</em>${esc(c.vol)}${esc(c.pages)}. ` : "") +
+    (c.doi ? `<a href="${esc(c.doi)}" target="_blank" rel="noopener">${esc(c.doi)}</a>` : "");
+  box.dataset.plain = text;
+  box.querySelector(".cite-view__msg").textContent = "";
+  box.hidden = false;
+}
+
+function closeCite() {
+  const box = document.getElementById("cite-view");
+  if (box) box.hidden = true;
+}
+
+function bindCiteLinks(root = document) {
+  root.querySelectorAll("[data-cite]").forEach((b) => {
+    if (b.dataset.bound) return;
+    b.dataset.bound = "1";
+    b.addEventListener("click", () => openCite(b.dataset.cite, b.dataset.citeTitle, b.dataset.citeYear));
+  });
+}
+
 function bindPdfLinks(root = document) {
   root.querySelectorAll("[data-pdf]").forEach((a) => {
     if (a.dataset.bound) return;
     a.dataset.bound = "1";
+    // si el editor no deja incrustar, el enlace se comporta como un enlace
+    // normal y abre pestaña nueva; no se toca el evento
+    if (!puedeIncrustar(a.dataset.pdf)) return;
     a.addEventListener("click", (e) => {
       e.preventDefault();
       openPdf(a.dataset.pdf, a.dataset.pdfTitle);
@@ -915,6 +990,7 @@ function bindPdfLinks(root = document) {
 function bindPubs() {
   paintPubCharts();
   bindPdfLinks();
+  bindCiteLinks();
   const q = document.getElementById("f-q");
   if (!q) return;
   let timer;
@@ -1124,7 +1200,7 @@ function render(opts = {}) {
   if (r === "docencia") bindSupervisions();
   if (r === "proyectos") bindProjects();
   if (r === "divulgacion") bindPress(); else closePress();
-  if (r === "") { bindCopyBio(); bindPdfLinks(); }
+  if (r === "") { bindCopyBio(); bindPdfLinks(); bindCiteLinks(); }
   closeMobileNav();
   observeReveal();
 }
@@ -1151,6 +1227,25 @@ function bindCopyBio() {
       if (msg) msg.textContent = t("about.copyFail");
     }
     setTimeout(() => { if (msg) msg.textContent = ""; }, 2200);
+  });
+}
+
+function bindOverlays() {
+  if (window.__overlaysBound) return;
+  window.__overlaysBound = true;
+  document.addEventListener("click", (e) => {
+    if (e.target.closest("[data-pdf-close]")) closePdf();
+    if (e.target.closest("[data-cite-close]")) closeCite();
+    const copy = e.target.closest("#cite-copy");
+    if (copy) {
+      const box = document.getElementById("cite-view");
+      navigator.clipboard.writeText(box.dataset.plain || "").then(
+        () => { box.querySelector(".cite-view__msg").textContent = t("about.copied"); },
+        () => { box.querySelector(".cite-view__msg").textContent = t("about.copyFail"); });
+    }
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") { closePdf(); closeCite(); }
   });
 }
 
@@ -1289,6 +1384,7 @@ async function boot() {
   render();
   bindMobileNav();
   bindToTop();
+  bindOverlays();
   document.querySelectorAll(".lang button").forEach((b) =>
     b.addEventListener("click", () => { setLang(b.dataset.lang); render(); }));
   window.addEventListener("hashchange", () => { window.scrollTo(0, 0); range = null; render(); });

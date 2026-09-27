@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/main.css?v=37">
+<link rel="stylesheet" href="assets/css/main.css?v=40">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Javier Prieto",
  "url":"https://javierprieto.me/",
@@ -50,17 +50,38 @@
   <p class="msg" style="margin-top:3rem">Cargando…</p>
 </main>
 
+<div class="cite-view" id="cite-view" hidden>
+  <div class="cite-view__backdrop" data-cite-close></div>
+  <div class="cite-view__panel" role="dialog" aria-modal="true" aria-label="Cita">
+    <div class="cite-view__head">
+      <h3>Cita en APA</h3>
+      <button type="button" class="icon-btn" data-cite-close aria-label="Cerrar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"></path></svg>
+      </button>
+    </div>
+    <p class="cite-view__text"></p>
+    <div class="cite-view__foot">
+      <button type="button" class="btn" id="cite-copy">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px">
+          <rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path></svg>
+        Copiar la cita
+      </button>
+      <span class="cite-view__msg"></span>
+    </div>
+  </div>
+</div>
+
 <div class="pdf-view" id="pdf-view" hidden>
   <div class="pdf-view__backdrop" data-pdf-close></div>
   <div class="pdf-view__panel" role="dialog" aria-modal="true" aria-label="Documento en acceso abierto">
     <div class="pdf-view__bar">
       <span class="pdf-view__title"></span>
-      <a class="btn btn--ghost pdf-view__out" href="#" target="_blank" rel="noopener">Abrir en el editor</a>
+      <a class="btn btn--ghost pdf-view__out" href="#" target="_blank" rel="noopener">Ir al original</a>
       <button type="button" class="icon-btn" data-pdf-close aria-label="Cerrar">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"></path></svg>
       </button>
     </div>
-    <p class="pdf-view__warn msg msg--warn" hidden>Si no se ve el documento, es que el editor no permite mostrarlo dentro de otra web. Ábrelo con el botón de arriba.</p>
+    <p class="pdf-view__warn msg msg--warn" hidden>Si el documento no termina de cargar, ábrelo con el botón de arriba.</p>
     <iframe title="Documento en acceso abierto" src="about:blank"></iframe>
   </div>
 </div>
@@ -73,6 +94,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" defer></script>
-<script type="module" src="assets/js/app.js?v=37"></script>
+<script type="module" src="assets/js/app.js?v=40"></script>
 </body>
 </html>

@@ -74,6 +74,7 @@ const UI = {
     "sec.allprojects": "Ver todos los proyectos",
     "pubs.search": "Buscar por título, revista o congreso",
     "pubs.oa": "En abierto",
+    "pubs.cite": "Cita",
     "pubs.oaTitle": "Versión en acceso abierto, según OpenAlex",
     "pubs.byQuartile": "Artículos por cuartil JCR",
     "pubs.byKind": "Tipo de producción",
@@ -185,6 +186,7 @@ const UI = {
     "sec.allprojects": "See all projects",
     "pubs.search": "Search by title, journal or conference",
     "pubs.oa": "Open access",
+    "pubs.cite": "Cite",
     "pubs.oaTitle": "Open access version, according to OpenAlex",
     "pubs.byQuartile": "Articles by JCR quartile",
     "pubs.byKind": "Type of output",
@@ -305,6 +307,18 @@ export function money(n) {
   if (v >= 1000000) return Math.round(v / 1000000) + " M€";
   if (v >= 1000) return num(Math.round(v / 1000)) + " k€";
   return num(v) + " €";
+}
+
+/** Rango de años legible. Sin fin (o con guion suelto al final) = en curso,
+    y la palabra se traduce sola según el idioma activo. */
+export function span(start, end, legacy) {
+  if (!start && legacy) {
+    const m = String(legacy).trim().match(/^(\d{4})\s*[-–—]\s*(\d{4})?$/);
+    if (m) { start = m[1]; end = m[2] || ""; }
+    else return String(legacy);
+  }
+  if (!start) return "";
+  return `${start}–${end || t("present")}`;
 }
 
 export function fdate(iso) {
