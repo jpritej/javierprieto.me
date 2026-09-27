@@ -185,11 +185,58 @@ function groupByYear(works) {
 
 /* ------------------------------------------------------------------ LaTeX */
 
+/* Tipografía que inputenc no siempre sabe traducir: guiones largos, comillas
+   curvas, símbolos matemáticos... Se convierten a órdenes de LaTeX para que el
+   fichero compile en cualquier instalación, no solo en las bien surtidas. */
+const TEX_UNICODE = {
+  "\u2013": "--", "\u2014": "---", "\u2010": "-", "\u2011": "-", "\u2212": "$-$",
+  "\u2018": "`", "\u2019": "'", "\u201C": "``", "\u201D": "''", "\u201E": ",,",
+  "\u2026": "\\ldots{}", "\u00B7": "\\textperiodcentered{}", "\u2022": "\\textbullet{}",
+  "\u00D7": "$\\times$", "\u00F7": "$\\div$", "\u2264": "$\\leq$", "\u2265": "$\\geq$",
+  "\u2248": "$\\approx$", "\u2260": "$\\neq$", "\u00B1": "$\\pm$",
+  "\u00B0": "\\textdegree{}", "\u00B5": "$\\mu$", "\u03BC": "$\\mu$",
+  "\u2032": "$'$", "\u2033": "$''$", "\u00A0": "~", "\u2009": "\\,", "\u202F": "\\,",
+  "\u2122": "\\texttrademark{}", "\u00AE": "\\textregistered{}", "\u00A9": "\\textcopyright{}",
+  "\u00BD": "$1/2$", "\u00BC": "$1/4$", "\u00BE": "$3/4$", "\u20AC": "\\euro{}",
+  "\u2192": "$\\rightarrow$", "\u2190": "$\\leftarrow$",
+  "\u00AB": "\\guillemotleft{}", "\u00BB": "\\guillemotright{}"
+};
+
+/* Letras fuera de la codificación T1 (Ş turca, ł polaca, đ croata...). LaTeX
+   no las tiene, pero sí sabe componer letra + acento, así que se descomponen
+   en sus partes. Sin esto, esos caracteres desaparecían del PDF en silencio. */
+const TEX_ACENTOS = {
+  "\u0301": "'", "\u0300": "`", "\u0302": "^", "\u0303": "~", "\u0308": '"',
+  "\u030A": "r", "\u0327": "c", "\u030C": "v", "\u0306": "u", "\u0307": ".",
+  "\u0328": "k", "\u030B": "H", "\u0304": "=", "\u0331": "b", "\u0323": "d"
+};
+const TEX_LETRAS = {
+  "\u0142": "\\l{}", "\u0141": "\\L{}", "\u0111": "\\dj{}", "\u0110": "\\DJ{}",
+  "\u0131": "\\i{}", "\u0130": "\\.{I}", "\u00F8": "\\o{}", "\u00D8": "\\O{}",
+  "\u00E6": "\\ae{}", "\u00C6": "\\AE{}", "\u0153": "\\oe{}", "\u0152": "\\OE{}",
+  "\u00DF": "\\ss{}", "\u00F0": "\\dh{}", "\u00FE": "\\th{}"
+};
+
+function texLetra(c) {
+  if (TEX_LETRAS[c]) return TEX_LETRAS[c];
+  const d = c.normalize("NFD");
+  if (d.length === 2 && TEX_ACENTOS[d[1]]) {
+    const base = d[0] === "i" ? "\\i{}" : d[0] === "j" ? "\\j{}" : d[0];
+    return `\\${TEX_ACENTOS[d[1]]}{${base}}`;
+  }
+  return c;
+}
+
 const tex = (s) => String(s ?? "")
   .replace(/\\/g, "\\textbackslash{}")
   .replace(/([&%$#_{}])/g, "\\$1")
   .replace(/~/g, "\\textasciitilde{}")
-  .replace(/\^/g, "\\textasciicircum{}");
+  .replace(/\^/g, "\\textasciicircum{}")
+  .replace(/[\u00A0\u00A9\u00AE\u00B0\u00B1\u00B5\u00B7\u00BC-\u00BE\u00D7\u00F7\u03BC\u2009\u2010\u2011\u2013\u2014\u2018\u2019\u201C-\u201E\u2022\u2026\u202F\u2032\u2033\u20AC\u2122\u2190\u2192\u2212\u2248\u2260\u2264\u2265\u00AB\u00BB]/g,
+    (c) => TEX_UNICODE[c] || c)
+  // TODA letra acentuada pasa a orden de LaTeX: el .tex queda en ASCII puro y
+  // deja de depender de con qué codificación lo abra tu instalación
+  .replace(/[\u00C0-\u024F]/g, texLetra);
 
 export function toLatex(d) {
   const { t } = d;
@@ -202,11 +249,11 @@ export function toLatex(d) {
 
   const money = (n) => new Intl.NumberFormat("es-ES").format(Math.round(n || 0)) + "~\\euro{}";
 
-  return `% CV académico generado desde javierprieto.me
+  return `% CV generado desde javierprieto.me
 % ${T.es.gen} ${new Date().toISOString().slice(0, 10)}
 \\documentclass[11pt,a4paper]{article}
 \\usepackage[utf8]{inputenc}\n\\usepackage[T1]{fontenc}
-% babel-spanish no está en todas las instalaciones; si falla, comenta esta línea
+% Si babel-spanish no esta instalado, comenta la linea siguiente
 \\usepackage[${d.lang === "en" ? "english" : "spanish"}]{babel}
 \\usepackage[margin=2.2cm]{geometry}
 \\usepackage{enumitem,xcolor,titlesec,hyperref,eurosym}
@@ -234,6 +281,7 @@ export function toLatex(d) {
   \\fancyfoot[L]{\\footnotesize\\color{acc}${tex(d.name)}}%
   \\fancyfoot[R]{\\footnotesize\\color{acc}\\thepage}}
 \\setlength{\\parindent}{0pt}
+\\sloppy\\emergencystretch=3em  % evita desbordes de linea
 
 \\begin{document}
 
@@ -316,7 +364,7 @@ export function toPrintHtml(d) {
   const qmax = Math.max(1, ...d.quartiles.map(([, n]) => n));
 
   return `<!doctype html>
-<!-- CV generado por cv.js v47 -->
+<!-- CV generado por cv.js v49 -->
 <html lang="${d.lang}"><head><meta charset="utf-8">
 <title>${esc(d.name)} · ${esc(t.cv)}</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
