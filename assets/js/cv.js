@@ -307,6 +307,7 @@ export function toPrintHtml(d) {
   const qmax = Math.max(1, ...d.quartiles.map(([, n]) => n));
 
   return `<!doctype html>
+<!-- CV generado por cv.js v42 -->
 <html lang="${d.lang}"><head><meta charset="utf-8">
 <title>${esc(d.name)} · ${esc(t.cv)}</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
@@ -384,7 +385,7 @@ export function toPrintHtml(d) {
                  .kpi, .q i, li::before, h2::after { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
 </style></head><body>
 
-<header>
+<header><div class="head-in">
   <h1>${esc(d.name)}</h1>
   <p class="role">${esc(d.role)}</p>
   <p class="aff">${d.affiliation.map(esc).join(" · ")}${d.group ? " · " + esc(d.group) : ""}</p>
@@ -392,7 +393,7 @@ export function toPrintHtml(d) {
     ${d.email ? `<span><b>Email</b><a href="mailto:${esc(d.email)}">${esc(d.email)}</a></span>` : ""}
     ${d.networks.map((n) => `<span><b>${esc(n.label)}</b><a href="${esc(n.url)}">${esc(n.id)}</a></span>`).join("")}
   </div>
-</header>
+</div></header>
 
 <div class="running"><span>${esc(d.name)} · ${esc(t.cv)}</span><span>${esc(d.affiliation[1] || d.affiliation[0] || "")}</span></div>
 
