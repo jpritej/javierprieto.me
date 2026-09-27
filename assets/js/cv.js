@@ -307,7 +307,7 @@ export function toPrintHtml(d) {
   const qmax = Math.max(1, ...d.quartiles.map(([, n]) => n));
 
   return `<!doctype html>
-<!-- CV generado por cv.js v42 -->
+<!-- CV generado por cv.js v45 -->
 <html lang="${d.lang}"><head><meta charset="utf-8">
 <title>${esc(d.name)} · ${esc(t.cv)}</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
@@ -319,8 +319,10 @@ export function toPrintHtml(d) {
          font-family:"Source Serif 4",Georgia,serif; font-size:10.2pt; line-height:1.5; }
 
   /* banda superior con el acento del tema */
-  header { background:var(--acc); color:#fff; padding:13mm 15mm 9mm;
-           margin:-16mm -15mm 8mm; }
+  /* La banda ocupa todo el ancho; el texto va en un contenedor propio con su
+     hueco, así el margen interior no puede anularse con el desplazamiento. */
+  header { background:var(--acc); color:#fff; padding:0; margin:-16mm 0 8mm; }
+  .head-in { padding:13mm 14mm 9mm; }
   header h1 { font-family:"IBM Plex Sans",sans-serif; font-size:27pt; font-weight:700;
               margin:0 0 3pt; letter-spacing:-.025em; }
   header .role { font-family:"IBM Plex Sans",sans-serif; font-size:11.5pt; font-weight:500;
@@ -331,7 +333,7 @@ export function toPrintHtml(d) {
   header .ids b { font-weight:600; opacity:.7; margin-right:3pt; }
   header a { color:#fff; text-decoration:none; }
 
-  main { padding:0 18mm; }
+  main { padding:0 14mm; }
 
   h2 { font-family:"IBM Plex Sans",sans-serif; font-size:11.5pt; font-weight:600; color:var(--acc);
        margin:13pt 0 5pt; display:flex; align-items:center; gap:7pt; }
@@ -366,7 +368,7 @@ export function toPrintHtml(d) {
   .year { font-family:"IBM Plex Sans",sans-serif; font-weight:600; color:var(--acc);
           font-size:9.4pt; margin:7pt 0 1pt; }
   /* pie repetido en todas las páginas al imprimir */
-  .running { position:fixed; bottom:-12mm; left:18mm; right:18mm; display:flex;
+  .running { position:fixed; bottom:-12mm; left:14mm; right:14mm; display:flex;
              justify-content:space-between; font-family:"IBM Plex Sans",sans-serif;
              font-size:8pt; color:var(--muted); border-top:.5pt solid var(--line);
              padding-top:3pt; }
@@ -374,7 +376,9 @@ export function toPrintHtml(d) {
            font-size:8.2pt; color:var(--muted); }
   /* margen real en todas las páginas: sin él, a partir de la 2 el texto
      empezaba pegado al borde superior */
-  @page { size:A4; margin:16mm 15mm; }
+  /* sin margen lateral: la banda llega a los bordes. El hueco del texto lo
+     pone cada bloque, no la página. */
+  @page { size:A4; margin:16mm 0 18mm; }
   /* nada de azul de navegador ni subrayados: el DOI va discreto y en el tono
      del tema, como en un CV impreso */
   a { color:inherit; text-decoration:none; }
