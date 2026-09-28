@@ -1,12 +1,12 @@
-import { state, initLang, setLang, t, L, esc, num, money, fdate, span, workType, loadSite } from "./store.js?v=49";
-import * as orcid from "./orcid.js?v=49";
-import * as openalex from "./openalex.js?v=49";
-import { normDoi } from "./openalex.js?v=49";
-import { apaCite } from "./cv.js?v=49";
-import * as charts from "./charts.js?v=49";
-import { icon, topicIcon, ccBadge } from "./icons.js?v=49";
-import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=49";
-import { exportRows, canExport, stamp } from "./export.js?v=49";
+import { state, initLang, setLang, t, L, esc, num, money, fdate, span, workType, loadSite } from "./store.js?v=50";
+import * as orcid from "./orcid.js?v=50";
+import * as openalex from "./openalex.js?v=50";
+import { normDoi } from "./openalex.js?v=50";
+import { apaCite } from "./cv.js?v=50";
+import * as charts from "./charts.js?v=50";
+import { icon, topicIcon, ccBadge } from "./icons.js?v=50";
+import { videoFacadeHTML, bindVideoFacades } from "./video.js?v=50";
+import { exportRows, canExport, stamp } from "./export.js?v=50";
 
 const view = document.getElementById("view");
 const ROUTES = ["", "docencia", "proyectos", "publicaciones", "divulgacion", "indicadores"];
@@ -1015,6 +1015,11 @@ function bindPubs() {
   document.getElementById("f-refresh").addEventListener("click", async (e) => {
     e.target.disabled = true;
     await fetchOrcid(true);
+    // el botón refresca las dos fuentes, no solo ORCID
+    try { localStorage.removeItem("openalex:" + (state.site.profiles?.openalex || state.site.profiles?.orcid)); } catch (_) {}
+    try { localStorage.removeItem("openalex:oa:" + (state.site.profiles?.openalex || state.site.profiles?.orcid)); } catch (_) {}
+    oaLinks = {};
+    await fetchOpenAlex();
     render();
   });
 }

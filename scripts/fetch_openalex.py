@@ -4,10 +4,15 @@
 Mismo formato que produce assets/js/openalex.js, para que la web tenga números
 al instante y siga mostrándolos si la API no responde.
 
+Admite el ORCID o el identificador de autor de OpenAlex (A5029218215), que es
+más fiable si has reclamado el perfil y fusionado duplicados.
+
 Uso:  python3 scripts/fetch_openalex.py 0000-0001-8175-2201 javierp@usal.es
+      python3 scripts/fetch_openalex.py A5029218215 javierp@usal.es
 """
 import json
 import pathlib
+import re
 import sys
 import urllib.parse
 import urllib.request
@@ -17,10 +22,11 @@ OUT = pathlib.Path(__file__).resolve().parents[1] / "data" / "openalex-cache.jso
 
 
 def main():
-    orcid = sys.argv[1] if len(sys.argv) > 1 else "0000-0001-8175-2201"
+    ident = sys.argv[1] if len(sys.argv) > 1 else "0000-0001-8175-2201"
     mail = sys.argv[2] if len(sys.argv) > 2 else "javierp@usal.es"
 
-    url = f"https://api.openalex.org/authors/https://orcid.org/{orcid}"
+    ruta = ident if re.fullmatch(r"A\d+", ident, re.I) else f"https://orcid.org/{ident}"
+    url = f"https://api.openalex.org/authors/{ruta}"
     if mail:
         url += "?mailto=" + urllib.parse.quote(mail)
 
