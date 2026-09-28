@@ -1,6 +1,6 @@
 {
   "_comment": "Todo este fichero se edita desde /admin/. No hace falta tocarlo a mano.",
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-28",
   "identity": {
     "name": "Javier Prieto",
     "shortName": "Javier Prieto",
@@ -9,8 +9,8 @@
       "en": "Associate Professor"
     },
     "affiliation": {
-      "es": "Departamento de Informática y Automática · Universidad de Salamanca",
-      "en": "Department of Computer Science and Automation · University of Salamanca"
+      "es": "Departamento de Informática y Automática",
+      "en": "Department of Computer Science and Automation"
     },
     "group": {
       "es": "Chair Capítulo IEEE Signal Processing & ComSoc",
@@ -25,8 +25,8 @@
     "photo": "assets/img/retrato-ilustracion.png",
     "cv": "",
     "institution": {
-      "es": "",
-      "en": ""
+      "es": "Universidad de Salamanca",
+      "en": "University of Salamanca"
     },
     "photoDark": "assets/img/retrato-ilustracion-oscuro.png"
   },
@@ -100,13 +100,19 @@
       "icon": "cienciavitae"
     },
     {
+      "label": "OpenAlex",
+      "url": "https://openalex.org/A5029218215",
+      "icon": "openalex"
+    },
+    {
       "label": "LinkedIn",
-      "url": "https://www.linkedin.com/in/javi-prieto/",
-      "icon": "linkedin"
+      "icon": "linkedin",
+      "url": "https://www.linkedin.com/in/javi-prieto/"
     }
   ],
   "profiles": {
-    "orcid": "0000-0001-8175-2201"
+    "orcid": "0000-0001-8175-2201",
+    "openalex": "A5029218215"
   },
   "metrics": {
     "theses": 6,
@@ -216,6 +222,7 @@
         "es": "Smart Cities Journal, sección Internet of Things, Computing, and Communications Technologies in Smart Cities",
         "en": "Smart Cities, Internet of Things, Computing, and Communications Technologies in Smart Cities section"
       },
+      "years": "2019-",
       "url": "https://www.mdpi.com/journal/smartcities/editors?search=Javier+Prieto",
       "start": "2019",
       "end": ""
@@ -229,6 +236,7 @@
         "es": "IEEE Spain Signal Processing and Communications Joint Chapter",
         "en": "IEEE Spain Signal Processing and Communications Joint Chapter"
       },
+      "years": "2023-2027",
       "url": "https://spain.chapters.comsoc.org/board/",
       "start": "2023",
       "end": "2027"
@@ -242,6 +250,7 @@
         "es": "IEEE Sección España",
         "en": "IEEE Spain Section"
       },
+      "years": "2026-2027",
       "url": "https://ieeespain.org/grupos/capitulos/",
       "start": "2026",
       "end": "2027"
@@ -255,6 +264,7 @@
         "es": "IEEE Blockchain",
         "en": "IEEE Blockchain"
       },
+      "years": "2020-2024",
       "url": "https://ieeespain.org/industria/ieee-blockchain-initiative/",
       "start": "2020",
       "end": "2024"
@@ -268,6 +278,7 @@
         "es": "Frontiers in Public Health",
         "en": "Frontiers in Public Health"
       },
+      "years": "2022-",
       "url": "https://www.frontiersin.org/journals/public-health/sections/digital-public-health/editors?search=Javier%20Prieto",
       "start": "2022",
       "end": ""
@@ -281,9 +292,10 @@
         "es": "Sensors",
         "en": "Sensors"
       },
+      "years": "2024-2026",
       "url": "https://www.mdpi.com/journal/sensors/editors?search=Javier+Prieto",
       "start": "2024",
-      "end": "2026"
+      "end": ""
     },
     {
       "role": {
@@ -294,6 +306,7 @@
         "es": "IEEE Communications Letters",
         "en": "IEEE Communications Letters"
       },
+      "years": "2016-2024",
       "url": "https://www.comsoc.org/reviewer-and-editor-appreciation",
       "start": "2016",
       "end": "2024"
@@ -307,6 +320,7 @@
         "es": "Wireless Communications and Mobile Computing",
         "en": "Wireless Communications and Mobile Computing"
       },
+      "years": "2016-2024",
       "url": "https://onlinelibrary.wiley.com/page/journal/6302/homepage/editorial-board",
       "start": "2016",
       "end": "2024"
@@ -327,7 +341,7 @@
       "number": "ES3039483A1",
       "year": "2024",
       "owner": "Universidad de Salamanca",
-      "url": ""
+      "url": "https://consultas2.oepm.es/InvenesWeb/detalle?referencia=P202430311"
     },
     {
       "title": {
@@ -371,7 +385,7 @@
       "number": "ES2397388",
       "year": "2011",
       "owner": "Universidad de Valladolid",
-      "url": ""
+      "url": "https://consultas2.oepm.es/InvenesWeb/detalle?referencia=P201100870"
     },
     {
       "title": {
@@ -382,7 +396,7 @@
       "number": "ES2372512",
       "year": "2008",
       "owner": "Universidad de Valladolid",
-      "url": ""
+      "url": "https://consultas2.oepm.es/InvenesWeb/detalle?referencia=P200803212"
     }
   ],
   "featuredProjects": [
@@ -701,6 +715,7 @@
     "PTN2025-166788": "https://ostara-med.eu",
     "PLEC2023-010266": "https://www.sofiadev.eu",
     "BF138": "https://eco2for.com",
+    "CNS2022-135101": "https://resilience.usal.es",
     "0192_CIBERIA_3_E": "https://ciberia.usal.es"
   }
 }
