@@ -1,5 +1,5 @@
 {
- "fetchedAt": "2026-09-29T10:39:41+00:00",
+ "fetchedAt": "2026-09-30T10:28:15+00:00",
  "orcid": "0000-0001-8175-2201",
  "name": "Javier Prieto",
  "works": [
@@ -78,6 +78,17 @@
    "venue": "IEEE Open Journal of the Communications Society",
    "doi": "10.1109/OJCOMS.2026.3724237",
    "url": "https://doi.org/10.1109/OJCOMS.2026.3724237",
+   "issn": ""
+  },
+  {
+   "id": 227453575,
+   "title": "Blockchain-Backed Revocation and Yang–Baxter Consistency Screening for Zero-Trust IoT Admission Control",
+   "subtitle": "",
+   "year": 2026,
+   "type": "journal-article",
+   "venue": "Sensors",
+   "doi": "10.3390/s26185960",
+   "url": "https://doi.org/10.3390/s26185960",
    "issn": ""
   },
   {
@@ -2029,7 +2040,7 @@
  ],
  "fundings": [],
  "counts": {
-  "works": 177,
+  "works": 178,
   "fundings": 0,
   "peerReviews": 6
  }
