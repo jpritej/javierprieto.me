@@ -1,7 +1,7 @@
 {
- "fetchedAt": "2026-10-03T09:50:55+00:00",
+ "fetchedAt": "2026-10-04T10:33:52+00:00",
  "id": "https://openalex.org/A5029218215",
- "citations": 3857,
+ "citations": 3858,
  "works": 200,
  "hIndex": 31,
  "i10Index": 77,
@@ -55,7 +55,7 @@
   {
    "year": 2018,
    "works": 16,
-   "citations": 978
+   "citations": 979
   },
   {
    "year": 2019,
