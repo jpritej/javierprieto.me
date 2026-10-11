@@ -1,6 +1,23 @@
 {
- "generatedAt": "2026-09-26",
+ "generatedAt": "2026-10-11",
  "projects": [
+  {
+   "id": "tokencia-incentivos-tokenizados-con-blockchain-y-gamificaci-",
+   "title": "TOKENCIA: Incentivos tokenizados con blockchain y gamificación para fomentar la participación, la motivación y la asistencia del estudiantado universitario (ID2026/008)",
+   "kind": "innovacion",
+   "program": "",
+   "code": "",
+   "funder": "Universidad de Salamanca",
+   "host": "",
+   "role": "Miembro de equipo",
+   "ip": "Albano Carrera González",
+   "lead": false,
+   "scope": "Universitaria",
+   "start": "2026",
+   "end": "2027",
+   "amountTotal": 0,
+   "amountOwn": 0
+  },
   {
    "id": "PTN2025-166788",
    "title": "OSTARA: Operationalizing Agroecology for Resilient Mediterranean Agriculture",
@@ -17,6 +34,57 @@
    "end": "2029",
    "amountTotal": 1625235,
    "amountOwn": 275000
+  },
+  {
+   "id": "LANZADERA_TCUE26_D24_006",
+   "title": "MIRIAM: Experiencia inMersiva mediante avatares vIRtuales interactivos e IA en entornos Multiplataforma",
+   "kind": "competitivo",
+   "program": "Lanzadera Universitaria de Proyectos con Empresas de la Universidad de Salamanca",
+   "code": "LANZADERA_TCUE26_D24_006",
+   "funder": "Junta de Castilla y León",
+   "host": "Universidad de Salamanca",
+   "role": "Investigador principal",
+   "ip": "Javier Parra Domínguez; Javier Prieto Tejedor",
+   "lead": true,
+   "scope": "Autonómica",
+   "start": "2026",
+   "end": "2027",
+   "amountTotal": 6000,
+   "amountOwn": 6000
+  },
+  {
+   "id": "metamusic-metaverso-para-una-educaci-n-musical-inclusiva-ada",
+   "title": "METAMUSIC: Metaverso para una educación musical inclusiva, adaptativa y basada en la interacción tecnológica (CPP2025-012421)",
+   "kind": "innovacion",
+   "program": "",
+   "code": "",
+   "funder": "Agencia Estatal de Investigación",
+   "host": "",
+   "role": "Coordinador",
+   "ip": "Javier Prieto Tejedor",
+   "lead": true,
+   "scope": "Nacional",
+   "start": "2026",
+   "end": "2029",
+   "amountTotal": 978865,
+   "amountOwn": 978865
+  },
+  {
+   "id": "detr-s-de-la-puerta-prototipo-funcional-de-plataforma-digita",
+   "title": "Detrás de la Puerta. Prototipo funcional de plataforma digital para la detección temprana del maltrato infantil en el ámbito socioeducativo (PC_TCUE26 _021)",
+   "kind": "innovacion",
+   "program": "",
+   "code": "",
+   "funder": "Junta de Castilla y León",
+   "host": "",
+   "role": "Coordinador",
+   "ip": "Javier Prieto Tejedor",
+   "lead": true,
+   "scope": "Autonómica",
+   "start": "2026",
+   "end": "2027",
+   "amountTotal": 4000,
+   "amountOwn": 4000
   },
   {
    "id": "101256747",
@@ -105,7 +173,7 @@
   },
   {
    "id": "integraci-n-de-metodolog-as-de-aprendizaje-basado-en-proyect",
-   "title": "Integración de metodologías de aprendizaje basado en proyectos: colaboración, competitividad e innovación",
+   "title": "Integración de metodologías de aprendizaje basado en proyectos: colaboración, competitividad e innovación (ID2025/005)",
    "kind": "innovacion",
    "program": "",
    "code": "",
@@ -155,15 +223,32 @@
    "amountOwn": 50000
   },
   {
+   "id": "ecoqubit-econom-a-contabilidad-y-cu-ntica-bases-para-la-inno",
+   "title": "ECOQUBIT: Economía, contabilidad y cuántica: Bases para la innovación, la transformación y la difusión del conocimiento",
+   "kind": "innovacion",
+   "program": "",
+   "code": "",
+   "funder": "Universidad de Salamanca",
+   "host": "",
+   "role": "Miembro de equipo",
+   "ip": "Javier Parra Domínguez",
+   "lead": false,
+   "scope": "Universitaria",
+   "start": "2025",
+   "end": "2026",
+   "amountTotal": 0,
+   "amountOwn": 0
+  },
+  {
    "id": "amal-app-para-la-potenciaci-n-del-empoderamiento-de-las-muje",
-   "title": "AMALÍ: App para la potenciación del empoderamiento de las mujeres gitanas como fórmula para mejorar la atención social",
+   "title": "AMALÍ: App para la potenciación del empoderamiento de las mujeres gitanas como fórmula para mejorar la atención social (PC_TCUE25_028)",
    "kind": "innovacion",
    "program": "",
    "code": "",
    "funder": "Junta de Castilla y León",
    "host": "",
    "role": "Coordinador",
-   "ip": "Sara Serrate González",
+   "ip": "Javier Prieto Tejedor",
    "lead": true,
    "scope": "Autonómica",
    "start": "2025",
@@ -264,7 +349,7 @@
    "code": "101135927",
    "funder": "Comisión Europea",
    "host": "Universidad de Salamanca",
-   "role": "Coordinador",
+   "role": "Investigador principal",
    "ip": "Javier Prieto Tejedor",
    "lead": true,
    "scope": "Unión Europea",
@@ -383,7 +468,7 @@
    "code": "101120726",
    "funder": "Comisión Europea",
    "host": "Universidad de Salamanca",
-   "role": "Coordinador",
+   "role": "Investigador principal",
    "ip": "Javier Prieto Tejedor",
    "lead": true,
    "scope": "Unión Europea",
@@ -496,7 +581,7 @@
   },
   {
    "id": "metaverbum-metaverse-for-the-adaptive-learning-of-spanish-an",
-   "title": "METAVERBUM: Metaverse for the adaptive learning of Spanish and co-official languages via social computing",
+   "title": "METAVERBUM: Metaverse for the adaptive learning of Spanish and co-official languages via social computing (CPP2022-009585)",
    "kind": "innovacion",
    "program": "",
    "code": "",
@@ -802,13 +887,13 @@
   },
   {
    "id": "TED2021-132339B-C43",
-   "title": "IdrEco: Plataforma digital inteligente para las comunidade de energía renovable",
+   "title": "IdrEco: Plataforma digital inteligente para las comunidades de energía renovable",
    "kind": "competitivo",
    "program": "Proyectos de Transición Ecológica y Transición Digital 2021",
    "code": "TED2021-132339B-C43",
    "funder": "Ministerio de Ciencia, Innovación y Universidades",
    "host": "Universidad de Salamanca",
-   "role": "Coordinador",
+   "role": "Investigador principal",
    "ip": "Javier Prieto Tejedor; Juan Manuel Corchado Rodríguez",
    "lead": true,
    "scope": "Nacional",
@@ -869,6 +954,23 @@
    "amountOwn": 29160
   },
   {
+   "id": "PID2021-129061NB-I00 / PID2023-150056NB-C43",
+   "title": "Contribuciones a AGATA, el sistema de espectroscopía gamma por seguimiento de trayectorias: construcción, experimentación y caracterización en posición de los detectores / Contribuciones a AGATA: construcción, experimentación e I+D en caracterización en posición de los detectores de Ge",
+   "kind": "competitivo",
+   "program": "Proyectos de Generación de Conocimiento 2021 / 2023",
+   "code": "PID2021-129061NB-I00 / PID2023-150056NB-C43",
+   "funder": "Ministerio de Ciencia, Innovación y Universidades",
+   "host": "Universidad de Salamanca",
+   "role": "Investigador principal",
+   "ip": "Begoña Quintana Arnés; Javier Prieto Tejedor",
+   "lead": true,
+   "scope": "Nacional",
+   "start": "2022",
+   "end": "2027",
+   "amountTotal": 1334365,
+   "amountOwn": 309740
+  },
+  {
    "id": "PID2021-129061NB-I00",
    "title": "Contribuciones a AGATA, el sistema de espectroscopía gamma por seguimiento de trayectorias: construcción, experimentación y caracterización en posición de los detectores",
    "kind": "competitivo",
@@ -926,7 +1028,7 @@
    "program": "Programa XIV: Convocatoria de proyectos de investigación de la Universidad de Salamanca financiada con recursos liberados disponibles en proyectos y convenios de investigación para el fomento de la investigación y transferenciaPrograma XIV: Convocatoria de proyectos de investigación de la Universidad de Salamanca financiada con recursos liberados disponibles en proyectos y convenios de investigación para el fomento de la investigación y transferencia",
    "code": "18.R056",
    "funder": "",
-   "host": "Universidad de Salamanca",
+   "host": "Universidad de Salamanca fundamental (incluyendo excavaciones arqueológicas, etc.).",
    "role": "",
    "ip": "Javier Prieto Tejedor",
    "lead": true,
@@ -968,7 +1070,7 @@
    "start": "2021",
    "end": "",
    "amountTotal": 13280,
-   "amountOwn": 84000
+   "amountOwn": 13280
   },
   {
    "id": "follow-up-and-analysis-of-the-pledges-of-the-startup-village",
@@ -1056,12 +1158,29 @@
    "amountOwn": 184000
   },
   {
+   "id": "aplicaci-n-de-t-cnicas-de-realidad-virtual-a-los-procesos-de",
+   "title": "Aplicación de técnicas de realidad virtual a los procesos de evaluación mediante proctoring (ID2021/007)",
+   "kind": "innovacion",
+   "program": "",
+   "code": "",
+   "funder": "Universidad de Salamanca",
+   "host": "",
+   "role": "Miembro de equipo",
+   "ip": "Alfonso González Briones",
+   "lead": false,
+   "scope": "Universitaria",
+   "start": "2021",
+   "end": "2022",
+   "amountTotal": 0,
+   "amountOwn": 0
+  },
+  {
    "id": "10/18/VA/0024",
    "title": "AITec: Sistemas Cognitivos Avanzados",
    "kind": "contrato",
    "program": "Planes Estratégicos de I+D",
    "code": "10/18/VA/0024",
-   "funder": "Instituto para la Competitividad Empresarial de Castilla y León",
+   "funder": "Instituto para la Competitividad Empresarial de",
    "host": "Universidad de Salamanca desarrollo incluida traslacional",
    "role": "",
    "ip": "Juan Manuel Corchado Rodríguez",
@@ -1159,7 +1278,7 @@
   },
   {
    "id": "qforte-enhancement-of-quality-assurance-in-higher-education-",
-   "title": "QFORTE: Enhancement of Quality Assurance in Higher Education System in Moldova",
+   "title": "QFORTE: Enhancement of Quality Assurance in Higher Education System in Moldova (618742-EPP-1-2020-1-MD-EPPKA2-CBHE-SP)",
    "kind": "innovacion",
    "program": "",
    "code": "",
@@ -1193,7 +1312,7 @@
   },
   {
    "id": "minerva-miner-a-de-opini-n-e-inteligencia-artificial-para-el",
-   "title": "MINERVA: Minería de opinión e Inteligencia artificial para el análisis del sector Educativo y la asesoría estratégica en el diseño de nuevos programas formativos",
+   "title": "MINERVA: Minería de opinión e Inteligencia artificial para el análisis del sector Educativo y la asesoría estratégica en el diseño de nuevos programas formativos (RTC2019-007027-6)",
    "kind": "innovacion",
    "program": "",
    "code": "",
@@ -1216,7 +1335,7 @@
    "code": "LIFE19 CCA/ES/001188",
    "funder": "Comisión Europea",
    "host": "Universidad de Salamanca",
-   "role": "Coordinador",
+   "role": "Investigador principal",
    "ip": "Javier Prieto Tejedor",
    "lead": true,
    "scope": "Unión Europea",
@@ -1724,7 +1843,7 @@
    "kind": "contrato",
    "program": "Proyectos de Investigación y Desarrollo",
    "code": "IDI-20200175",
-   "funder": "",
+   "funder": "Centro para el Desarrollo Tecnológico Industrial",
    "host": "",
    "role": "",
    "ip": "Juan Manuel Corchado Rodríguez",
@@ -1818,7 +1937,7 @@
    "start": "2018",
    "end": "2020",
    "amountTotal": 928262,
-   "amountOwn": 928262
+   "amountOwn": 333662
   },
   {
    "id": "RTC-2017-6157-6",
@@ -1954,7 +2073,7 @@
    "start": "2018",
    "end": "2020",
    "amountTotal": 514574,
-   "amountOwn": 333662
+   "amountOwn": 186162
   },
   {
    "id": "10/16/VA/0025",
@@ -2315,7 +2434,7 @@
   },
   {
    "id": "lapassion-latin-america-practices-and-soft-skills-for-an-inn",
-   "title": "LAPASSION: Latin-America Practices and Soft Skills for an Innovation Oriented Network",
+   "title": "LAPASSION: Latin-America Practices and Soft Skills for an Innovation Oriented Network (585687-EPP-1-2017-1-PT-EPPKA2-CBHE-JP)",
    "kind": "innovacion",
    "program": "",
    "code": "",
@@ -2795,7 +2914,7 @@
    "kind": "competitivo",
    "program": "Acciones de dinamización Europa Investigación",
    "code": "EUIN2015-62687",
-   "funder": "Ministerio de Economía y Competitividad",
+   "funder": "Ministerio de Economía y Competitividad Centro para el Desarrollo Tecnológico Industrial Ministerio de Ciencia e Innovación Junta de Castilla y León Ministerio de Ciencia e Innovación. Investigación Junta de Castilla y León",
    "host": "Universidad de Salamanca",
    "role": "Miembro de equipo",
    "ip": "Juan Manuel Corchado Rodríguez",
@@ -2804,7 +2923,7 @@
    "start": "2015",
    "end": "2015",
    "amountTotal": 25000,
-   "amountOwn": 25000
+   "amountOwn": 80213
   },
   {
    "id": "IDI-20140885",
@@ -2822,23 +2941,6 @@
    "end": "2015",
    "amountTotal": 93170,
    "amountOwn": 93170
-  },
-  {
-   "id": "IDI-20140621",
-   "title": "INJOUR: Intelligent Journalism",
-   "kind": "competitivo",
-   "program": "Proyectos de I+D en Cooperación Nacional",
-   "code": "IDI-20140621",
-   "funder": "Centro para el Desarrollo Tecnológico Industrial",
-   "host": "Universidad de Salamanca",
-   "role": "Otros",
-   "ip": "Juan Manuel Corchado Rodríguez",
-   "lead": false,
-   "scope": "Nacional",
-   "start": "2014",
-   "end": "2015",
-   "amountTotal": 75020,
-   "amountOwn": 75020
   },
   {
    "id": "TIN2012-38080-C04-03",
@@ -2907,23 +3009,6 @@
    "end": "2012",
    "amountTotal": 6000,
    "amountOwn": 6000
-  },
-  {
-   "id": "IPT-2011-1411-900000",
-   "title": "SHERLOC: Sistema Híbrido de Estrés Remoto y Localización Personal, tanto en Interiores como en Exteriores",
-   "kind": "competitivo",
-   "program": "Subprograma INNPACTO 2011",
-   "code": "IPT-2011-1411-900000",
-   "funder": "Ministerio de Ciencia e Innovación Junta de Castilla y León Ministerio de Ciencia e Innovación. Investigación Junta de Castilla y León",
-   "host": "Universidad de Valladolid",
-   "role": "Miembro de equipo",
-   "ip": "Patricia Fernández Reguero",
-   "lead": false,
-   "scope": "Nacional",
-   "start": "2011",
-   "end": "2013",
-   "amountTotal": 642871,
-   "amountOwn": 80213
   },
   {
    "id": "plan-de-actuaci-n-para-el-2011-entre-la-consejer-a-de-foment",
@@ -3148,6 +3233,87 @@
  ],
  "supervisions": [
   {
+   "title": "Plataforma virtual para comunicación remota, gestión y simulación de hardware IoT",
+   "kind": "Trabajo fin de grado",
+   "student": "Víctor Sajín Busuioc",
+   "year": "2026",
+   "university": "Universidad de Salamanca",
+   "grade": "9.0",
+   "international": false
+  },
+  {
+   "title": "Agendas en disputa: brechas entre la agenda institucional y la social en la política de salud en Colombia mediante modelado de tópicos y similitud semántica",
+   "kind": "Trabajo fin de máster",
+   "student": "Sebastián Felipe García Torres",
+   "year": "2026",
+   "university": "Universidad de Salamanca",
+   "grade": "8.5",
+   "international": false
+  },
+  {
+   "title": "La inteligencia artificial y la confidencialidad documental: Implicaciones éticas y propuesta de buenas prácticas en el manejo de la información sensible",
+   "kind": "Trabajo fin de grado",
+   "student": "Pedro Domingues Parra",
+   "year": "2026",
+   "university": "Universidad de Salamanca",
+   "grade": "8.5",
+   "international": false
+  },
+  {
+   "title": "Aprendizaje automático para la caracterización de perfiles de abandono escolar temprano y la intervención socioeducativa",
+   "kind": "Trabajo fin de máster",
+   "student": "Pablo Collado Redrejo",
+   "year": "2026",
+   "university": "Universidad de Salamanca",
+   "grade": "10.0 (MH)",
+   "international": false
+  },
+  {
+   "title": "Detección de estructuras anatómicas en imágenes TAC mediante IA",
+   "kind": "Trabajo fin de grado",
+   "student": "Iker Pérez Vicente",
+   "year": "2026",
+   "university": "Universidad de Salamanca",
+   "grade": "7.0",
+   "international": false
+  },
+  {
+   "title": "Modelos de XAI para la propagación de enfermedades",
+   "kind": "Trabajo fin de máster",
+   "student": "Hamza Benali",
+   "year": "2026",
+   "university": "Universidad de Salamanca",
+   "grade": "9.0",
+   "international": false
+  },
+  {
+   "title": "Plataforma para Auditoría y Desarrollo Seguro de Contratos Inteligentes",
+   "kind": "Trabajo fin de grado",
+   "student": "Diego Díaz Aguado",
+   "year": "2026",
+   "university": "Universidad de Salamanca",
+   "grade": "9.0",
+   "international": false
+  },
+  {
+   "title": "Sistema distribuido de respaldo entre pares con deduplicación basada en contenido",
+   "kind": "Trabajo fin de grado",
+   "student": "Bozhidar Georgiev Todorov",
+   "year": "2026",
+   "university": "Universidad de Salamanca",
+   "grade": "6.0",
+   "international": false
+  },
+  {
+   "title": "Gestión Forestal Descentralizada: Tokenización y DAO para la Conservación de Bosques",
+   "kind": "Trabajo fin de grado",
+   "student": "Antonio Sosa Pérez",
+   "year": "2026",
+   "university": "Universidad de Salamanca",
+   "grade": "9.0",
+   "international": false
+  },
+  {
    "title": "HappyTransplant",
    "kind": "Trabajo fin de grado",
    "student": "Marta Ying Muñoz Del Fraile",
@@ -3238,7 +3404,7 @@
    "international": false
   },
   {
-   "title": "Clara Martín Jiménez",
+   "title": "Extensiones de los números reales en redes neuronales convolucionales",
    "kind": "Trabajo fin de grado",
    "student": "Clara Martín Jiménez",
    "year": "2020",
@@ -3428,7 +3594,7 @@
    "modality": "Práctica (Aula-Problemas)",
    "start": "2025-09-16",
    "end": "",
-   "hours": "3 Créditos",
+   "hours": "3 Créditos 25",
    "institution": "Universidad de Salamanca",
    "faculty": "Facultad de Ciencias",
    "department": "Informática y Automática",
@@ -3454,7 +3620,7 @@
   {
    "course": "Visualización de Datos Sociales Digitales",
    "programType": "Máster oficial",
-   "subjectType": "Optativa 22",
+   "subjectType": "Optativa",
    "degree": "Máster Interuniversitario en Ciencia de Datos Aplicada a las Ciencias Sociales",
    "official": true,
    "modality": "Virtual",
@@ -3544,7 +3710,7 @@
    "institution": "Universidad de Salamanca",
    "faculty": "Facultad de Ciencias",
    "department": "",
-   "city": "Salamanca, Castilla y León, España",
+   "city": "Salamanca, Castilla y León, España 23",
    "language": ""
   },
   {
@@ -3556,7 +3722,7 @@
    "modality": "",
    "start": "2016-10-03",
    "end": "2017-06-30",
-   "hours": "2 Horas 21",
+   "hours": "2 Horas",
    "institution": "Universidad de Salamanca",
    "faculty": "Facultad de Bellas Artes",
    "department": "",
@@ -3592,7 +3758,7 @@
    "institution": "Universidad de Salamanca",
    "faculty": "Facultad de Ciencias",
    "department": "Informática y Automática",
-   "city": "Salamanca, Castilla y León, España",
+   "city": "Salamanca, Castilla y León, España 26",
    "language": ""
   },
   {
@@ -3606,7 +3772,7 @@
    "end": "2018-08-31",
    "hours": "6 Créditos",
    "institution": "Universidad de Salamanca",
-   "faculty": "Facultad de Ciencias",
+   "faculty": "Facultad de Ciencias 24",
    "department": "Informática y Automática",
    "city": "Salamanca, Castilla y León, España",
    "language": "Español"
@@ -3631,10 +3797,17 @@
  "publications": [
   {
    "kind": "Artículo científico",
-   "title": "Autoencoding-Based Self-Supervised Learning for Enhanced Representation of Network Traffic Patterns",
+   "title": "Rivera-Julio; Esmeide A",
    "year": "2026",
    "quartile": 2,
-   "doi": ""
+   "doi": "10.3390/s26185960"
+  },
+  {
+   "kind": "Artículo científico",
+   "title": "Autoencoding-Based Self-Supervised Learning for Enhanced Representation of Network Traffic Patterns",
+   "year": "2026",
+   "quartile": 1,
+   "doi": "10.1109/OJCOMS.2026.3724237"
   },
   {
    "kind": "Artículo científico",
@@ -3714,22 +3887,22 @@
    "doi": "10.1016/j.eswa.2024.124512"
   },
   {
+   "kind": "",
+   "title": "",
+   "year": "",
+   "quartile": null,
+   "doi": ""
+  },
+  {
    "kind": "Artículo científico",
    "title": "Proof-of-resource: A resource-efficient consensus mechanism for IoT devices in blockchain networks",
    "year": "2024",
-   "quartile": null,
+   "quartile": 2,
    "doi": "10.4108/eetiot.6565"
   },
   {
    "kind": "Artículo científico",
-   "title": "revistas en cat.: 596 Fuente de impacto: CiteScore Índice de impacto: 2.1 Posición de publicación: 146 Categoría: Engineering (miscellaneous) Revista dentro del 25%: No Num",
-   "year": "2024",
-   "quartile": 2,
-   "doi": "10.3390/s24124016"
-  },
-  {
-   "kind": "Artículo científico",
-   "title": "Trustworthy Artificial Intelligence -based federated architecture for symptomatic disease detection",
+   "title": "Trustworthy Artificial Intelligence-based federated architecture for symptomatic disease detection",
    "year": "2024",
    "quartile": 1,
    "doi": "10.1016/j.neucom.2024.127415"
@@ -3738,7 +3911,7 @@
    "kind": "Artículo científico",
    "title": "Unleashing the Potential of Knowledge Distillation for IoT Traffic Classification",
    "year": "2024",
-   "quartile": null,
+   "quartile": 2,
    "doi": "10.1109/TMLCN.2024.3360915"
   },
   {
@@ -3808,12 +3981,12 @@
    "kind": "Artículo científico",
    "title": "Virtual agent organizations for user behaviour pattern extraction in energy optimization processes: A new perspective with manuscript number",
    "year": "2020",
-   "quartile": 1,
+   "quartile": null,
    "doi": "10.1016/j.neucom.2020.05.117"
   },
   {
    "kind": "Artículo científico",
-   "title": "Blockchain-based architecture for the control of logistics activities: Pharmaceutical utilities case study",
+   "title": "revistas en cat.: 139 Yeray Mezquita Martín; Roberto Carlos Casado Vara; Alfonso González Briones; Javier Prieto Tejedor; Juan Manuel Corchado Rodríguez",
    "year": "2020",
    "quartile": null,
    "doi": "10.1093/jigpal/jzaa039"
@@ -3850,12 +4023,12 @@
    "kind": "Artículo científico",
    "title": "Profile generation system using artificial intelligence for information recovery and analysis",
    "year": "2020",
-   "quartile": 1,
+   "quartile": null,
    "doi": "10.1007/s12652-020-01942-y"
   },
   {
    "kind": "Artículo científico",
-   "title": "An intelligent Edge-IoT platform for monitoring livestock and crops in a dairy farming scenario",
+   "title": "revistas en cat.: 91 Ricardo Alonso; Inés Sittón; Óscar García; Javier Prieto; Sara Rodríguez",
    "year": "2020",
    "quartile": 2,
    "doi": "10.1016/j.adhoc.2019.102047"
@@ -3899,12 +4072,12 @@
    "kind": "Artículo científico",
    "title": "Distributed continuous-time fault estimation control for multiple devices in IoT networks",
    "year": "2019",
-   "quartile": null,
+   "quartile": 1,
    "doi": "10.1109/ACCESS.2019.2892905"
   },
   {
    "kind": "Artículo científico",
-   "title": "revistas en cat.: 155 Roberto Carlos Casado Vara; Pablo Chamoso Santos; Fernando De la Prieta Pintado; Javier Prieto Tejedor; Juan Manuel Corchado Rodríguez",
+   "title": "Non-linear adaptive closed-loop control system for improved efficiency in IoT-blockchain management",
    "year": "2019",
    "quartile": 1,
    "doi": "10.1016/j.inffus.2018.12.007"
@@ -3962,7 +4135,7 @@
    "kind": "Artículo científico",
    "title": "revistas en cat.: 92 Óscar García; Javier Prieto; Ricardo S",
    "year": "2017",
-   "quartile": 2,
+   "quartile": 1,
    "doi": "10.3390/s17081749"
   },
   {
@@ -3990,12 +4163,12 @@
    "kind": "Artículo científico",
    "title": "Win",
    "year": "2016",
-   "quartile": 1,
+   "quartile": null,
    "doi": "10.1109/TSP.2016.2515065"
   },
   {
    "kind": "Artículo científico",
-   "title": "Unified Fingerprinting/Ranging Localization in Harsh Environments",
+   "title": "revistas en cat.: 249 Javier Prieto Tejedor; Juan Francisco de Paz Santana; Gabriel Villarrubia González; Fernando de la Prieta Pintado; Juan Manuel Corchado Rodríguez",
    "year": "2015",
    "quartile": null,
    "doi": "10.1155/2015/479765"
@@ -4039,12 +4212,12 @@
    "kind": "Artículo científico",
    "title": "Lorenzo Toledo; Patricia Fernández Reguero; Javier Prieto Tejedor; Ramón J",
    "year": "2010",
-   "quartile": null,
+   "quartile": 2,
    "doi": "10.1155/2010/102095"
   },
   {
    "kind": "Artículo científico",
-   "title": "revistas en cat.: 80 Alfonso Bahillo Martínez; Santiago Mazuelas Franco; Javier Prieto Tejedor; Rubén M",
+   "title": "Lorenzo Toledo; Patricia Fernández Reguero; Evaristo J",
    "year": "2009",
    "quartile": null,
    "doi": "10.2528/PIERB09050409"
@@ -4058,7 +4231,14 @@
   },
   {
    "kind": "Capítulo de libro",
-   "title": "revistas en cat.: 1.810 Soumya Prakash Rana; Maitreyee Dey; Javier Prieto Tejedor; Sandra Dudley",
+   "title": "SEIR-XAI: Inferencia explicable de la transmisión epidémica para análisis de escenarios y apoyo a decisiones",
+   "year": "2026",
+   "quartile": null,
+   "doi": "10.14201/0AQ0394115118"
+  },
+  {
+   "kind": "Capítulo de libro",
+   "title": "Content-Based Health Recommender Systems",
    "year": "2020",
    "quartile": null,
    "doi": "10.1002/9781119711582.ch11"
@@ -4913,7 +5093,7 @@
   {
    "kind": "Congreso",
    "title": "How Blockchain Could Improve Fraud Detection in Power Distribution Grid",
-   "venue": "13th International Conference on Soft Computing Models in Industrial and Environmental Applications 184",
+   "venue": "13th International Conference on Soft Computing Models in Industrial and Environmental Applications 204",
    "year": "2018",
    "scope": "Internacional no UE",
    "quartile": null,
@@ -5075,7 +5255,7 @@
   {
    "kind": "Congreso",
    "title": "Estimación de distancias en redes IEEE 802.15.4 usando TOF y RSS",
-   "venue": "Annual Seminar on Automation, Industrial Electronics and Instrumentation (SAAEI'11) 190",
+   "venue": "Annual Seminar on Automation, Industrial Electronics and Instrumentation (SAAEI'11) 210",
    "year": "2011",
    "scope": "Nacional",
    "quartile": null,
@@ -5111,18 +5291,18 @@
  ],
  "supervision": {
   "phd": 6,
-  "master": 6,
-  "degree": 24
+  "master": 9,
+  "degree": 30
  },
  "totals": {
-  "projects": 178,
-  "asLead": 58,
-  "budgetTotal": 182265670,
-  "managed": 40038798,
+  "projects": 183,
+  "asLead": 62,
+  "budgetTotal": 183871009,
+  "managed": 40424563,
   "byKind": {
+   "innovacion": 21,
    "competitivo": 99,
-   "contrato": 63,
-   "innovacion": 16
+   "contrato": 63
   }
  }
 }

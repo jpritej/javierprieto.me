@@ -9,7 +9,7 @@ dependencia externa es Chart.js, cargado por CDN.
 ## Proyectos, tesis y patentes: importar el CVN
 
 ```bash
-python3 scripts/import_cvn.py ~/Descargas/cvn.pdf
+python3 scripts/import_cvn.py ~/Downloads/cvn.pdf
 ```
 
 Lee el CVN de FECYT y escribe `data/cvn.json` (proyectos, patentes, tesis y
