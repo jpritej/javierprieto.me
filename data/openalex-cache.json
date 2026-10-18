@@ -1,10 +1,10 @@
 {
- "fetchedAt": "2026-10-17T08:32:05+00:00",
+ "fetchedAt": "2026-10-18T08:49:48+00:00",
  "id": "https://openalex.org/A5029218215",
- "citations": 3834,
+ "citations": 3866,
  "works": 194,
- "hIndex": 31,
- "i10Index": 76,
+ "hIndex": 32,
+ "i10Index": 77,
  "impact": 3.1052631578947367,
  "byYear": [
   {
@@ -45,7 +45,7 @@
   {
    "year": 2016,
    "works": 6,
-   "citations": 153
+   "citations": 156
   },
   {
    "year": 2017,
@@ -55,32 +55,32 @@
   {
    "year": 2018,
    "works": 16,
-   "citations": 970
+   "citations": 976
   },
   {
    "year": 2019,
    "works": 20,
-   "citations": 1007
+   "citations": 1019
   },
   {
    "year": 2020,
    "works": 21,
-   "citations": 492
+   "citations": 497
   },
   {
    "year": 2021,
    "works": 8,
-   "citations": 105
+   "citations": 108
   },
   {
    "year": 2022,
    "works": 14,
-   "citations": 81
+   "citations": 82
   },
   {
    "year": 2023,
    "works": 19,
-   "citations": 117
+   "citations": 119
   },
   {
    "year": 2024,
